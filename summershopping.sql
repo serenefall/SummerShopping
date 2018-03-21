@@ -62,22 +62,6 @@ INSERT INTO Products_1 (Product_ID, Category, Manufacturer, Name) values (12459,
 
 
 
-CREATE TABLE Product_2 (
-	Product_ID INT,
-	Quantity INT,
-	Price VARCHAR(50),
-PRIMARY KEY(Product_ID)
-);
-
-INSERT INTO Product_2 (Product_ID, Quantity, Price) values (53010, 124, '$196.76');
-
-INSERT INTO Product_2 (Product_ID, Quantity, Price) values (58993, 25, '$72.19');
-
-INSERT INTO Product_2 (Product_ID, Quantity, Price) values (63349, 129, '$29.01');
-
-INSERT INTO Product_2 (Product_ID, Quantity, Price) values (55977, 126, '$112.81');
-
-INSERT INTO Product_2 (Product_ID, Quantity, Price) values (91483, 156, '$169.82');
 
 CREATE TABLE Seller (
 	Name VARCHAR(50),
@@ -166,18 +150,20 @@ INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID) values (8, '35-719
 CREATE TABLE Has (
 	Product_ID INT,
 	Seller_ID INT,
+	Quantity INT,
+	Price VARCHAR(50),
             PRIMARY KEY(Product_ID, Seller_ID),
             FOREIGN KEY(Product_ID) REFERENCES Product(Product_ID),
             FOREIGN KEY(Seller_ID) REFERENCES Seller(Seller_ID)
 );
-INSERT INTO Has (Product_ID, Seller_ID) values (21248, 886045);
+INSERT INTO Has (Product_ID, Seller_ID) values (21248, 886045, 124, '$196.76');
 
-INSERT INTO Has (Product_ID, Seller_ID) values (55328, 748007);
+INSERT INTO Has (Product_ID, Seller_ID) values (55328, 748007, 25, '$72.19');
 
-INSERT INTO Has (Product_ID, Seller_ID) values (62662, 989615);
+INSERT INTO Has (Product_ID, Seller_ID) values (62662, 989615, 129, '$29.01');
 
-INSERT INTO Has (Product_ID, Seller_ID) values (13776, 448548);
+INSERT INTO Has (Product_ID, Seller_ID) values (13776, 448548, 126, '$112.81');
 
-INSERT INTO Has (Product_ID, Seller_ID) values (86410, 601743);
+INSERT INTO Has (Product_ID, Seller_ID) values (86410, 601743, 156, '$169.82');
 
 
