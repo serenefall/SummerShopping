@@ -42,7 +42,7 @@ INSERT INTO VIP_2 (Customer_id, VIP_ID, Annual_fee) values ('56-426-5754', 3817,
 
 
 
-CREATE TABLE Products_1 (
+CREATE TABLE Products (
 	Product_ID INT,
 	Category VARCHAR(50),
 	Manufacturer VARCHAR(50),
@@ -97,33 +97,34 @@ CREATE TABLE PutOrder (
             FOREIGN KEY(Customer_id) REFERENCES Customers (Customer_id),
 			FOREIGN KEY(Seller_ID) REFERENCES Seller (Seller_ID)
 );
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id) values (In_progress, 'maestro', '2/14/2017', NULL, NULL, NULL, 84601784, 45167, '07-129-9603');
+INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID) values (In_progress, 'maestro', '2/14/2017', NULL, NULL, NULL, 84601784, 45167, '07-129-9603',458715);
 
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id) values (In_progress, 'mastercard', '2/15/2017', '2/18/2017', '2/21/2017', 23, 21784284, 97673, '73-247-6510');
+INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID) values (In_progress, 'mastercard', '2/15/2017', '2/18/2017', '2/21/2017', 23, 21784284, 97673, '73-247-6510',300356);
 
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id) values (Completed, 'china-unionpay', '2/14/2017', '2/17/2017', '2/22/2017', 18, 93777720, 29453, '29-564-1413');
+INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID) values (Completed, 'china-unionpay', '2/14/2017', '2/17/2017', '2/22/2017', 18, 93777720, 29453, '29-564-1413',897458);
 
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id) values (Completed, 'switch', '2/15/2017', '2/18/2017', '2/20/2017', 6, 62089060, 13511, '11-167-0896');
+INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID) values (Completed, 'switch', '2/15/2017', '2/18/2017', '2/20/2017', 6, 62089060, 13511, '11-167-0896',128754);
 
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id) values (Completed, '2/14/2017', '2/19/2017', '2/20/2017', 8, 62735978, 10135, '82-469-4274');
+INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID) values (Completed, '2/14/2017', '2/19/2017', '2/20/2017', 8, 62735978, 10135, '82-469-4274',789458);
 
 CREATE TABLE Choose (
 	Product_ID INT,
 	Customer_id VARCHAR(50),
+	Quantity INT,
 PRIMARY KEY (Product_ID, Customer_id),
 FOREIGN KEY (Customer_id) REFERENCES Customer(Customer_id),
 FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
 	);
 
-INSERT INTO Choose (Product_ID, Customer_id) values (94895, 87-914-8118);
+INSERT INTO Choose (Product_ID, Customer_id, Quantity) values (94895, 87-914-8118, 10);
 
-INSERT INTO Choose (Product_ID, Customer_id, Order_number) values (67889, 97-952-3231);
+INSERT INTO Choose (Product_ID, Customer_id, Quantity) values (67889, 97-952-3231, 8);
 
-INSERT INTO Choose (Product_ID, Customer_id) values (94895, 89-747-8984);
+INSERT INTO Choose (Product_ID, Customer_id, Quantity) values (94895, 89-747-8984, 16);
 
-INSERT INTO Choose (Product_ID, Customer_id) values (49510, 06-387-2139);
+INSERT INTO Choose (Product_ID, Customer_id, Quantity) values (49510, 06-387-2139, 7);
 
-INSERT INTO Choose (Product_ID, Customer_id) values (37086, 03-155-8425);
+INSERT INTO Choose (Product_ID, Customer_id, Quantity) values (37086, 03-155-8425, 4);
 
 CREATE TABLE Rate (
 	Rating INT,
@@ -137,15 +138,15 @@ CREATE TABLE Rate (
             FOREIGN KEY(Seller_ID) REFERENCES Seller(Seller_ID),
 			FOREIGN KEY(Order_number) REFERENCES PutOrder(Order_number),
 );
-INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID) values (9, '85-816-1228', 817540, 84895,62089060);
+INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID, Order_number) values (9, '85-816-1228', 817540, 84895,62089060);
 
-INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID) values (7, '70-219-1393', 280040, 30304,62012360);
+INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID, Order_number) values (7, '70-219-1393', 280040, 30304,62012360);
 
-INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID) values (7, '86-778-1860', 792888, 30874,64789060);
+INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID, Order_number) values (7, '86-778-1860', 792888, 30874,64789060);
 
-INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID) values (8, '85-905-9179', 711351, 72571,62088100);
+INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID, Order_number) values (8, '85-905-9179', 711351, 72571,62088100);
 
-INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID) values (8, '35-719-2187', 235278, 80786,61384060);
+INSERT INTO Rate (Rating, Customer_id, Seller_ID, Product_ID, Order_number) values (8, '35-719-2187', 235278, 80786,61384060);
 
 CREATE TABLE Has (
 	Product_ID INT,
@@ -156,14 +157,14 @@ CREATE TABLE Has (
             FOREIGN KEY(Product_ID) REFERENCES Product(Product_ID),
             FOREIGN KEY(Seller_ID) REFERENCES Seller(Seller_ID)
 );
-INSERT INTO Has (Product_ID, Seller_ID) values (21248, 886045, 124, '$196.76');
+INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (21248, 886045, 124, '$196.76');
 
-INSERT INTO Has (Product_ID, Seller_ID) values (55328, 748007, 25, '$72.19');
+INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (55328, 748007, 25, '$72.19');
 
-INSERT INTO Has (Product_ID, Seller_ID) values (62662, 989615, 129, '$29.01');
+INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (62662, 989615, 129, '$29.01');
 
-INSERT INTO Has (Product_ID, Seller_ID) values (13776, 448548, 126, '$112.81');
+INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (13776, 448548, 126, '$112.81');
 
-INSERT INTO Has (Product_ID, Seller_ID) values (86410, 601743, 156, '$169.82');
+INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (86410, 601743, 156, '$169.82');
 
 
