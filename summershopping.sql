@@ -12,18 +12,17 @@ drop table Users;
 CREATE TABLE Users (
 	id INT,
 	password INT,
-	type VARCHAR(50)
 ) 
 
-INSERT INTO Users (id, password, type) values (234, 123456, 'customer');
+INSERT INTO Users (id, password, type) values (234, 123456);
 
-INSERT INTO Users (id, password, type) values (111111, 123456, 'seller');
+INSERT INTO Users (id, password, type) values (111111, 123456);
 
-INSERT INTO Users (id, password, type) values (331, 593843, 'customer');
+INSERT INTO Users (id, password, type) values (331, 593843);
 
-INSERT INTO Users (id, password, type) values (128452, 341832, 'seller');
+INSERT INTO Users (id, password, type) values (128452, 341832);
 
-INSERT INTO Users (id, password, type) values (1, 123456, 'admin');
+INSERT INTO Users (id, password, type) values (1, 123456);
 
 CREATE TABLE Customer (
 	Customer_id INT,
