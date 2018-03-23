@@ -10,7 +10,7 @@ public class Main {
         // connection starts
         DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
         Connection con = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1522:ug", "ora_z8v0b", "a47465166");
+                "jdbc:oracle:thin:dbhost.ugrad.cs.ubc.ca:1522/ug", "ora_z8v0b", "a47465166");
 
         Operation op = new Operation();
 
