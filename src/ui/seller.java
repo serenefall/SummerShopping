@@ -17,4 +17,14 @@ public class seller {
     private JTextField textField10;
     private JButton salesByProductButton;
     private JTextField textField12;
+    public JPanel SellerUI;
+    private String sellerID;
+
+    public seller(){
+        System.out.println("123");
+    }
+    public void setSellerID(String username) {
+        this.sellerID = username;
+
+    }
 }

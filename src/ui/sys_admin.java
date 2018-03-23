@@ -3,8 +3,13 @@ package ui;
 import javax.swing.*;
 
 public class sys_admin {
-    private JButton deleteSellerButton;
-    private JButton deleteCustomerButton;
+    public JPanel AdminUI;
     private JTextField textField1;
     private JTextField textField2;
+    private JButton deleteCustomerButton;
+    private JButton deleteSellerButton;
+
+    public void setAdminID(String adminID) {
+
+    }
 }

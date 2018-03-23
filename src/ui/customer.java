@@ -26,4 +26,10 @@ public class customer {
     private JTextField textField9;
     private JTextField textField10;
     private JButton rateProductButton;
+    public JPanel CustomerUI;
+    private String customerID;
+
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
+    }
 }
