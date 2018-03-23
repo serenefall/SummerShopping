@@ -13,11 +13,8 @@ public class seller {
     private JButton addProductButton;
     private JButton deleteProductButton;
     private JButton updatePriceButton;
-    private JTextField textField1;
-    private JTextField textField2;
     private JTextField textField9;
     private JTextField textField10;
-    private JButton totalRevenueButton;
+    private JButton salesByProductButton;
     private JTextField textField12;
-    private JButton goodCustomerButton;
 }
