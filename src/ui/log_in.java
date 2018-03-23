@@ -1,5 +1,5 @@
 package ui;
-import model.Connection;
+import model.Connections;
 import model.Operation;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +18,7 @@ public class log_in {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Connection con = Connection.getConnection();
+                    Connections con = (Connections) Connections.getConnection();
                     String username = usernameTextField.getText();
                     // Changed from original code, may have problem (Tao)
                     String pwd = passwordTextField.getText();
