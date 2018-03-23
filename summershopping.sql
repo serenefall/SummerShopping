@@ -24,7 +24,7 @@ INSERT INTO Users (id, password) values (678, 123456);
 
 CREATE TABLE Customer (
 	Customer_id INT,
-            Name CHAR(50),
+    Name CHAR(50),
 	Phone# VARCHAR(50),
 	Billing_address VARCHAR(50),
 	Shipping_address VARCHAR(50),
@@ -96,7 +96,7 @@ INSERT INTO Seller (Name, SIN, Seller_ID, Address, Phone#) values ('Janot Son', 
 CREATE TABLE PutOrder (
 	Status VARCHAR(50),
 	Payment_method VARCHAR(50),
-	Data_placed DATE,
+	Date_placed DATE,
 	Shipping_date DATE,
 	Arrival_date DATE,
 	VIP_points_used INT,
@@ -110,11 +110,11 @@ CREATE TABLE PutOrder (
             FOREIGN KEY(Customer_id) REFERENCES Customers (Customer_id),
 			FOREIGN KEY(Seller_ID) REFERENCES Seller (Seller_ID)
 );
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (In_progress, 'maestro', '2017/2/14', '2017/2/15', '2017/2/19', NULL, 84601784, 77682, 678, 458715, 11);
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (In_progress, 'mastercard', '2017/3/11', '2017/3/12', '2017/3/16', 23, 21784284, 97673, 510, 300356, 12);
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (Completed, 'china-unionpay', '2017/4/05', '2017/4/06', '2017/4/10', 18, 93777720, 95033, 234, 897458, 6);
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (Completed, 'switch', '2017/5/13', '2017/5/14', '2017/5/18', 6, 62089060, 13511, 896, 128754, 1);
-INSERT INTO PutOrder (Status, Payment_method, Data_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (Completed, 'paypal', '2017/2/11', '2017/2/12', '2017/2/16', 8, 62735978, 10135, 274, 789458, 2);
+INSERT INTO PutOrder (Status, Payment_method, Date_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (In_progress, 'maestro', '2017/2/14', '2017/2/15', '2017/2/19', NULL, 84601784, 77682, 678, 458715, 11);
+INSERT INTO PutOrder (Status, Payment_method, Date_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (In_progress, 'mastercard', '2017/3/11', '2017/3/12', '2017/3/16', 23, 21784284, 97673, 510, 300356, 12);
+INSERT INTO PutOrder (Status, Payment_method, Date_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (Completed, 'china-unionpay', '2017/4/05', '2017/4/06', '2017/4/10', 18, 93777720, 95033, 234, 897458, 6);
+INSERT INTO PutOrder (Status, Payment_method, Date_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (Completed, 'switch', '2017/5/13', '2017/5/14', '2017/5/18', 6, 62089060, 13511, 896, 128754, 1);
+INSERT INTO PutOrder (Status, Payment_method, Date_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) values (Completed, 'paypal', '2017/2/11', '2017/2/12', '2017/2/16', 8, 62735978, 10135, 274, 789458, 2);
 
 
 CREATE TABLE Rate (
