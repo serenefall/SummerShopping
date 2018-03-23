@@ -5,4 +5,14 @@ public class Operation {
 
         return true;
     }
+
+    public boolean deleteCustomer(String customerID) {
+
+        return false;
+    }
+
+    public boolean deleteSeller(String sellerID) {
+
+        return false;
+    }
 }

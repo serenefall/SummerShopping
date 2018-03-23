@@ -22,28 +22,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log_in.form" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ui/log_in.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Fields.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Fields.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
+            <state relative-caret-position="779">
               <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Operation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Operation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            <state relative-caret-position="315">
+              <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -52,14 +45,18 @@
       <file leaf-file-name="sys_admin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="483">
+              <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2045#2046#0" expanded="true" />
+                <element signature="e#2083#2084#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sys_admin.form" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sys_admin.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
@@ -90,10 +87,11 @@
         <option value="$PROJECT_DIR$/src/model/Connection.java" />
         <option value="$PROJECT_DIR$/src/model/Connections.java" />
         <option value="$PROJECT_DIR$/src/model/Fields.java" />
-        <option value="$PROJECT_DIR$/src/model/Operation.java" />
         <option value="$PROJECT_DIR$/src/ui/log_in.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/ui/sys_admin.form" />
         <option value="$PROJECT_DIR$/src/ui/sys_admin.java" />
+        <option value="$PROJECT_DIR$/src/model/Operation.java" />
       </list>
     </option>
   </component>
@@ -322,12 +320,12 @@
       <updated>1521572554161</updated>
       <workItem from="1521844910087" duration="879000" />
       <workItem from="1521847102659" duration="25000" />
-      <workItem from="1521847207045" duration="903000" />
+      <workItem from="1521847207045" duration="2017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1807000" />
+    <option name="totallyTimeSpent" value="2921000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="976" height="1038" extended-state="0" />
@@ -581,7 +579,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2045#2046#0" expanded="true" />
+            <element signature="e#2083#2084#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -649,14 +651,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/log_in.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -664,14 +658,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Fields.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -691,10 +677,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="33" />
+        <state relative-caret-position="779">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -702,6 +688,26 @@
     <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2045#2046#0" expanded="true" />
+            <element signature="e#2083#2084#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
