@@ -6,6 +6,7 @@ import model.Operation;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class sys_admin {
@@ -19,7 +20,7 @@ public class sys_admin {
     public sys_admin(){
         try {
             Operation ope = new Operation();
-            Connections con = (Connections) Connections.getConnection();
+            Connection con =  Connections.getConnection();
 
             deleteCustomerButton.addActionListener(new ActionListener() {
                 @Override
@@ -62,7 +63,7 @@ public class sys_admin {
 
 
 
-        }catch (SQLException e) {
+        }catch (Exception e) {
             e.printStackTrace();
         }
 

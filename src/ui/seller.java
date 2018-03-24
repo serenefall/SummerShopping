@@ -1,5 +1,7 @@
 package ui;
 
+import model.Operation;
+
 import javax.swing.*;
 
 public class seller {
@@ -21,7 +23,15 @@ public class seller {
     private String sellerID;
 
     public seller(){
-        System.out.println("123");
+        Operation ope = new Operation();
+//            Connections con = (Connections) Connections.getConnection();
+
+
+
+
+
+
+
     }
     public void setSellerID(String username) {
         this.sellerID = username;

@@ -4,6 +4,7 @@ import model.Operation;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 
 public class log_in {
     public JPanel Login;
@@ -18,18 +19,19 @@ public class log_in {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Connections con = (Connections) Connections.getConnection();
+                    Connection con = Connections.getConnection();
                     String username = usernameTextField.getText();
                     // Changed from original code, may have problem (Tao)
                     String pwd = passwordTextField.getText();
                     boolean logged;
 
 
-
                     try{
-                        logged = ope.userLogin(username,pwd,con);
+                        logged = true;
+//                        logged = ope.userLogin(username,pwd,con);
                         if(logged && username.length() == 3){
                             // switch to Customer UI
+                            System.out.println("hahaha");
                             JOptionPane.showMessageDialog(null,"success");
                             JFrame frame = JFrames.get_frame();
                             frame.setTitle("customer_UI");
