@@ -4,7 +4,10 @@ import model.Connections;
 import model.Operation;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class seller {
     private JButton showProductsButton;
@@ -25,13 +28,19 @@ public class seller {
     private String sellerID;
 
     public seller(){
-        Operation ope = new Operation();
-        Connection con = Connections.getConnection();
 
-
-
-
-
+        try {
+            Operation ope = new Operation();
+            Connection con = Connections.getConnection();
+            addProductButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    
+                }
+            });
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }
