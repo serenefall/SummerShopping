@@ -2,6 +2,10 @@ package ui;
 
 import javax.swing.*;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import java.sql.Connection;
+>>>>>>> parent of 327341b... update by Tao
 =======
 import java.sql.Connection;
 >>>>>>> parent of 327341b... update by Tao
@@ -26,8 +30,11 @@ public class seller {
 
     public seller(){
 <<<<<<< HEAD
+<<<<<<< HEAD
         System.out.println("123");
 =======
+=======
+>>>>>>> parent of 327341b... update by Tao
         Operation ope = new Operation();
         Connection con = Connections.getConnection();
 
