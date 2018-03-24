@@ -1,8 +1,10 @@
 package ui;
 
+import model.Connections;
 import model.Operation;
 
 import javax.swing.*;
+import java.sql.Connection;
 
 public class seller {
     private JButton showProductsButton;
@@ -24,7 +26,7 @@ public class seller {
 
     public seller(){
         Operation ope = new Operation();
-//            Connections con = (Connections) Connections.getConnection();
+        Connection con = Connections.getConnection();
 
 
 
