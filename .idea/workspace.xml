@@ -51,8 +51,13 @@
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="288">
               <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+=======
+            <state relative-caret-position="430">
+              <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+>>>>>>> parent of 327341b... update by Tao
 =======
             <state relative-caret-position="430">
               <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
@@ -75,6 +80,7 @@
             <state>
               <filtering enabled="true" />
             </state>
+<<<<<<< HEAD
 <<<<<<< HEAD
           </provider>
         </entry>
@@ -113,6 +119,12 @@
       </file>
       <file leaf-file-name="AUTHORS" pinned="false" current-in-tab="false">
         <entry file="das://table:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.AUTHORS">
+=======
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AUTHORS" pinned="false" current-in-tab="false">
+        <entry file="das://table:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.AUTHORS">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -120,6 +132,17 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CUSTOMER" pinned="false" current-in-tab="false">
+        <entry file="das://table:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.CUSTOMER">
+>>>>>>> parent of 327341b... update by Tao
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="CUSTOMER" pinned="false" current-in-tab="false">
         <entry file="das://table:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.CUSTOMER">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -165,6 +188,13 @@
             <state relative-caret-position="189">
               <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
 >>>>>>> parent of 327341b... update by Tao
+=======
+      <file leaf-file-name="Connections.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Connections.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+>>>>>>> parent of 327341b... update by Tao
               <folding />
             </state>
           </provider>
@@ -182,10 +212,13 @@
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="252">
               <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
 =======
+=======
+>>>>>>> parent of 327341b... update by Tao
 =======
 >>>>>>> parent of 327341b... update by Tao
             <state relative-caret-position="-104">
@@ -291,6 +324,7 @@
             </path>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <path>
               <item name="SummerShopping" type="b2602c69:ProjectViewProjectNode" />
               <item name="SummerShopping" type="462c0819:PsiDirectoryNode" />
@@ -312,6 +346,8 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="seller" type="e9f4de52:FormNode" />
             </path>
+=======
+>>>>>>> parent of 327341b... update by Tao
 =======
 >>>>>>> parent of 327341b... update by Tao
 =======
@@ -487,7 +523,11 @@
       <workItem from="1521847102659" duration="25000" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1521847207045" duration="7268000" />
+=======
+      <workItem from="1521847207045" duration="5456000" />
+>>>>>>> parent of 327341b... update by Tao
 =======
       <workItem from="1521847207045" duration="5456000" />
 >>>>>>> parent of 327341b... update by Tao
@@ -500,7 +540,11 @@
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="8172000" />
+=======
+    <option name="totallyTimeSpent" value="6360000" />
+>>>>>>> parent of 327341b... update by Tao
 =======
     <option name="totallyTimeSpent" value="6360000" />
 >>>>>>> parent of 327341b... update by Tao
@@ -529,7 +573,11 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.111979164" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6607516" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+>>>>>>> parent of 327341b... update by Tao
 =======
       <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
 >>>>>>> parent of 327341b... update by Tao
@@ -789,6 +837,11 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/seller.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-83">
@@ -833,6 +886,9 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 327341b... update by Tao
+=======
 >>>>>>> parent of 327341b... update by Tao
 =======
 >>>>>>> parent of 327341b... update by Tao
@@ -979,6 +1035,7 @@
     </entry>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/ui/seller.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -1051,6 +1108,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> parent of 327341b... update by Tao
 =======
 >>>>>>> parent of 327341b... update by Tao
 =======
