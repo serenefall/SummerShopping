@@ -11,12 +11,12 @@ import java.sql.SQLException;
 
 public class seller {
     private JButton showProductsButton;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JTextField textField6;
-    private JTextField textField7;
-    private JTextField textField8;
+    private JTextField productIDTextField;
+    private JTextField nameTextField;
+    private JTextField priceTextField;
+    private JTextField brandTextField;
+    private JTextField categoryTextField;
+    private JTextField quantityTextField;
     private JButton addProductButton;
     private JButton deleteProductButton;
     private JButton updatePriceButton;
@@ -35,12 +35,61 @@ public class seller {
             addProductButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    
+
+                    String productID = productIDTextField.getText();
+                    String quantity = quantityTextField.getText();
+                    String brand = brandTextField.getText();
+                    String price = priceTextField.getText();
+                    String name = nameTextField.getText();
+                    String category = categoryTextField.getText();
+
+                    if(ope.addProduct(productID,quantity,brand,price,name,category)){
+                        JOptionPane.showMessageDialog(null, "Product Added!");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Failed to add Product!");
+                    }
                 }
             });
+
+
+
+            deleteProductButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    String productID = productIDTextField.getText();
+
+                    if(ope.deleteProduct(productID)){
+                        JOptionPane.showMessageDialog(null, "Product Deleted!");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Failed to delete Product!");
+                    }
+                }
+            });
+
+
+
+
+            updatePriceButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    String productID = productIDTextField.getText();
+                    String price = priceTextField.getText();
+                    if(ope.updatePrice(productID,price)){
+                        JOptionPane.showMessageDialog(null, "Price updated for " + productID + " !");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Failed to update price for "+ productID + " !");
+                    }
+                }
+            });
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
 
 
     }

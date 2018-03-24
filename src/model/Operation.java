@@ -18,4 +18,18 @@ public class Operation {
 
         return false;
     }
+
+    public boolean addProduct(String productID, String quantity, String brand, String price, String name, String category) {
+        return false;
+    }
+
+    public boolean deleteProduct(String productID) {
+
+        return false;
+    }
+
+
+    public boolean updatePrice(String productID, String price) {
+        return false;
+    }
 }
