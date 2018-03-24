@@ -1,13 +1,6 @@
 package ui;
 
-import model.Connections;
-import model.Operation;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 public class seller {
     private JButton showProductsButton;
@@ -28,21 +21,7 @@ public class seller {
     private String sellerID;
 
     public seller(){
-
-        try {
-            Operation ope = new Operation();
-            Connection con = Connections.getConnection();
-            addProductButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    
-                }
-            });
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
+        System.out.println("123");
     }
     public void setSellerID(String username) {
         this.sellerID = username;
