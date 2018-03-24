@@ -1,5 +1,6 @@
 package ui;
 
+<<<<<<< HEAD
 import javax.swing.*;
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -13,6 +14,11 @@ import java.sql.Connection;
 =======
 import java.sql.Connection;
 >>>>>>> parent of 327341b... update by Tao
+=======
+import model.Operation;
+
+import javax.swing.*;
+>>>>>>> parent of 41e46d3... update by tao
 
 public class seller {
     private JButton showProductsButton;
@@ -43,7 +49,7 @@ public class seller {
 =======
 >>>>>>> parent of 327341b... update by Tao
         Operation ope = new Operation();
-        Connection con = Connections.getConnection();
+//            Connections con = (Connections) Connections.getConnection();
 
 
 

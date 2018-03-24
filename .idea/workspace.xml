@@ -19,36 +19,29 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle - @dbhost.ugrad.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle - @dbhost.ugrad.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
-        <item name="ORA_Z8V0B: schema" type="ac44c5e0:OracleImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle - @dbhost.ugrad.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
-        <item name="ORA_Z8V0B: schema" type="ac44c5e0:OracleImplModel$Schema" />
-        <item name="USERS: table" type="be4db629:OracleImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle - @dbhost.ugrad.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
-        <item name="ORA_Z8V0B: schema" type="ac44c5e0:OracleImplModel$Schema" />
-        <item name="VIP_2: table" type="be4db629:OracleImplModel$Table" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="log_in.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/log_in.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seller.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/seller.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="seller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/seller.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -66,6 +59,10 @@
             <state relative-caret-position="430">
               <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
 >>>>>>> parent of 327341b... update by Tao
+=======
+            <state relative-caret-position="567">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+>>>>>>> parent of 41e46d3... update by tao
               <folding>
                 <element signature="e#652#653#0" expanded="true" />
                 <element signature="e#693#694#0" expanded="true" />
@@ -74,17 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="USERS" pinned="false" current-in-tab="true">
-        <entry file="das://table:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.USERS">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="log_in.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ui/log_in.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
 <<<<<<< HEAD
 <<<<<<< HEAD
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="Operation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
@@ -149,10 +150,19 @@
             <state>
               <filtering enabled="true" />
 >>>>>>> parent of 327341b... update by Tao
+=======
+      <file leaf-file-name="Connections.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Connections.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+              <folding />
+>>>>>>> parent of 41e46d3... update by tao
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="log_in.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/log_in.java">
@@ -167,13 +177,22 @@
             <state>
               <filtering enabled="true" />
 >>>>>>> parent of 327341b... update by Tao
+=======
+      <file leaf-file-name="summershopping.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/summershopping.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+>>>>>>> parent of 41e46d3... update by tao
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Connections.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Connections.java">
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/98b87a62-41cf-4351-884a-6356ad723550/console.sql">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <state relative-caret-position="252">
               <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
@@ -195,6 +214,10 @@
             <state relative-caret-position="189">
               <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
 >>>>>>> parent of 327341b... update by Tao
+=======
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> parent of 41e46d3... update by tao
               <folding />
             </state>
           </provider>
@@ -233,6 +256,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="customer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-83">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -264,10 +297,17 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/ui/sys_admin.form" />
         <option value="$PROJECT_DIR$/src/model/Operation.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/ui/sys_admin.java" />
         <option value="$PROJECT_DIR$/src/ui/log_in.java" />
         <option value="$PROJECT_DIR$/src/ui/seller.java" />
         <option value="$PROJECT_DIR$/src/model/Connections.java" />
+=======
+        <option value="$PROJECT_DIR$/src/ui/seller.java" />
+        <option value="$PROJECT_DIR$/src/model/Connections.java" />
+        <option value="$PROJECT_DIR$/src/ui/sys_admin.java" />
+        <option value="$PROJECT_DIR$/src/ui/log_in.java" />
+>>>>>>> parent of 41e46d3... update by tao
       </list>
     </option>
   </component>
@@ -325,6 +365,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 41e46d3... update by tao
             <path>
               <item name="SummerShopping" type="b2602c69:ProjectViewProjectNode" />
               <item name="SummerShopping" type="462c0819:PsiDirectoryNode" />
@@ -346,12 +389,22 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="seller" type="e9f4de52:FormNode" />
             </path>
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 327341b... update by Tao
 =======
 >>>>>>> parent of 327341b... update by Tao
 =======
 >>>>>>> parent of 327341b... update by Tao
+=======
+            <path>
+              <item name="SummerShopping" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummerShopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="sys_admin" type="e9f4de52:FormNode" />
+            </path>
+>>>>>>> parent of 41e46d3... update by tao
           </expand>
           <select />
         </subPane>
@@ -367,7 +420,6 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/cs304_proj-20180320T232216Z-001/cs304_proj" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Oracle" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -524,6 +576,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1521847207045" duration="7268000" />
 =======
       <workItem from="1521847207045" duration="5456000" />
@@ -534,10 +587,14 @@
 =======
       <workItem from="1521847207045" duration="5456000" />
 >>>>>>> parent of 327341b... update by Tao
+=======
+      <workItem from="1521847207045" duration="4137000" />
+>>>>>>> parent of 41e46d3... update by tao
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -551,6 +608,9 @@
 =======
     <option name="totallyTimeSpent" value="6360000" />
 >>>>>>> parent of 327341b... update by Tao
+=======
+    <option name="totallyTimeSpent" value="5041000" />
+>>>>>>> parent of 41e46d3... update by tao
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
@@ -564,13 +624,18 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3402854" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21734358" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> parent of 41e46d3... update by tao
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.111979164" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -584,6 +649,9 @@
 =======
       <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
 >>>>>>> parent of 327341b... update by Tao
+=======
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+>>>>>>> parent of 41e46d3... update by tao
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -616,6 +684,69 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/src/ui/JFrame_main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Fields.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/log_in.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/log_in.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/JFrame_main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/log_in.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+>>>>>>> parent of 41e46d3... update by tao
     <entry file="file://$PROJECT_DIR$/src/model/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
@@ -827,7 +958,20 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/ui/seller.form">
+=======
+    <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.form">
+>>>>>>> parent of 41e46d3... update by tao
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/ui/seller.form">
+=======
+    <entry file="file://$PROJECT_DIR$/src/ui/log_in.form">
+>>>>>>> parent of 41e46d3... update by tao
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
@@ -837,15 +981,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/seller.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
+    <entry file="file://$PROJECT_DIR$/summershopping.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-83">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -868,23 +1007,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/seller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        <state relative-caret-position="567">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2056#2057#0" expanded="true" />
-            <element signature="e#2094#2095#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 327341b... update by Tao
@@ -900,118 +1033,39 @@
       </provider>
     </entry>
     <entry file="das://index:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.HAS.SYS_C001421442">
+=======
+    <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
+>>>>>>> parent of 41e46d3... update by tao
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        <state relative-caret-position="-83">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.PUTORDER">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.TITLEDITORS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.HAS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/summershopping.sql">
+    <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-104">
+          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
           <folding>
-            <marker date="1521844838467" expanded="true" signature="0:19" ph="drop table C... " />
-            <marker date="1521844838467" expanded="true" signature="21:37" ph="drop table V... " />
-            <marker date="1521844838467" expanded="true" signature="39:55" ph="drop table V... " />
-            <marker date="1521844838467" expanded="true" signature="57:76" ph="drop table P... " />
-            <marker date="1521844838467" expanded="true" signature="78:95" ph="drop table S... " />
-            <marker date="1521844838467" expanded="true" signature="97:116" ph="drop table P... " />
-            <marker date="1521844838467" expanded="true" signature="118:133" ph="drop table R... " />
-            <marker date="1521844838467" expanded="true" signature="135:149" ph="drop table H... " />
-            <marker date="1521844838467" expanded="true" signature="151:167" ph="drop table U... " />
-            <marker date="1521844838467" expanded="true" signature="170:234" ph="CREATE TABLE... Users" />
-            <marker date="1521844838467" expanded="true" signature="237:290" ph="INSERT INTO Users... " />
-            <marker date="1521844838467" expanded="true" signature="292:345" ph="INSERT INTO Users... " />
-            <marker date="1521844838467" expanded="true" signature="347:403" ph="INSERT INTO Users... " />
-            <marker date="1521844838467" expanded="true" signature="405:458" ph="INSERT INTO Users... " />
-            <marker date="1521844838467" expanded="true" signature="460:516" ph="INSERT INTO Users... " />
-            <marker date="1521844838467" expanded="true" signature="518:569" ph="INSERT INTO Users... " />
-            <marker date="1521844838467" expanded="true" signature="571:624" ph="INSERT INTO Users... " />
-            <marker date="1521844838467" expanded="true" signature="627:798" ph="CREATE TABLE... Customer" />
-            <marker date="1521844838467" expanded="true" signature="801:980" ph="INSERT INTO Customer... " />
-            <marker date="1521844838467" expanded="true" signature="982:1153" ph="INSERT INTO Customer... " />
-            <marker date="1521844838467" expanded="true" signature="1155:1324" ph="INSERT INTO Customer... " />
-            <marker date="1521844838467" expanded="true" signature="1326:1502" ph="INSERT INTO Customer... " />
-            <marker date="1521844838467" expanded="true" signature="1504:1680" ph="INSERT INTO Customer... " />
-            <marker date="1521844838467" expanded="true" signature="1683:1760" ph="CREATE TABLE... VIP_1" />
-            <marker date="1521844838467" expanded="true" signature="1762:1818" ph="INSERT INTO VIP_1... " />
-            <marker date="1521844838467" expanded="true" signature="1820:1876" ph="INSERT INTO VIP_1... " />
-            <marker date="1521844838467" expanded="true" signature="1878:1933" ph="INSERT INTO VIP_1... " />
-            <marker date="1521844838467" expanded="true" signature="1935:1991" ph="INSERT INTO VIP_1... " />
-            <marker date="1521844838467" expanded="true" signature="1993:2049" ph="INSERT INTO VIP_1... " />
-            <marker date="1521844838467" expanded="true" signature="2052:2166" ph="CREATE TABLE... VIP_2" />
-            <marker date="1521844838467" expanded="true" signature="2168:2242" ph="INSERT INTO VIP_2... " />
-            <marker date="1521844838467" expanded="true" signature="2244:2318" ph="INSERT INTO VIP_2... " />
-            <marker date="1521844838467" expanded="true" signature="2320:2394" ph="INSERT INTO VIP_2... " />
-            <marker date="1521844838467" expanded="true" signature="2396:2470" ph="INSERT INTO VIP_2... " />
-            <marker date="1521844838467" expanded="true" signature="2472:2546" ph="INSERT INTO VIP_2... " />
-            <marker date="1521844838467" expanded="true" signature="2551:2686" ph="CREATE TABLE... Products" />
-            <marker date="1521844838467" expanded="true" signature="2689:2825" ph="INSERT INTO Products... " />
-            <marker date="1521844838467" expanded="true" signature="2827:2959" ph="INSERT INTO Products... " />
-            <marker date="1521844838467" expanded="true" signature="2961:3105" ph="INSERT INTO Products... " />
-            <marker date="1521844838467" expanded="true" signature="3107:3252" ph="INSERT INTO Products... " />
-            <marker date="1521844838467" expanded="true" signature="3254:3370" ph="INSERT INTO Products... " />
-            <marker date="1521844838467" expanded="true" signature="3376:3486" ph="CREATE TABLE... Seller" />
-            <marker date="1521844838467" expanded="true" signature="3488:3632" ph="INSERT INTO Seller... " />
-            <marker date="1521844838467" expanded="true" signature="3634:3774" ph="INSERT INTO Seller... " />
-            <marker date="1521844838467" expanded="true" signature="3776:3918" ph="INSERT INTO Seller... " />
-            <marker date="1521844838467" expanded="true" signature="3920:4061" ph="INSERT INTO Seller... " />
-            <marker date="1521844838467" expanded="true" signature="4063:4199" ph="INSERT INTO Seller... " />
-            <marker date="1521844838467" expanded="true" signature="4203:4719" ph="CREATE TABLE... PutOrder" />
-            <marker date="1521844838467" expanded="true" signature="4721:4997" ph="INSERT INTO PutOrder... " />
-            <marker date="1521844838467" expanded="true" signature="4999:5276" ph="INSERT INTO PutOrder... " />
-            <marker date="1521844838467" expanded="true" signature="5278:5556" ph="INSERT INTO PutOrder... " />
-            <marker date="1521844838467" expanded="true" signature="5558:5827" ph="INSERT INTO PutOrder... " />
-            <marker date="1521844838467" expanded="true" signature="5829:6098" ph="INSERT INTO PutOrder... " />
-            <marker date="1521844838467" expanded="true" signature="6102:6542" ph="CREATE TABLE... Rate" />
-            <marker date="1521844838467" expanded="true" signature="6544:6659" ph="INSERT INTO Rate... " />
-            <marker date="1521844838467" expanded="true" signature="6661:6776" ph="INSERT INTO Rate... " />
-            <marker date="1521844838467" expanded="true" signature="6778:6893" ph="INSERT INTO Rate... " />
-            <marker date="1521844838467" expanded="true" signature="6895:7010" ph="INSERT INTO Rate... " />
-            <marker date="1521844838467" expanded="true" signature="7012:7127" ph="INSERT INTO Rate... " />
-            <marker date="1521844838467" expanded="true" signature="7130:7398" ph="CREATE TABLE... Has" />
-            <marker date="1521844838467" expanded="true" signature="7400:7495" ph="INSERT INTO Has... " />
-            <marker date="1521844838467" expanded="true" signature="7497:7590" ph="INSERT INTO Has... " />
-            <marker date="1521844838467" expanded="true" signature="7592:7686" ph="INSERT INTO Has... " />
-            <marker date="1521844838467" expanded="true" signature="7688:7783" ph="INSERT INTO Has... " />
-            <marker date="1521844838467" expanded="true" signature="7785:7880" ph="INSERT INTO Has... " />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2094#2095#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/seller.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/log_in.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        <state relative-caret-position="325">
+          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="das://table:/a309b786/98b87a62-41cf-4351-884a-6356ad723550/ORA_Z8V0B.AUTHORS">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1114,5 +1168,7 @@
 >>>>>>> parent of 327341b... update by Tao
 =======
 >>>>>>> parent of 327341b... update by Tao
+=======
+>>>>>>> parent of 41e46d3... update by tao
   </component>
 </project>
