@@ -1,6 +1,10 @@
 package ui;
 
 import javax.swing.*;
+<<<<<<< HEAD
+=======
+import java.sql.Connection;
+>>>>>>> parent of 327341b... update by Tao
 
 public class seller {
     private JButton showProductsButton;
@@ -21,7 +25,19 @@ public class seller {
     private String sellerID;
 
     public seller(){
+<<<<<<< HEAD
         System.out.println("123");
+=======
+        Operation ope = new Operation();
+        Connection con = Connections.getConnection();
+
+
+
+
+
+
+
+>>>>>>> parent of 327341b... update by Tao
     }
     public void setSellerID(String username) {
         this.sellerID = username;
