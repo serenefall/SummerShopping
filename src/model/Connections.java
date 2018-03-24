@@ -9,8 +9,13 @@ public class Connections {
 
     private Connections() throws SQLException{
         con = DriverManager.getConnection(
-                "jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522/ug", "ora_z8v0b", "a47465166");
+                "jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug", "ora_z8v0b", "a47465166");
+  //              "jdbc:oracle:thin:dbhost.ugrad.cs.ubc.ca:1522/ug", "ora_z8v0b", "a47465166");
+//                    "jdbc:oracle:thin:@//dbhost.ugrad.cs.ubc.ca:1522/ug", "ora_z8v0b", "a47465166");
     }
+       // JOptionPane.showMessageDialog(null, "operation False");
+
+
 
     public static Connection getConnection() throws SQLException{
         if(con == null){

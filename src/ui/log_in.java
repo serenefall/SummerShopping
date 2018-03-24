@@ -1,10 +1,10 @@
 package ui;
+import java.sql.*;
 import model.Connections;
 import model.Operation;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 
 public class log_in {
     public JPanel Login;
@@ -19,19 +19,16 @@ public class log_in {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Connection con = Connections.getConnection();
+                    Connection con = (Connection) Connections.getConnection();
                     String username = usernameTextField.getText();
                     // Changed from original code, may have problem (Tao)
                     String pwd = passwordTextField.getText();
                     boolean logged;
 
-
                     try{
-                        logged = true;
-//                        logged = ope.userLogin(username,pwd,con);
+                        logged = ope.userLogin(username,pwd,con);
                         if(logged && username.length() == 3){
                             // switch to Customer UI
-                            System.out.println("hahaha");
                             JOptionPane.showMessageDialog(null,"success");
                             JFrame frame = JFrames.get_frame();
                             frame.setTitle("customer_UI");
@@ -67,14 +64,13 @@ public class log_in {
                             JOptionPane.showMessageDialog(null,"Connection error");
                         }
                     }
-                    catch (Exception e2){
-
+                    catch (java.sql.SQLException e2){
+                        JOptionPane.showMessageDialog(null,"e2");
                     }
-                } catch (Exception e1) {
-                    e1.printStackTrace();
+                } catch (java.sql.SQLException e1) {
+                    JOptionPane.showMessageDialog(null,"e1");
                 }
-
-
+                //JOptionPane.showMessageDialog(null,"outside");
             }
         });
 
