@@ -1,12 +1,15 @@
 package model;
 
+<<<<<<< HEAD
 import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 import oracle.jdbc.driver.*;
+=======
 import java.util.ArrayList;
+>>>>>>> upstream/master
 
 public class Operation {
     public boolean userLogin(String username, String pwd, Connection con) throws SQLException {
@@ -176,6 +179,8 @@ public class Operation {
         return target_list;
     }
 
+<<<<<<< HEAD
+=======
 
     // return -1 if there is any trouble
     // Otherwise return the totals sales of a product within a given time
@@ -191,60 +196,5 @@ public class Operation {
 
         return new ArrayList<ArrayList<String>>();
     }
-
-    public boolean addProduct(String productID,String quantity, String brand, String price, String name, String category){
-        return true;
-    }
-
-    public boolean deleteProduct(String productID){
-        return true;
-    }
-
-    public boolean updatePrice(String productID, String price){
-        return true;
-    }
-
-    public boolean deleteCustomer(String customerID) {
-        int customer_id = Integer.parseInt(customerID);
-        boolean status = false;
-
-        PreparedStatement ps = con.prepareStatement
-                ("DELETE FROM Customer " +
-                        "WHERE Customer_id = ? ");
-
-        try {
-            ps.setInt(1, customer_id);
-            ResultSet temp = null;
-            temp = ps.executeQuery();
-            while (temp.next()) {
-                status = true;
-            }
-            ps.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return status;
-    }
-
-    public boolean deleteSeller(String sellerID){
-        int seller_id = Integer.parseInt(sellerID);
-        boolean status = false;
-
-        PreparedStatement ps = con.prepareStatement
-                ("DELETE FROM Seller " +
-                        "WHERE Seller_id = ? " );
-
-        try{
-            ps.setInt(1,seller_id);
-            ResultSet temp = null;
-            temp = ps.executeQuery();
-            while (temp.next()) {
-                status = true;
-            }
-            ps.close();
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return status;
-    }
+>>>>>>> upstream/master
 }
