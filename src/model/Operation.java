@@ -176,6 +176,11 @@ public class Operation {
         return target_list;
     }
 
+    /****************for seller *****************************/
+
+    public boolean updatePrice(String productID, String price){
+        return true;
+    }
 
     // return -1 if there is any trouble
     // Otherwise return the totals sales of a product within a given time
@@ -187,32 +192,92 @@ public class Operation {
     // return a 2D string arrayList for all the products information
     // array[i][] represents the strings for one column, like productID,category
     // array[][j] represents the strings for one row, like all the attributes for one product
-    public ArrayList<ArrayList<String>> viewProduct() {
+    public ArrayList<ArrayList<String>> viewProduct(String Seller_ID,Connection con) {
+        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+        int seller_id = Integer.parseInt(Seller_ID);
+        try {
+            PreparedStatement ps = con.prepareStatement
+                    ("SELECT has.product_id, Category, Manufacturer, Name, Quality, Price, seller_ID " +
+                            "FROM Products, Has WHERE Seller_ID = ?" );
+            ps.setInt(1, seller_id);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                ArrayList<String> tempResult = new ArrayList<String>();
+                tempResult.add(temp.getString("Product_ID"));
+                tempResult.add(temp.getString("Category"));
+                tempResult.add(temp.getString("Manufacturer"));
+                tempResult.add(temp.getString("Name"));
+                tempResult.add(temp.getString("Quality"));
+                tempResult.add(temp.getString("Price"));
+                tempResult.add(temp.getString("seller_ID"));
+                result.add(tempResult);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-        return new ArrayList<ArrayList<String>>();
+        return result;
     }
 
-    public boolean addProduct(String productID,String quantity, String brand, String price, String name, String category){
-        return true;
+    // the SQL statement in addProduct remained to be added.
+    public boolean addProduct(String productID,String quantity, String brand, String price, String name, String category,Connection con){
+        boolean status = false;
+        int product_id = Integer.parseInt(productID);
+        int iQuantity = Integer.parseInt(quantity);
+        ArrayList<Fields> target_list = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement
+                    ("INSERT INTO Products" +
+                            "(Product_ID, Category, Manufacturer,Name) VALUES(?,?,?,?)" );
+            ps.setInt(1, product_id);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                Fields item = new Fields();
+                item.setProduct_id(temp.getInt("Seller ID"));
+                item.setProduct_name(temp.getString("Name"));
+                target_list.add(item);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
     }
 
-    public boolean deleteProduct(String productID){
-        return true;
-    }
-
-    public boolean updatePrice(String productID, String price){
-        return true;
-    }
-
-    public boolean deleteCustomer(String customerID) {
-        int customer_id = Integer.parseInt(customerID);
+    public boolean deleteProduct(String productID, String sellerID, Connection con){
+        int product_id = Integer.parseInt(productID);
+        int seller_id = Integer.parseInt(sellerID);
         boolean status = false;
 
-        PreparedStatement ps = con.prepareStatement
-                ("DELETE FROM Customer " +
-                        "WHERE Customer_id = ? ");
-
         try {
+            PreparedStatement ps = con.prepareStatement
+                    ("DELETE FROM Has " +
+                            "WHERE Product_ID = ? AND Seller_ID = ? ");
+            ps.setInt(1, product_id);
+            ps.setInt(2, seller_id);
+            ResultSet temp = null;
+            temp = ps.executeQuery();
+            while (temp.next()) {
+                status = true;
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+
+
+    /****************for sys_admin*****************************/
+    public boolean deleteCustomer(String customerID, Connection con) {
+        int customer_id = Integer.parseInt(customerID);
+        boolean status = false;
+        try {
+            PreparedStatement ps = con.prepareStatement
+                    ("DELETE FROM Customer " +
+                            "WHERE Customer_id = ? ");
             ps.setInt(1, customer_id);
             ResultSet temp = null;
             temp = ps.executeQuery();
@@ -226,15 +291,14 @@ public class Operation {
         return status;
     }
 
-    public boolean deleteSeller(String sellerID){
+    public boolean deleteSeller(String sellerID, Connection con){
         int seller_id = Integer.parseInt(sellerID);
         boolean status = false;
 
-        PreparedStatement ps = con.prepareStatement
-                ("DELETE FROM Seller " +
-                        "WHERE Seller_id = ? " );
-
         try{
+            PreparedStatement ps = con.prepareStatement
+                    ("DELETE FROM Seller " +
+                            "WHERE Seller_id = ? " );
             ps.setInt(1,seller_id);
             ResultSet temp = null;
             temp = ps.executeQuery();

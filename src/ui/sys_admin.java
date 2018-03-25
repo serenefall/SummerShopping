@@ -27,7 +27,7 @@ public class sys_admin {
                 public void actionPerformed(ActionEvent e) {
                     try{
                         String customerID = customerIDtextField.getText();
-                        if(ope.deleteCustomer(customerID)){
+                        if(ope.deleteCustomer(customerID,con)){
                             JOptionPane.showMessageDialog(null, "Customer Deleted!");
                         }
                         else{
@@ -49,7 +49,7 @@ public class sys_admin {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String sellerID = sellerIDtextField.getText();
-                    if(ope.deleteSeller(sellerID)){
+                    if(ope.deleteSeller(sellerID,con)){
                         JOptionPane.showMessageDialog(null, "Seller Deleted!");
                     }
                     else{

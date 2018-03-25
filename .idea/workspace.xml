@@ -2,22 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3f8089-31f6-424b-bdc8-8b9cc4f22693" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/SummerShopping.iml" afterPath="$PROJECT_DIR$/SummerShopping.iml" />
-      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/model/Fields.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/model/Fields.class" />
       <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/model/Operation.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/model/Operation.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/log_in$1.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/log_in$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/log_in.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/log_in.class" />
       <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$1.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$2.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$2.class" />
       <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$3.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$4.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$4.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$5.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$5.class" />
       <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller.class" />
       <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin$1.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin$2.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin$2.class" />
       <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin.class" />
       <change beforePath="$PROJECT_DIR$/src/model/Operation.java" afterPath="$PROJECT_DIR$/src/model/Operation.java" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Operation.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ui/seller.java" afterPath="$PROJECT_DIR$/src/ui/seller.java" />
+      <change beforePath="$PROJECT_DIR$/src/ui/sys_admin.java" afterPath="$PROJECT_DIR$/src/ui/sys_admin.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,39 +45,75 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Operation.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Operation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1227">
-              <caret line="225" column="22" lean-forward="false" selection-start-line="225" selection-start-column="22" selection-end-line="225" selection-end-column="22" />
+            <state relative-caret-position="305">
+              <caret line="300" column="53" lean-forward="false" selection-start-line="300" selection-start-column="53" selection-end-line="300" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7474#7475#0" expanded="true" />
-                <element signature="e#7501#7502#0" expanded="true" />
-                <element signature="e#7566#7567#0" expanded="true" />
-                <element signature="e#7593#7594#0" expanded="true" />
-                <marker date="1522019018099" expanded="true" signature="469:508" ph=" SELECT statement (USERS)" />
-                <marker date="1522019018099" expanded="true" signature="1479:1685" ph=" SELECT statement (PRODUCTS, RATE, SELLER...)" />
-                <marker date="1522019018099" expanded="true" signature="2889:3039" ph=" UPDATE statement (PUTORDERSET)" />
-                <marker date="1522019018099" expanded="true" signature="3704:3772" ph=" UPDATE statement (PUTORDERWHERE)" />
-                <marker date="1522019018099" expanded="true" signature="4403:4471" ph=" UPDATE statement (PUTORDERWHERE)" />
-                <marker date="1522019018099" expanded="true" signature="5282:5350" ph=" UPDATE statement (PUTORDERWHERE)" />
-                <marker date="1522019018099" expanded="true" signature="6250:6318" ph=" UPDATE statement (PUTORDERWHERE)" />
+                <element signature="e#6813#6814#0" expanded="true" />
+                <element signature="e#6840#6841#0" expanded="true" />
+                <element signature="e#7459#7478#0" expanded="true" />
+                <element signature="e#7961#7969#0" expanded="true" />
+                <marker date="1522021949734" expanded="true" signature="469:508" ph=" SELECT statement (USERS)" />
+                <marker date="1522021949734" expanded="true" signature="1479:1685" ph=" SELECT statement (PRODUCTS, RATE, SELLER...)" />
+                <marker date="1522021949734" expanded="true" signature="2889:3039" ph=" UPDATE statement (PUTORDERSET)" />
+                <marker date="1522021949734" expanded="true" signature="3704:3772" ph=" UPDATE statement (PUTORDERWHERE)" />
+                <marker date="1522021949734" expanded="true" signature="4403:4471" ph=" UPDATE statement (PUTORDERWHERE)" />
+                <marker date="1522021949734" expanded="true" signature="5282:5350" ph=" UPDATE statement (PUTORDERWHERE)" />
+                <marker date="1522021949734" expanded="true" signature="6250:6318" ph=" UPDATE statement (PUTORDERWHERE)" />
+                <marker date="1522021949734" expanded="true" signature="7627:7777" ph=" SELECT statement (PRODUCTS, HAS)" />
+                <marker date="1522021949734" expanded="true" signature="9067:9177" ph=" INSERT statement (PRODUCTS)" />
+                <marker date="1522021949734" expanded="true" signature="9971:10058" ph=" DELETE statement (HAS)" />
+                <marker date="1522021949734" expanded="true" signature="10740:10815" ph=" DELETE statement (CUSTOMER)" />
+                <marker date="1522021949734" expanded="true" signature="11385:11456" ph=" DELETE statement (SELLER)" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sys_admin.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="customer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="175" column="50" lean-forward="false" selection-start-line="175" selection-start-column="41" selection-end-line="175" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/seller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding>
+                <element signature="e#5364#5365#0" expanded="true" />
+                <element signature="e#5404#5405#0" expanded="true" />
+                <element signature="e#5439#5440#0" expanded="true" />
+                <element signature="e#5475#5476#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sys_admin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="51" column="30" lean-forward="false" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2056#2057#0" expanded="true" />
-                <element signature="e#2094#2095#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="253">
+              <caret line="51" column="52" lean-forward="false" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,6 +130,12 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>con</find>
+      <find>upda</find>
+      <find>sellerID</find>
+      <find>updatePrice</find>
+      <find>seller</find>
+      <find>sellerid</find>
+      <find>field</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,12 +155,12 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/ui/sys_admin.form" />
         <option value="$PROJECT_DIR$/src/model/Connections.java" />
-        <option value="$PROJECT_DIR$/src/ui/sys_admin.java" />
         <option value="$PROJECT_DIR$/src/ui/seller.form" />
         <option value="$PROJECT_DIR$/src/ui/log_in.java" />
-        <option value="$PROJECT_DIR$/src/ui/seller.java" />
         <option value="$PROJECT_DIR$/src/ui/Operation.java" />
+        <option value="$PROJECT_DIR$/src/ui/seller.java" />
         <option value="$PROJECT_DIR$/src/model/Operation.java" />
+        <option value="$PROJECT_DIR$/src/ui/sys_admin.java" />
       </list>
     </option>
   </component>
@@ -129,7 +170,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="952" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
@@ -186,7 +227,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/cs304_proj-20180320T232216Z-001/cs304_proj" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/jdk-9.0.4/ojdbc6.jar!/" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Oracle" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -355,13 +396,13 @@
     <option name="totallyTimeSpent" value="9795000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="2586" height="1386" extended-state="7" />
+    <frame x="-13" y="-13" width="2586" height="1386" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.01188455" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27928692" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -441,17 +482,22 @@
           <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7474#7475#0" expanded="true" />
-            <element signature="e#7501#7502#0" expanded="true" />
-            <element signature="e#7566#7567#0" expanded="true" />
-            <element signature="e#7593#7594#0" expanded="true" />
-            <marker date="1522019018099" expanded="true" signature="469:508" ph=" SELECT statement (USERS)" />
-            <marker date="1522019018099" expanded="true" signature="1479:1685" ph=" SELECT statement (PRODUCTS, RATE, SELLER...)" />
-            <marker date="1522019018099" expanded="true" signature="2889:3039" ph=" UPDATE statement (PUTORDERSET)" />
-            <marker date="1522019018099" expanded="true" signature="3704:3772" ph=" UPDATE statement (PUTORDERWHERE)" />
-            <marker date="1522019018099" expanded="true" signature="4403:4471" ph=" UPDATE statement (PUTORDERWHERE)" />
-            <marker date="1522019018099" expanded="true" signature="5282:5350" ph=" UPDATE statement (PUTORDERWHERE)" />
-            <marker date="1522019018099" expanded="true" signature="6250:6318" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <element signature="e#6813#6814#0" expanded="true" />
+            <element signature="e#6840#6841#0" expanded="true" />
+            <element signature="e#7459#7478#0" expanded="true" />
+            <element signature="e#7961#7969#0" expanded="true" />
+            <marker date="1522021949734" expanded="true" signature="469:508" ph=" SELECT statement (USERS)" />
+            <marker date="1522021949734" expanded="true" signature="1479:1685" ph=" SELECT statement (PRODUCTS, RATE, SELLER...)" />
+            <marker date="1522021949734" expanded="true" signature="2889:3039" ph=" UPDATE statement (PUTORDERSET)" />
+            <marker date="1522021949734" expanded="true" signature="3704:3772" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <marker date="1522021949734" expanded="true" signature="4403:4471" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <marker date="1522021949734" expanded="true" signature="5282:5350" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <marker date="1522021949734" expanded="true" signature="6250:6318" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <marker date="1522021949734" expanded="true" signature="7627:7777" ph=" SELECT statement (PRODUCTS, HAS)" />
+            <marker date="1522021949734" expanded="true" signature="9067:9177" ph=" INSERT statement (PRODUCTS)" />
+            <marker date="1522021949734" expanded="true" signature="9971:10058" ph=" DELETE statement (HAS)" />
+            <marker date="1522021949734" expanded="true" signature="10740:10815" ph=" DELETE statement (CUSTOMER)" />
+            <marker date="1522021949734" expanded="true" signature="11385:11456" ph=" DELETE statement (SELLER)" />
           </folding>
         </state>
       </provider>
@@ -547,7 +593,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#5364#5365#0" expanded="true" />
+            <element signature="e#5404#5405#0" expanded="true" />
+            <element signature="e#5439#5440#0" expanded="true" />
+            <element signature="e#5475#5476#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -561,9 +610,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -576,11 +623,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2056#2057#0" expanded="true" />
-            <element signature="e#2094#2095#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -616,14 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/JFrame_main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -672,14 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -701,56 +728,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/JFrame_main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
-          <caret line="130" column="39" lean-forward="false" selection-start-line="130" selection-start-column="39" selection-end-line="130" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <caret line="175" column="50" lean-forward="false" selection-start-line="175" selection-start-column="41" selection-end-line="175" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/seller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="134" column="15" lean-forward="true" selection-start-line="134" selection-start-column="15" selection-end-line="134" selection-end-column="15" />
+        <state relative-caret-position="108">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="51" column="30" lean-forward="false" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2056#2057#0" expanded="true" />
-            <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#5364#5365#0" expanded="true" />
+            <element signature="e#5404#5405#0" expanded="true" />
+            <element signature="e#5439#5440#0" expanded="true" />
+            <element signature="e#5475#5476#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1227">
-          <caret line="225" column="22" lean-forward="false" selection-start-line="225" selection-start-column="22" selection-end-line="225" selection-end-column="22" />
+        <state relative-caret-position="305">
+          <caret line="300" column="53" lean-forward="false" selection-start-line="300" selection-start-column="53" selection-end-line="300" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7474#7475#0" expanded="true" />
-            <element signature="e#7501#7502#0" expanded="true" />
-            <element signature="e#7566#7567#0" expanded="true" />
-            <element signature="e#7593#7594#0" expanded="true" />
-            <marker date="1522019018099" expanded="true" signature="469:508" ph=" SELECT statement (USERS)" />
-            <marker date="1522019018099" expanded="true" signature="1479:1685" ph=" SELECT statement (PRODUCTS, RATE, SELLER...)" />
-            <marker date="1522019018099" expanded="true" signature="2889:3039" ph=" UPDATE statement (PUTORDERSET)" />
-            <marker date="1522019018099" expanded="true" signature="3704:3772" ph=" UPDATE statement (PUTORDERWHERE)" />
-            <marker date="1522019018099" expanded="true" signature="4403:4471" ph=" UPDATE statement (PUTORDERWHERE)" />
-            <marker date="1522019018099" expanded="true" signature="5282:5350" ph=" UPDATE statement (PUTORDERWHERE)" />
-            <marker date="1522019018099" expanded="true" signature="6250:6318" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <element signature="e#6813#6814#0" expanded="true" />
+            <element signature="e#6840#6841#0" expanded="true" />
+            <element signature="e#7459#7478#0" expanded="true" />
+            <element signature="e#7961#7969#0" expanded="true" />
+            <marker date="1522021949734" expanded="true" signature="469:508" ph=" SELECT statement (USERS)" />
+            <marker date="1522021949734" expanded="true" signature="1479:1685" ph=" SELECT statement (PRODUCTS, RATE, SELLER...)" />
+            <marker date="1522021949734" expanded="true" signature="2889:3039" ph=" UPDATE statement (PUTORDERSET)" />
+            <marker date="1522021949734" expanded="true" signature="3704:3772" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <marker date="1522021949734" expanded="true" signature="4403:4471" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <marker date="1522021949734" expanded="true" signature="5282:5350" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <marker date="1522021949734" expanded="true" signature="6250:6318" ph=" UPDATE statement (PUTORDERWHERE)" />
+            <marker date="1522021949734" expanded="true" signature="7627:7777" ph=" SELECT statement (PRODUCTS, HAS)" />
+            <marker date="1522021949734" expanded="true" signature="9067:9177" ph=" INSERT statement (PRODUCTS)" />
+            <marker date="1522021949734" expanded="true" signature="9971:10058" ph=" DELETE statement (HAS)" />
+            <marker date="1522021949734" expanded="true" signature="10740:10815" ph=" DELETE statement (CUSTOMER)" />
+            <marker date="1522021949734" expanded="true" signature="11385:11456" ph=" DELETE statement (SELLER)" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="51" column="52" lean-forward="false" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
