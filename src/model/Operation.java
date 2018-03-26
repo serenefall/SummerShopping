@@ -154,8 +154,18 @@ public class Operation {
         }
 
         // return the total cost of the order
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT Price FROM Has WHERE Seller_ID = ? AND Product_ID = ?")) {
+            ps.setInt(1, seller_id);
+            ps.setInt(2, product_id);
+            ResultSet temp = ps.executeQuery();
 
-        return 1;
+            while (temp.next()) {
+                totalCost = quantity * temp.getInt("Order_number");
+            }
+        }
+
+        return totalCost;
     }
 
     public boolean completeOrder(String order_ID, Connection con) throws SQLException {
@@ -224,7 +234,7 @@ public class Operation {
 
     // Date Range not sure about show to translate data range
     // return: status means rating sucessfully; else fails to rate
-    public ArrayList<Fields>  getTotalPurchaseList (String customer_ID, Date date1, Date date2, Connection con) throws SQLException {
+    public ArrayList<Fields>  getTotalPurchaseList (String customer_ID, String date1, String date2, Connection con) throws SQLException {
 
         boolean status = false;
         ArrayList<Fields> target_list = new ArrayList<>();
@@ -248,7 +258,7 @@ public class Operation {
 
     // wait for SQL Statement
     // return: status means rating sucessfully; else fails to rate
-    public ArrayList<Fields>  getBestSeller (ArrayList<Integer> ratings, Connection con) throws SQLException {
+    public ArrayList<Fields>  getBestSeller (Connection con) throws SQLException {
 
         boolean status = false;
         ArrayList<Fields> target_list = new ArrayList<>();
