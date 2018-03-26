@@ -1,7 +1,6 @@
 package ui;
 
-import model.Connections;
-import model.Operation;
+import model.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -50,7 +49,7 @@ public class seller {
                     String name = nameTextField.getText();
                     String category = categoryTextField.getText();
 
-                    if(ope.addProduct(productID,quantity,brand,price,name,category)){
+                    if(ope.addProduct(productID,quantity,brand,price,name,category,con)){
                         JOptionPane.showMessageDialog(null, "Product Added!");
                     }else{
                         JOptionPane.showMessageDialog(null, "Failed to add Product!");
@@ -66,7 +65,7 @@ public class seller {
 
                     String productID = productIDTextField.getText();
 
-                    if(ope.deleteProduct(productID)){
+                    if(ope.deleteProduct(productID, getSellerID(),con)){
                         JOptionPane.showMessageDialog(null, "Product Deleted!");
                     }else{
                         JOptionPane.showMessageDialog(null, "Failed to delete Product!");
@@ -83,7 +82,7 @@ public class seller {
 
                     String productID = productIDTextField.getText();
                     String price = priceTextField.getText();
-                    if(ope.updatePrice(productID,price)){
+                    if(ope.updatePrice(productID,price,con)){
                         JOptionPane.showMessageDialog(null, "Price updated for " + productID + " !");
                     }else{
                         JOptionPane.showMessageDialog(null, "Failed to update price for "+ productID + " !");
@@ -98,7 +97,7 @@ public class seller {
                     String startDate = startDateTextField.getText();
                     String endDate = endDateTextField.getText();
 
-                    int totalSales = ope.salesByProduct(productID,startDate,endDate);
+                    int totalSales = ope.salesByProduct(productID,startDate,endDate,con);
                     if(totalSales == -1){
                         JOptionPane.showMessageDialog(null, "Cannot get sales!");
 
@@ -113,7 +112,7 @@ public class seller {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     ArrayList<ArrayList<String>> products = new ArrayList<ArrayList<String>>();
-                    products = ope.viewProduct();
+                    products = ope.viewProduct(getSellerID(),con);
                     int numOfObjects = (products.get(0)).size();
                     ArrayList<JTextArea> columns = new ArrayList<>();
                     columns.add(productIDTextArea);
@@ -138,13 +137,14 @@ public class seller {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-
-
     }
+
     public void setSellerID(String username) {
         this.sellerID = username;
-
     }
+
+    public String getSellerID() {
+        return this.sellerID;
+    }
+
 }
