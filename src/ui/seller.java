@@ -82,7 +82,7 @@ public class seller {
 
                     String productID = productIDTextField.getText();
                     String price = priceTextField.getText();
-                    if(ope.updatePrice(productID,price)){
+                    if(ope.updatePrice(productID,price,con)){
                         JOptionPane.showMessageDialog(null, "Price updated for " + productID + " !");
                     }else{
                         JOptionPane.showMessageDialog(null, "Failed to update price for "+ productID + " !");
@@ -97,7 +97,7 @@ public class seller {
                     String startDate = startDateTextField.getText();
                     String endDate = endDateTextField.getText();
 
-                    int totalSales = ope.salesByProduct(productID,startDate,endDate);
+                    int totalSales = ope.salesByProduct(productID,startDate,endDate,con);
                     if(totalSales == -1){
                         JOptionPane.showMessageDialog(null, "Cannot get sales!");
 

@@ -107,11 +107,13 @@ public class Operation {
         return status;
     }
 
-    // Date Range not sure about show to translate data range
-    // return: status means rating sucessfully; else fails to rate
-    public double getTotalPurchaseCost(Date date1, Date date2, Connection con) throws SQLException {
+    //return -1 if cannot get totalcost; else, return the total cost.
+    /***********needs to fullfil the SQL statement properly and set the related parameters*****************/
+    public double getTotalPurchaseCost(String startDate, String  endDate, Connection con) throws SQLException {
 
-        double totolCost = 0.0;
+        double totolCost = -1;
+        Date tempStartDate = new Date(Long.parseLong(startDate));
+        Date tempEndDate = new Date((Long.parseLong(endDate)));
         // need to modify SQL statement here, get the total cost within data range date1 to date2
         PreparedStatement ps = con.prepareStatement
                 ("UPDATE PutOrder" +
@@ -178,15 +180,52 @@ public class Operation {
 
     /****************for seller *****************************/
 
-    public boolean updatePrice(String productID, String price){
-        return true;
+    public boolean updatePrice(String productID, String price,Connection con){
+        boolean status = false;
+        int product_id = Integer.parseInt(productID);
+        ArrayList<Fields> target_list = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement
+                    ("UPDATE Has" +
+                            "SET Price = ? where Product_ID = ?" );
+            ps.setString(1,price);
+            ps.setInt(2, product_id);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                status = true;
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
     }
 
     // return -1 if there is any trouble
     // Otherwise return the totals sales of a product within a given time
-    public int salesByProduct(String productID, String startDate, String endDate) {
+    public int salesByProduct(String productID, String startDate, String endDate, Connection con) {
+        int totalSales = -1;
+        int product_id = Integer.parseInt(productID);
+        Date tempStartDate = new Date(Long.parseLong(startDate));
+        Date tempEndDate = new Date((Long.parseLong(endDate)));
+        try {
+            PreparedStatement ps = con.prepareStatement
+                    ("SELECT Quantity From PutOrder" +
+                            "WHERE Product_ID = ? and date_placed >= ? and date_placted <= endDate");
 
-        return -1;
+            ps.setInt(1,product_id);
+            ps.setDate(2,tempStartDate);
+            ps.setDate(3,tempEndDate);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                totalSales += temp.getInt("Quantity");
+            }
+            ps.close();
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return totalSales;
     }
 
     // return a 2D string arrayList for all the products information
