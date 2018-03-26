@@ -9,31 +9,28 @@ import oracle.jdbc.driver.*;
 import java.util.ArrayList;
 
 public class Operation {
+
+    /**************** Queries for Admin/User Login *****************************/
+
+    // revised by Ling
+    // reviewed by ...
     public boolean userLogin(String username, String pwd, Connection con) throws SQLException {
-        int iPwd = -1;
         int userid = Integer.parseInt(username);
+        int iPwd = Integer.parseInt(pwd);
+        int rPwd = -1;
+
         PreparedStatement ps = con.prepareStatement
-              ("SELECT PASSWORD FROM Users WHERE id = ? ");
-
+                ("SELECT PASSWORD FROM Users WHERE id = ? ");
         ps.setInt(1,userid);
-
-       // PreparedStatement ps = con.prepareStatement("select * from users");
-
         ResultSet temp = ps.executeQuery();
+        while (temp.next()) rPwd = temp.getInt("PASSWORD");
 
-       // System.out.println(((OraclePreparedStatementWrapper)ps).getOriginalSQL());
-
-
-        while (temp.next()) {
-            iPwd = temp.getInt("PASSWORD");
-        }
         ps.close();
-        if (iPwd != -1) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return (iPwd == rPwd);
     }
+
+    /**************** Queries for Customer *****************************/
 
     public ArrayList<Fields> searchProducts(String ProductName, String Category, String price_range_1, String price_range_2, String manufacturer, String ratingOfSeller, Connection con) throws SQLException {
         ArrayList<Fields> target_product = new ArrayList<>();
@@ -68,6 +65,11 @@ public class Operation {
         return target_product;
     }
 
+    // TODO
+    public boolean putOrder() throws SQLException {
+        return true;
+    }
+
     public boolean completeOrder(String order_ID, Connection con) throws SQLException {
         int order_id = Integer.parseInt(order_ID);
         boolean status = false;
@@ -87,7 +89,7 @@ public class Operation {
     }
 
 
-
+    // TODO
     // return: status means rating sucessfully; else fails to rate
     public boolean rateProduct(String ProductName, String order_ID, String seller_Id, String ratingOfSeller, Connection con) throws SQLException {
         int order_id = Integer.parseInt(order_ID);
@@ -107,6 +109,7 @@ public class Operation {
         return status;
     }
 
+    // TODO
     //return -1 if cannot get totalcost; else, return the total cost.
     /***********needs to fullfil the SQL statement properly and set the related parameters*****************/
     public double getTotalPurchaseCost(String startDate, String  endDate, Connection con) throws SQLException {
@@ -178,7 +181,7 @@ public class Operation {
         return target_list;
     }
 
-    /****************for seller *****************************/
+    /**************** Queries for Seller *****************************/
 
     public boolean updatePrice(String productID, String price,Connection con){
         boolean status = false;
@@ -259,6 +262,7 @@ public class Operation {
         return result;
     }
 
+    // TODO: check why status never changed
     // the SQL statement in addProduct remained to be added.
     public boolean addProduct(String productID,String quantity, String brand, String price, String name, String category,Connection con){
         boolean status = false;

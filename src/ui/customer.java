@@ -89,7 +89,7 @@ public class customer {
                     boolean status = false;
                     try {
                         status = ope.completeOrder(order_id,con);
-                        if(true == status){
+                        if(status){
                             JOptionPane.showMessageDialog(null,"order completed");
                         }
                     } catch (java.sql.SQLException e2) {
@@ -110,7 +110,7 @@ public class customer {
                    boolean status = false;
                    try {
                        status = ope.rateProduct(productName,order_id,seller_id,rating,con);
-                       if(true == status){
+                       if(status){
                            JOptionPane.showMessageDialog(null,"Rating complete!");
                        }
                    } catch (java.sql.SQLException e2) {
@@ -122,6 +122,7 @@ public class customer {
            totalPurchasedCostButton.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
+                   // TODO
                    // cannot find related Date range in the customer.form, so temporarily set the date range to a specific one, need
                   //Date date1 = new Date(2018,3,1);
                    //Date date2 = new Date(2018,3,25);
@@ -142,8 +143,11 @@ public class customer {
            totalPurchasedListButton.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
-                   // cannot find related Date range in the customer.form, so temporarily set the date range to a specific one, need
-                   // to change to the Date get from customer input later
+                   /*
+                   TODO
+                   cannot find related Date range in the customer.form, so temporarily set the date range to a specific one, need
+                   to change to the Date get from customer input later
+                   */
                    Date date1 = new Date(2018,3,1);
                    Date date2 = new Date(2018,3,25);
                    ArrayList<Fields> returnedArray = new ArrayList<>();
@@ -167,8 +171,10 @@ public class customer {
            bestSellerButton.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
+                   // TODO
                     // needs to fulfill the logic
                    ArrayList<Fields> returnedArray = new ArrayList<>();
+                   // TODO
                    //********to do: needs to properly initialize ratings*********************//
                    ArrayList<Integer> ratings = new ArrayList<Integer>();
 
