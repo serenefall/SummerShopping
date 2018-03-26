@@ -82,7 +82,7 @@ public class seller {
 
                     String productID = productIDTextField.getText();
                     String price = priceTextField.getText();
-                    if(ope.updatePrice(productID,price,con)){
+                    if(ope.updatePrice(sellerID,productID,price,con)){
                         JOptionPane.showMessageDialog(null, "Price updated for " + productID + " !");
                     }else{
                         JOptionPane.showMessageDialog(null, "Failed to update price for "+ productID + " !");

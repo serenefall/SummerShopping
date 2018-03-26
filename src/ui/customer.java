@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 
@@ -55,7 +56,7 @@ public class customer {
     public customer(){
        try{
             Operation ope = new Operation();
-            Connection con = (Connection) Connections.getConnection();
+            Connection con = Connections.getConnection();
 
             searchProductsButton.addActionListener(new ActionListener() {
                 @Override
@@ -70,7 +71,7 @@ public class customer {
                     boolean logged = true;
                     ArrayList<Fields> returnedArray = new ArrayList<>();
                     try {
-                        returnedArray = ope.searchProducts(productName, Category, price_range_1, price_range_2, manufacturer, ratingOfSeller, con);
+                        returnedArray = ope.searchProducts(productName, Category, price_range_1, price_range_2, manufacturer, con);
                         for (int i = 0; i < returnedArray.size();i++) {
                             String productIdReturned = Integer.toString(returnedArray.get(i).getProduct_id());
                             String productNameReturned = returnedArray.get(i).getProduct_name();
@@ -212,7 +213,12 @@ public class customer {
                    String quantity = quantityTextField6.getText();
                    String payment = paymentTextField.getText();
                    String vipPoints = vipTextField.getText();
-                   double total = putOrder(customerID, productID,sellerID,quantity,payment,vipPoints,con);
+                   double total = 0;
+                   try {
+                       total = ope.putOrder(customerID, productID,sellerID,quantity,payment,vipPoints,con);
+                   } catch (SQLException e1) {
+                       e1.printStackTrace();
+                   }
                    if(total!=0){
                        JOptionPane.showMessageDialog(null, "Put Order is done!");
                    }
