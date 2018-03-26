@@ -123,12 +123,14 @@ public class customer {
                @Override
                public void actionPerformed(ActionEvent e) {
                    // cannot find related Date range in the customer.form, so temporarily set the date range to a specific one, need
-                   // to change to the Date get from customer input later
-                   Date date1 = new Date(2018,3,1);
-                   Date date2 = new Date(2018,3,25);
+                  //Date date1 = new Date(2018,3,1);
+                   //Date date2 = new Date(2018,3,25);
+                  /***************to do, set the Date to input Dates, but currently no textField for Date input in customer.form*******************************************/
+                   String startDate = "20180302";//startDateTextField.getText();
+                   String endDate = "20180320";//endDateTextField.getText();
                    double totolCost = 0.0;
                    try {
-                       totolCost = ope.getTotalPurchaseCost(date1,date2,con);
+                       totolCost = ope.getTotalPurchaseCost(startDate,endDate,con);
                        JOptionPane.showMessageDialog(null,totolCost);
 
                    } catch (java.sql.SQLException e2) {
