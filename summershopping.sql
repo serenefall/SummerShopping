@@ -1,12 +1,15 @@
+drop table Rate;
+drop table HAS;
+drop table PutOrder;
+drop table Products;
+drop table Seller;
 drop table Users;
 drop table Customer;
 drop table VIP_1;
 drop table VIP_2;
-drop table Products;
-drop table Seller;
-drop table PutOrder;
-drop table Rate;
-drop table HAS;
+
+
+
 
 CREATE TABLE Users (
 	id INT,
@@ -135,22 +138,21 @@ INSERT INTO Rate (Rating, Customer_ID, Seller_ID, Product_ID, Order_number) valu
 INSERT INTO Rate (Rating, Customer_ID, Seller_ID, Product_ID, Order_number) values (4, 456, 8458, 95033,93777720);
 INSERT INTO Rate (Rating, Customer_ID, Seller_ID, Product_ID, Order_number) values (3, 896, 1111, 30874,62089060);
 INSERT INTO Rate (Rating, Customer_ID, Seller_ID, Product_ID, Order_number) values (5, 678, 2222, 13776,62088100);
-INSERT INTO Rate (Rating, Customer_ID, Seller_ID, Product_ID, Order_number) values (4, 187, 2378, 80786,61384060);
 
 CREATE TABLE Has (
 	Product_ID INT,
 	Seller_ID INT,
 	Quantity INT,
-	Price VARCHAR(50),
+	Price INT,
             PRIMARY KEY(Product_ID, Seller_ID),
             FOREIGN KEY(Product_ID) REFERENCES Products(Product_ID),
             FOREIGN KEY(Seller_ID) REFERENCES Seller(Seller_ID)
 );
 
-INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (30874, 1111, 124, '$196.76');
-INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (95033, 8458, 25, '$2.19');
-INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (77682, 7530, 129, '$29.01');
-INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (13776, 2222, 126, '$112.81');
+INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (30874, 1111, 124, 196);
+INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (95033, 8458, 25, 2);
+INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (77682, 7530, 129, 29);
+INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) values (13776, 2222, 126, 112);
 
 
 commit;
@@ -158,5 +160,6 @@ commit;
 
 
 commit;
+
 
 
