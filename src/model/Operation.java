@@ -31,33 +31,30 @@ public class Operation {
     /**************** Queries for Customer *****************************/
 
     public ArrayList<Fields> searchProducts(String ProductName, String Category, String price_range_1, String price_range_2,
-                                            String manufacturer, Connection con) throws SQLException {
+                                            Connection con) throws SQLException {
         ArrayList<Fields> target_product = new ArrayList<>();
         int priceRange1 = Integer.parseInt(price_range_1);
         int priceRange2 = Integer.parseInt(price_range_2);
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT Product_ID, Product_name, Manufacturer, Price, Seller_name, Seller_ID, Rating " +
-                        "FROM Products p , Seller s, Rate r, Has h" +
+                ("SELECT p.Product_ID, Product_name, Manufacturer, Price, Seller_name, s.Seller_ID " +
+                        "FROM Products p , Seller s, Has h" +
                         "WHERE p.Product_Name LIKE ‘%?%’ AND p.Product_ID = h.Product_ID AND s.Seller_ID = h.Seller_ID " +
-                        "AND Category = ? AND Price > ? AND Price < ? AND Manufacturer = ? ")) {
+                        "AND Price > ? AND Price < ?")) {
 
             ps.setString(1, ProductName);
-            ps.setString(2, Category);
-            ps.setInt(3, priceRange1);
-            ps.setInt(4, priceRange2);
-            ps.setString(5, manufacturer);
+            ps.setInt(2, priceRange1);
+            ps.setInt(3, priceRange2);
 
             ResultSet temp = ps.executeQuery();
 
             while (temp.next()) {
                 Fields item = new Fields();
-                item.setProduct_id(temp.getInt("Product_ID"));
+                item.setProduct_id(temp.getInt("p.Product_ID"));
                 item.setProduct_name(temp.getString("Product_name"));
                 item.setManufacturer(temp.getString("Manufacturer"));
                 item.setPrice(temp.getInt("Price"));
                 item.setSeller_name(temp.getString("Seller_name"));
-                item.setSeller_id(temp.getInt("Seller_ID"));
-                item.setRating(temp.getInt("Rating"));
+                item.setSeller_id(temp.getInt("s.Seller_ID"));
                 target_product.add(item);
             }
             ps.close();
@@ -300,7 +297,10 @@ public class Operation {
                         "SELECT s.Seller_ID FROM Has h, Seller s" +
                         "WHERE h.Seller_ID = s.Seller_ID AND h.Product_ID IN (SELECT Product_ID FROM Products)" +
                         "GROUP BY s.Seller_ID HAVING COUNT(*) = (SELECT COUNT(*) FROM Products)" +
-                        ")")) {
+                        ")"
+                )
+        )
+        {
             ResultSet temp = ps.executeQuery();
             while (temp.next()) {
                 Fields item = new Fields();
@@ -318,7 +318,7 @@ public class Operation {
         String CheapestProduct = "";
         int avgPrice = 0;
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT Product_Name, AvgPrice FROM Product p, " +
+                ("SELECT p.Product_Name, AvgPrice FROM Products p, " +
                         "(SELECT Product_ID as PID, AvgPrice FROM " +
                             "(SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP by Product_ID)" +
                             "WHERE AvgPrice = (SELECT  MIN(AvgPrice) " +
@@ -344,7 +344,7 @@ public class Operation {
         String HighestProduct = "";
         int avgPrice = 0;
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT Product_Name, AvgPrice FROM Product p, " +
+                ("SELECT p.Product_Name, AvgPrice FROM Products p, " +
                         "(SELECT Product_ID as PID, AvgPrice FROM " +
                         "(SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP by Product_ID)" +
                         "WHERE AvgPrice = (SELECT  MAX(AvgPrice) " +
