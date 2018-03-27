@@ -41,8 +41,9 @@ public class Operation {
         int priceRange2 = Integer.parseInt(price_range_2);
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT Product_ID, Product_name, Manufacturer, Price, Seller_name, Seller_ID, Rating " +
-                        "FROM Products p , Seller s , Rate r , Has h " +
-                        "WHERE p.Name LIKE ‘%?%’ AND Category = ? AND Price < ? AND Price > ? AND Manufacturer = ? ")) {
+                        "FROM Products p , Seller s, Rate r, Has h" +
+                        "WHERE p.Product_Name LIKE ‘%?%’ AND p.Product_ID = h.Product_ID AND s.Seller_ID = h.Seller_ID " +
+                        "AND Category = ? AND Price > ? AND Price < ? AND Manufacturer = ? ")) {
 
             ps.setString(1, ProductName);
             ps.setString(2, Category);
@@ -57,7 +58,7 @@ public class Operation {
                 item.setProduct_id(temp.getInt("Product_ID"));
                 item.setProduct_name(temp.getString("Product_name"));
                 item.setManufacturer(temp.getString("Manufacturer"));
-                item.setPrice(temp.getString("Price"));
+                item.setPrice(temp.getInt("Price"));
                 item.setSeller_name(temp.getString("Seller_name"));
                 item.setSeller_id(temp.getInt("Seller_ID"));
                 item.setRating(temp.getInt("Rating"));
@@ -69,7 +70,8 @@ public class Operation {
     }
 
     /*
-    TODO
+    Put order to make purchase
+
     Input: Product ID, Seller ID, Quantity, Payment Method(Visa or MasterCard), VIP points used
     Output A: Insert 1 tuple for each Product ID into table PutOrder under the same Order ID:
             Order IDs set to the latest created Order ID + 1.
@@ -91,20 +93,20 @@ public class Operation {
         double totalCost = 0;
 
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        // the date of TODAY which is when order placed
         Calendar c = Calendar.getInstance();
         String today = formatter.format(c.getTime());
 
+        // the shipping date
         c.add(Calendar.DATE, 1);
         String today_plus1 = formatter.format(c.getTime());
 
+        // the expected delivery date
         c.add(Calendar.DATE, 4);
         String today_plus5 = formatter.format(c.getTime());
 
-        int lastOrderID = 0;
-
-        int current_vip_points = 0;
-
         // get the current vip points the customer has
+        int current_vip_points = 0;
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT VIP_Points FROM VIP_1" +
                         "WHERE VIP_ID = (SELECT VIP_ID FROM VIP_2 WHRER Customer_id = ?)")) {
@@ -118,6 +120,7 @@ public class Operation {
         if (current_vip_points < vip_points_used) return -1;
 
         // Get the order number of the last order entered in the system
+        int lastOrderID = 0;
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT MAX(Order_number) FROM PutOrder")) {
             ResultSet temp = ps.executeQuery();
@@ -142,6 +145,7 @@ public class Operation {
             ps.setInt(8, customer_id);
             ps.setInt(9, seller_id);
             ps.setInt(8, quantity);
+            ps.close();
         }
 
         // Update VIP points by deducting vip points used
@@ -151,6 +155,7 @@ public class Operation {
             ps.setInt(1, vip_points_used);
             ps.setInt(2, customer_id);
             ps.executeQuery();
+            ps.close();
         }
 
         // return the total cost of the order
@@ -161,29 +166,84 @@ public class Operation {
             ResultSet temp = ps.executeQuery();
 
             while (temp.next()) {
-                totalCost = quantity * temp.getInt("Order_number");
+                totalCost = quantity * temp.getInt("Price") - vip_points_used/50;
             }
+            ps.close();
         }
 
         return totalCost;
     }
 
-    public boolean completeOrder(String order_ID, Connection con) throws SQLException {
+    // Input: Order ID
+    // Output: Change status of Order from “In Process” to “Completed”. Check whether the customer is VIP.
+    //         If yes, increase the VIP points by the floor of the total cost of the Order.
+    public int completeOrder(String order_ID, Connection con) throws SQLException {
         int order_id = Integer.parseInt(order_ID);
-        boolean status = false;
-        // need to modify SQL statement here about chaning VIP customer points
-        PreparedStatement ps = con.prepareStatement
-                ("UPDATE PutOrder" +
-                        "SET Status = 'In progress' "+
-                        "WHERE 'Order number' = ? and Status = 'In progress'" );
-
-        ps.setInt(1,order_id);
-        ResultSet temp = ps.executeQuery();
-        while (temp.next()) {
-            status = true;
+        try (PreparedStatement ps = con.prepareStatement
+                ("UPDATE PutOrder SET Status = 'Completed' WHERE Order_number = ?")) {
+            ps.setInt(1, order_id);
+            ps.executeQuery();
+            ps.close();
         }
-        ps.close();
-        return status;
+
+        int vipPoints_earned;
+        int customerID = 0;
+        int productID = 0;
+        int sellerID = 0;
+        int quantity = 0;
+        int price = 0;
+        int vipPoints_used = 0;
+        int vipID = -1;
+
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT Product_ID, Seller_ID, Customer_ID, Quantity, VIP_points_used FROM PutOrder WHERE Order_number = ?")) {
+            ps.setInt(1, order_id);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                customerID = temp.getInt("Customer_ID");
+                productID = temp.getInt("Product_ID");
+                sellerID = temp.getInt("Seller_ID");
+                quantity = temp.getInt("Quantity");
+                vipPoints_used = temp.getInt("VIP_points_used");
+            }
+            ps.close();
+        }
+
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT VIP_ID FROM VIP_2 WHERE CUSTOMER_ID = ?")) {
+            ps.setInt(1, customerID);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                vipID = temp.getInt("VIP_ID");
+            }
+            ps.close();
+        }
+
+        if (vipID > -1) {
+            try (PreparedStatement ps = con.prepareStatement
+                    ("SELECT Price FROM Has WHERE Product_ID = ? AND Seller_ID = ?")) {
+                ps.setInt(1, productID);
+                ps.setInt(2, sellerID);
+                ResultSet temp = ps.executeQuery();
+                while (temp.next()) {
+                    price = temp.getInt("Price");
+                }
+                ps.close();
+            }
+
+            // vipPoints_earned = total order cost
+            vipPoints_earned = price * quantity - vipPoints_used/50;
+
+            try (PreparedStatement ps = con.prepareStatement
+                    ("UPDATE VIP_1 SET VIP_Points = VIP_Points + ? WHERE VIP_ID = ?")) {
+                ps.setInt(1, vipPoints_earned);
+                ps.setInt(2, vipID);
+                ps.executeQuery();
+                ps.close();
+            }
+        }
+
+        return 1;
     }
 
 
