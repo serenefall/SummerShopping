@@ -251,12 +251,13 @@ public class Operation {
     }
 
 
-    // Input: Product ID, Order ID, Seller ID, Rating(1/2/3/4/5)
+    // Input: Order ID, Rating(1/2/3/4/5)
     // Output: Insert a tuple in the table Rate if the Order ID is “completed” and return true. Otherwise return false.
     public boolean rateProduct(String order_ID, String Rating, Connection con) throws SQLException {
         int order_id = Integer.parseInt(order_ID);
         int rating = Integer.parseInt(Rating);
 
+        // check whether the order is Completed. Only completed order can be rated
         String status = "";
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT Status FROM PurOrder WHERE Order_number = ?")) {
@@ -268,6 +269,7 @@ public class Operation {
             ps.close();
         }
 
+        // if the Order is completed, rate the order. If the order was rated before, update the rating.
         if (status.equals("Completed")){
             try (PreparedStatement ps = con.prepareStatement
                     ("INSERT INTO Rate (Rating, Order_number) VALUES (?, ?) " +
@@ -284,77 +286,89 @@ public class Operation {
         }
     }
 
-    // TODO
-    //return -1 if cannot get totalcost; else, return the total cost.
-    /***********needs to fullfil the SQL statement properly and set the related parameters*****************/
-    public double getTotalPurchaseCost(String customer_ID, String startDate, String  endDate, Connection con) throws SQLException {
-
-        double totolCost = -1;
-        Date tempStartDate = new Date(Long.parseLong(startDate));
-        Date tempEndDate = new Date((Long.parseLong(endDate)));
-        // need to modify SQL statement here, get the total cost within data range date1 to date2
-        PreparedStatement ps = con.prepareStatement
-                ("UPDATE PutOrder" +
-                        "WHERE 'Order number' = ?" );
-
-        //ps.setInt(1,order_id);
-        ResultSet temp = ps.executeQuery();
-        while (temp.next()) {
-            // needs to change the totalcost here
-            //totolCost += temp.getDouble("price");
-            totolCost = 0.0;
-
-        }
-        ps.close();
-        return totolCost;
-    }
-
-    // Date Range not sure about show to translate data range
-    // return: status means rating sucessfully; else fails to rate
-    public ArrayList<Fields>  getTotalPurchaseList (String customer_ID, String date1, String date2, Connection con) throws SQLException {
-
-        boolean status = false;
+    // WholeSeller is a seller selling all the products on the platform
+    public ArrayList<Fields>  getWholeSeller (Connection con) throws SQLException {
         ArrayList<Fields> target_list = new ArrayList<>();
-        // need to modify SQL statement here, get the total cost within data range date1 to date2
-        PreparedStatement ps = con.prepareStatement
-                ("UPDATE PutOrder" +
-                        "WHERE 'Order number' = ?" );
-
-        //ps.setInt(1,order_id);
-        ResultSet temp = ps.executeQuery();
-        while (temp.next()) {
-            Fields item = new Fields();
-            item.setProduct_id(temp.getInt("Product_name"));
-            item.setProduct_name(temp.getString("Brand"));
-            item.setManufacturer(temp.getString("Price"));
-            target_list.add(item);
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT Seller_ID, Seller_Name FROM Has, Seller" +
+                        "WHERE Has.Seller_ID = Seller.Seller_ID AND Has.Product_ID IN (SELECT Product_ID FROM Product)" +
+                        "GROUP BY Seller_ID HAVING COUNT(*) = (SELECT COUNT(*) FROM Product);")) {
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                Fields item = new Fields();
+                item.setSeller_id(temp.getInt("Seller_ID"));
+                item.setSeller_name(temp.getString("Seller_Name"));
+                target_list.add(item);
+            }
+            ps.close();
         }
-        ps.close();
         return target_list;
     }
 
-    // wait for SQL Statement
-    // return: status means rating sucessfully; else fails to rate
-    public ArrayList<Fields>  getBestSeller (Connection con) throws SQLException {
+    /*
+     * TODO: Suggest to delete due to heavy labour and redundancy towards the project demo
+     */
+//    // Input: Date Range
+//    // Output: sum of Order cost during the period of this customer
+//    public double getTotalPurchaseCost(String customer_ID, String startDate, String endDate, Connection con) throws SQLException {
+//
+//        int totolCost = -1;
+//        try (PreparedStatement ps = con.prepareStatement
+//                ("SELECT SUM")) {
+//
+//
+//            ps.close();
+//        }
+//        return totolCost;
+//    }
+//
+//    // Date Range not sure about show to translate data range
+//    // return: status means rating sucessfully; else fails to rate
+//    public ArrayList<Fields>  getTotalPurchaseList (String customer_ID, String date1, String date2, Connection con) throws SQLException {
+//
+//        boolean status = false;
+//        ArrayList<Fields> target_list = new ArrayList<>();
+//        // need to modify SQL statement here, get the total cost within data range date1 to date2
+//        PreparedStatement ps = con.prepareStatement
+//                ("UPDATE PutOrder" +
+//                        "WHERE 'Order number' = ?" );
+//
+//        //ps.setInt(1,order_id);
+//        ResultSet temp = ps.executeQuery();
+//        while (temp.next()) {
+//            Fields item = new Fields();
+//            item.setProduct_id(temp.getInt("Product_name"));
+//            item.setProduct_name(temp.getString("Brand"));
+//            item.setManufacturer(temp.getString("Price"));
+//            target_list.add(item);
+//        }
+//        ps.close();
+//        return target_list;
+//    }
 
-        boolean status = false;
-        ArrayList<Fields> target_list = new ArrayList<>();
-        // need to modify SQL statement here, get the total cost within data range date1 to date2
-        PreparedStatement ps = con.prepareStatement
-                ("UPDATE PutOrder" +
-                        "WHERE 'Order number' = ?" );
-
-        //ps.setInt(1,order_id);
-        ResultSet temp = ps.executeQuery();
-        while (temp.next()) {
-            Fields item = new Fields();
-            item.setProduct_id(temp.getInt("Seller ID"));
-            item.setProduct_name(temp.getString("Name"));
-            target_list.add(item);
-        }
-        ps.close();
-        return target_list;
-    }
+    /*
+     * TODO: Suggest to delete due to actually not being Division
+     */
+//    // Input:
+//    // Output: List of Sellers (Seller ID and Name) whose all rated products having an average rating >= 4/5
+//    // Assume: all products
+//    public ArrayList<Fields>  getBestSeller (Connection con) throws SQLException {
+//
+//        ArrayList<Fields> target_list = new ArrayList<>();
+//        PreparedStatement ps = con.prepareStatement
+//                ("SELECT Seller_ID, Seller_Name FROM Rate, PutOrder, Seller WHERE " );
+//
+//        //ps.setInt(1,order_id);
+//        ResultSet temp = ps.executeQuery();
+//        while (temp.next()) {
+//            Fields item = new Fields();
+//            item.setProduct_id(temp.getInt("Seller ID"));
+//            item.setProduct_name(temp.getString("Name"));
+//            target_list.add(item);
+//        }
+//        ps.close();
+//        return target_list;
+//    }
 
     /**************** Queries for Seller *****************************/
 

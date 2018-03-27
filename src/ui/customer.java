@@ -190,16 +190,16 @@ public class customer {
 
                    try {
                         //******************* to be done*************************//
-                       returnedArray = ope.getBestSeller(con);
+                       returnedArray = ope.getWholeSeller(con);
                        for (int i = 0; i < returnedArray.size();i++) {
                            String tempSellerID = Integer.toString(returnedArray.get(i).getSeller_id());
                            String tempSellerName = returnedArray.get(i).getSeller_name();
                            sellerIDTextArea.append(tempSellerID+'\n');
                            sellerNameTextArea.append(tempSellerName + '\n');
                        }
-                       JOptionPane.showMessageDialog(null,"Best sellers are found !");
+                       JOptionPane.showMessageDialog(null,"Whole sellers are found !");
                    } catch (java.sql.SQLException e2) {
-                       JOptionPane.showMessageDialog(null, "Fail to get best sellers! Please try again!");
+                       JOptionPane.showMessageDialog(null, "No whole seller found!");
                    }
                }
            });
