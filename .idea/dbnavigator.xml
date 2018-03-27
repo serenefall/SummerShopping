@@ -23,12 +23,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="650a4f63-d9bb-4fb5-addf-131cd93de022">
-        <schema name="ORA_Z8V0B" object-types="cluster, column, constraint, dblink, dimension, function, index, materialized view, nested table, package, procedure, sequence, synonym, table, dataset trigger, database trigger, type, view" />
-        <schema name="PUBLIC" object-types="function, package, sequence, synonym, type" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="650a4f63-d9bb-4fb5-addf-131cd93de022">
