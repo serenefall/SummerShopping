@@ -49,7 +49,7 @@ public class seller {
                     String name = nameTextField.getText();
                     String category = categoryTextField.getText();
 
-                    if(ope.addProduct(productID,quantity,brand,price,name,category,con)){
+                    if(ope.addProduct(productID,brand,name,category,con)){
                         JOptionPane.showMessageDialog(null, "Product Added!");
                     }else{
                         JOptionPane.showMessageDialog(null, "Failed to add Product!");
@@ -64,8 +64,7 @@ public class seller {
                 public void actionPerformed(ActionEvent e) {
 
                     String productID = productIDTextField.getText();
-
-                    if(ope.deleteProduct(productID, getSellerID(),con)){
+                    if(ope.deleteProduct(productID,sellerID,con)){
                         JOptionPane.showMessageDialog(null, "Product Deleted!");
                     }else{
                         JOptionPane.showMessageDialog(null, "Failed to delete Product!");
@@ -113,7 +112,8 @@ public class seller {
                 public void actionPerformed(ActionEvent e) {
                     ArrayList<ArrayList<String>> products = new ArrayList<ArrayList<String>>();
                     products = ope.viewProduct(getSellerID(),con);
-                    int numOfObjects = (products.get(0)).size();
+                    int numOfObjects = products.size();
+                    int numOfColumns = products.get(0).size();
                     ArrayList<JTextArea> columns = new ArrayList<>();
                     columns.add(productIDTextArea);
                     columns.add(categoryTextArea);
@@ -124,8 +124,8 @@ public class seller {
 
 
                     // fill in productID
-                    for (int i = 0; i < products.size(); i++) {
-                        for (int j = 0; j < numOfObjects;j++) {
+                    for (int i = 0; i < numOfObjects; i++) {
+                        for (int j = 0; j < numOfColumns;j++) {
                             JTextArea toBeFilled = columns.get(i);
                             toBeFilled.append((products.get(i)).get(j) + "\n");
                         }

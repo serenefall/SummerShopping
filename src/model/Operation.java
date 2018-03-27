@@ -284,15 +284,16 @@ public class Operation {
     public boolean updatePrice(String seller_ID, String productID, String price,Connection con){
         boolean status = false;
         int product_id = Integer.parseInt(productID);
+        int seller_id = Integer.parseInt(seller_ID);
         ArrayList<Fields> target_list = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement
-                    ("UPDATE Has" +
-                            "SET Price = ? where Product_ID = ?" );
+                    ("UPDATE Has SET Price = ? where Product_ID = ? AND Seller_ID = ?" );
             ps.setString(1,price);
             ps.setInt(2, product_id);
-            ResultSet temp = ps.executeQuery();
-            while (temp.next()) {
+            ps.setInt(3,seller_id);
+            int temp = ps.executeUpdate();
+            if (temp!=0) {
                 status = true;
             }
             ps.close();
@@ -337,7 +338,7 @@ public class Operation {
         int seller_id = Integer.parseInt(Seller_ID);
         try {
             PreparedStatement ps = con.prepareStatement
-                    ("SELECT has.product_id, Category, Manufacturer, Name, Quality, Price, seller_ID " +
+                    ("SELECT has.product_id, Category, Manufacturer, Product_Name, Quantity, Price, seller_ID " +
                             "FROM Products, Has WHERE Seller_ID = ?" );
             ps.setInt(1, seller_id);
             ResultSet temp = ps.executeQuery();
@@ -346,8 +347,8 @@ public class Operation {
                 tempResult.add(temp.getString("Product_ID"));
                 tempResult.add(temp.getString("Category"));
                 tempResult.add(temp.getString("Manufacturer"));
-                tempResult.add(temp.getString("Name"));
-                tempResult.add(temp.getString("Quality"));
+                tempResult.add(temp.getString("Product_Name"));
+                tempResult.add(temp.getString("Quantity"));
                 tempResult.add(temp.getString("Price"));
                 tempResult.add(temp.getString("seller_ID"));
                 result.add(tempResult);
@@ -362,22 +363,21 @@ public class Operation {
 
     // TODO: check why status never changed
     // the SQL statement in addProduct remained to be added.
-    public boolean addProduct(String productID,String quantity, String brand, String price, String name, String category,Connection con){
+    public boolean addProduct(String productID, String brand, String name, String category,Connection con){
         boolean status = false;
         int product_id = Integer.parseInt(productID);
-        int iQuantity = Integer.parseInt(quantity);
         ArrayList<Fields> target_list = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement
                     ("INSERT INTO Products" +
-                            "(Product_ID, Category, Manufacturer,Name) VALUES(?,?,?,?)" );
+                            "(Product_ID, Category, Manufacturer,Product_Name) VALUES(?,?,?,?)" );
             ps.setInt(1, product_id);
-            ResultSet temp = ps.executeQuery();
-            while (temp.next()) {
-                Fields item = new Fields();
-                item.setProduct_id(temp.getInt("Seller ID"));
-                item.setProduct_name(temp.getString("Name"));
-                target_list.add(item);
+            ps.setString(2,category);
+            ps.setString(3,brand);
+            ps.setString(4,name);
+            int temp = ps.executeUpdate();
+            if (temp != 0) {
+                status = true;
             }
             ps.close();
         } catch (SQLException e) {
@@ -397,9 +397,8 @@ public class Operation {
                             "WHERE Product_ID = ? AND Seller_ID = ? ");
             ps.setInt(1, product_id);
             ps.setInt(2, seller_id);
-            ResultSet temp = null;
-            temp = ps.executeQuery();
-            while (temp.next()) {
+            int temp = ps.executeUpdate();
+            if (temp != 0) {
                 status = true;
             }
             ps.close();
@@ -420,9 +419,9 @@ public class Operation {
                     ("DELETE FROM Customer " +
                             "WHERE Customer_id = ? ");
             ps.setInt(1, customer_id);
-            ResultSet temp = null;
-            temp = ps.executeQuery();
-            while (temp.next()) {
+//            ResultSet temp = null;
+            int temp = ps.executeUpdate();
+            if (temp!=0) {
                 status = true;
             }
             ps.close();
@@ -441,9 +440,8 @@ public class Operation {
                     ("DELETE FROM Seller " +
                             "WHERE Seller_id = ? " );
             ps.setInt(1,seller_id);
-            ResultSet temp = null;
-            temp = ps.executeQuery();
-            while (temp.next()) {
+            int temp = ps.executeUpdate();
+            if (temp!=0) {
                 status = true;
             }
             ps.close();
