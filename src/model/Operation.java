@@ -315,8 +315,7 @@ public class Operation {
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT Seller_ID, Seller_Name FROM Seller WHERE Seller_ID = ANY" +
                         "(" +
-                        "SELECT s.Seller_ID FROM Has h, Seller s" +
-                        "WHERE h.Seller_ID = s.Seller_ID AND h.Product_ID IN (SELECT Product_ID FROM Products)" +
+                        "SELECT s.Seller_ID FROM Has h, Seller s WHERE h.Seller_ID = s.Seller_ID AND h.Product_ID IN (SELECT Product_ID FROM Products)" +
                         "GROUP BY s.Seller_ID HAVING COUNT(*) = (SELECT COUNT(*) FROM Products)" +
                         ")"
                 )
@@ -343,8 +342,7 @@ public class Operation {
                         "(SELECT Product_ID as PID, AvgPrice FROM " +
                             "(SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP by Product_ID)" +
                             "WHERE AvgPrice = (SELECT  MIN(AvgPrice) " +
-                                                "FROM (SELECT Product_ID, AVG(Price) as AvgPrice" +
-                                                        "FROM Has GROUP BY Product_ID)" +
+                                                "FROM (SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP BY Product_ID)" +
                                                 ")" +
                         ") WHERE p.Product_ID = PID" )){
             ResultSet temp = ps.executeQuery();
@@ -356,7 +354,7 @@ public class Operation {
             ps.close();
         }
 
-        return CheapestProduct + "has the lowest average selling price as $" + Integer.toString(avgPrice);
+        return CheapestProduct + " with average price $" + Integer.toString(avgPrice);
     }
 
 
@@ -369,8 +367,7 @@ public class Operation {
                         "(SELECT Product_ID as PID, AvgPrice FROM " +
                         "(SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP by Product_ID)" +
                         "WHERE AvgPrice = (SELECT  MAX(AvgPrice) " +
-                        "FROM (SELECT Product_ID, AVG(Price) as AvgPrice" +
-                        "FROM Has GROUP BY Product_ID))" +
+                        "FROM (SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP BY Product_ID))" +
                         ") WHERE p.Product_ID = PID" )){
             ResultSet temp = ps.executeQuery();
             while (temp.next()) {
@@ -381,7 +378,7 @@ public class Operation {
             ps.close();
         }
 
-        return HighestProduct + "has the highest average selling price as $" + Integer.toString(avgPrice);
+        return HighestProduct + " with average price $" + Integer.toString(avgPrice);
     }
 
     /**************** Queries for Seller *****************************/
