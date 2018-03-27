@@ -33,6 +33,8 @@ public class seller {
     private JTextArea priceTextArea;
     private String sellerID;
 
+
+
     public seller(){
 
         try {
@@ -49,10 +51,14 @@ public class seller {
                     String name = nameTextField.getText();
                     String category = categoryTextField.getText();
 
-                    if(ope.addProduct(productID,brand,name,category,con)){
-                        JOptionPane.showMessageDialog(null, "Product Added!");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Failed to add Product!");
+                    try {
+                        if(ope.addProduct(sellerID,productID,brand,name,category,quantity,price,con)){
+                            JOptionPane.showMessageDialog(null, "Product Added!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Failed to add Product!");
+                        }
+                    } catch (SQLException e1) {
+                        e1.getMessage();
                     }
                 }
             });
@@ -64,10 +70,14 @@ public class seller {
                 public void actionPerformed(ActionEvent e) {
 
                     String productID = productIDTextField.getText();
-                    if(ope.deleteProduct(productID,sellerID,con)){
-                        JOptionPane.showMessageDialog(null, "Product Deleted!");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Failed to delete Product!");
+                    try {
+                        if(ope.deleteProduct(productID,sellerID,con)){
+                            JOptionPane.showMessageDialog(null, "Product Deleted!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Failed to delete Product!");
+                        }
+                    } catch (SQLException e1) {
+                        e1.getMessage();
                     }
                 }
             });
@@ -81,10 +91,16 @@ public class seller {
 
                     String productID = productIDTextField.getText();
                     String price = priceTextField.getText();
-                    if(ope.updatePrice(sellerID,productID,price,con)){
-                        JOptionPane.showMessageDialog(null, "Price updated for " + productID + " !");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Failed to update price for "+ productID + " !");
+                    String quantity = quantityTextField.getText();
+
+                    try {
+                        if(ope.updatePrice(sellerID,productID,price,quantity,con)){
+                            JOptionPane.showMessageDialog(null, "Price updated for " + productID + " !");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Failed to update price for "+ productID + " !");
+                        }
+                    } catch (SQLException e1) {
+                        e1.getMessage();
                     }
                 }
             });

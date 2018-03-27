@@ -365,51 +365,58 @@ public class Operation {
 
     /**************** Queries for Seller *****************************/
 
-    public boolean updatePrice(String seller_ID, String productID, String price,Connection con){
-        boolean status = false;
+    public boolean updatePrice(String seller_ID, String productID, String Price, String Quantity, Connection con) throws SQLException{
         int product_id = Integer.parseInt(productID);
         int seller_id = Integer.parseInt(seller_ID);
-        try {
-            PreparedStatement ps = con.prepareStatement
-                    ("UPDATE Has SET Price = ? where Product_ID = ? AND Seller_ID = ?" );
-            ps.setString(1,price);
-            ps.setInt(2, product_id);
-            ps.setInt(3,seller_id);
-            int temp = ps.executeUpdate();
-            if (temp!=0) {
-                status = true;
-            }
+        int quantity = Integer.parseInt(Quantity);
+        int price = Integer.parseInt(Price);
+
+
+        try (PreparedStatement ps = con.prepareStatement
+                    ("UPDATE Has SET Price = ?, Quantity = ? WHERE Product_ID = ? AND Seller_ID = ?" )){
+            ps.setInt(1, price);
+            ps.setInt(2, quantity);
+            ps.setInt(3, product_id);
+            ps.setInt(4, seller_id);
+            ps.executeUpdate();
             ps.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-        return status;
+        return true;
     }
 
 
-    public boolean addProduct(String productID, String brand, String name, String category,Connection con){
-        boolean status = false;
-        int product_id = Integer.parseInt(productID);
-        try {
-            PreparedStatement ps = con.prepareStatement
+    public boolean addProduct(String seller_ID, String product_ID, String brand, String name,
+                              String category, String Quantity, String Price, Connection con) throws SQLException {
+        int product_id = Integer.parseInt(product_ID);
+        int seller_id = Integer.parseInt(seller_ID);
+        int quantity = Integer.parseInt(Quantity);
+        int price = Integer.parseInt(Price);
+
+        try (PreparedStatement ps = con.prepareStatement
                     ("INSERT INTO Products" +
-                            "(Product_ID, Category, Manufacturer,Product_Name) VALUES(?,?,?,?)" );
+                            "(Product_ID, Category, Manufacturer,Product_Name) VALUES(?,?,?,?)" )){
             ps.setInt(1, product_id);
             ps.setString(2,category);
             ps.setString(3,brand);
             ps.setString(4,name);
-            int temp = ps.executeUpdate();
-            if (temp != 0) {
-                status = true;
-            }
+            ps.executeUpdate();
             ps.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-        return status;
+
+        try (PreparedStatement ps = con.prepareStatement
+                    ("INSERT INTO Has (Product_ID, Seller_ID, Quantity, Price) VALUES(?,?,?,?)" )){
+            ps.setInt(1, product_id);
+            ps.setInt(2, seller_id);
+            ps.setInt(3, quantity);
+            ps.setInt(4, price);
+            ps.executeUpdate();
+            ps.close();
+        }
+
+        return true;
     }
 
-    public boolean deleteProduct(String productID, String sellerID, Connection con){
+    public boolean deleteProduct(String productID, String sellerID, Connection con) throws SQLException {
         int product_id = Integer.parseInt(productID);
         int seller_id = Integer.parseInt(sellerID);
         boolean status = false;
@@ -434,7 +441,7 @@ public class Operation {
 
 
     /****************for sys_admin*****************************/
-    public boolean deleteCustomer(String customerID, Connection con) {
+    public boolean deleteCustomer(String customerID, Connection con)  {
         int customer_id = Integer.parseInt(customerID);
         boolean status = false;
         try {
@@ -454,7 +461,7 @@ public class Operation {
         return status;
     }
 
-    public boolean deleteSeller(String sellerID, Connection con){
+    public boolean deleteSeller(String sellerID, Connection con)  {
         int seller_id = Integer.parseInt(sellerID);
         boolean status = false;
 
