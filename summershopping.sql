@@ -155,12 +155,10 @@ INSERT INTO Rate (Rating, Order_number) values (5, 62088100);
 INSERT INTO Rate (Rating, Order_number) values (2, 45138574);
 INSERT INTO Rate (Rating, Order_number) values (4, 41945574);
 
-INSERT INTO Rate (Rating, Order_number) VALUES (3, 41945574)  where not 41945574 in (SELECT Order_number from Rate);
 
-insert into rate (rating, order_number)
+INSERT INTO Rate (rating, order_number)
                             select 3, 41945574  from dual
                             where not exists (select order_number from rate where order_number = 41945574);
-
 
 CREATE TABLE Has (
 	Product_ID INT,
