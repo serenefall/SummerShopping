@@ -109,17 +109,14 @@ public class customer {
                     // corresponding to text field 7 9 10 8
                     String order_id = orderIDTextField.getText();
                     String rating = ratingTextField.getText();
-                    boolean status = false;
-                    try {
-                        status = ope.rateProduct(order_id,rating,con);
-                        if(status){
-                            JOptionPane.showMessageDialog(null,"Rating complete!");
-                        }
-                    } catch (java.sql.SQLException e2) {
+                    if(ope.rateProduct(order_id,rating,con)){
+                        JOptionPane.showMessageDialog(null,"Rating complete!");
+                    } else {
                         JOptionPane.showMessageDialog(null, "Fail to rate! Please try again!");
                     }
                 }
             });
+
 
 
             wholeSellerButton.addActionListener(new ActionListener() {
@@ -175,9 +172,6 @@ public class customer {
 
 
 
-
-
-
             buyButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -197,18 +191,14 @@ public class customer {
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Put Order failed!");
-
                     }
-
-
                 }
             });
 
 
         }catch (Exception e1) {
             JOptionPane.showMessageDialog(null,"e1");
-        };
-
-            }
+        }
+    }
 
 }
