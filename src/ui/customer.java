@@ -65,20 +65,20 @@ public class customer {
                     ArrayList<Fields> returnedArray = new ArrayList<>();
                     try {
                         returnedArray = ope.searchProducts(productName, price_range_1, price_range_2, con);
-//                        for (int i = 0; i < returnedArray.size();i++) {
-//                            String productIdReturned = Integer.toString(returnedArray.get(i).getProduct_id());
-//                            String productNameReturned = returnedArray.get(i).getProduct_name();
-//                            String manufacturerReturned = returnedArray.get(i).getManufacturer();
-//                            String priceReturned = Integer.toString(returnedArray.get(i).getPrice());
-//                            String sellerNameReturned = returnedArray.get(i).getSeller_name();
-//                            String selleridReturned = Integer.toString(returnedArray.get(i).getSeller_id());
-//                            productNameTextArea.append(productNameReturned+'\n');
-//                            productIDTextArea.append(productIdReturned+'\n');
-//                            productBrandTextArea.append(manufacturerReturned+'\n');
-//                            productPriceTextArea.append(priceReturned+'\n');
-//                            sellerNameTextArea.append(sellerNameReturned+'\n');
-//                            sellerIDTextArea.append(selleridReturned+'\n');
-//                        }
+                        for (int i = 0; i < returnedArray.size();i++) {
+                            String productIdReturned = Integer.toString(returnedArray.get(i).getProduct_id());
+                            String productNameReturned = returnedArray.get(i).getProduct_name();
+                            String manufacturerReturned = returnedArray.get(i).getManufacturer();
+                            String priceReturned = Integer.toString(returnedArray.get(i).getPrice());
+                            String sellerNameReturned = returnedArray.get(i).getSeller_name();
+                            String selleridReturned = Integer.toString(returnedArray.get(i).getSeller_id());
+                            productNameTextArea.append(productNameReturned+'\n');
+                            productIDTextArea.append(productIdReturned+'\n');
+                            productBrandTextArea.append(manufacturerReturned+'\n');
+                            productPriceTextArea.append(priceReturned+'\n');
+                            sellerNameTextArea.append(sellerNameReturned+'\n');
+                            sellerIDTextArea.append(selleridReturned+'\n');
+                        }
                     } catch (java.sql.SQLException e2) {
                         JOptionPane.showMessageDialog(null, "e2" + e2.getMessage());
                     }
