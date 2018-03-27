@@ -89,49 +89,49 @@ public class seller {
                 }
             });
 
-            salesByProductButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    String productID = productID2TextFieldF.getText();
-                    String startDate = startDateTextField.getText();
-                    String endDate = endDateTextField.getText();
+//            salesByProductButton.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    String productID = productID2TextFieldF.getText();
+//                    String startDate = startDateTextField.getText();
+//                    String endDate = endDateTextField.getText();
+//
+//                    int totalSales = ope.salesByProduct(productID,startDate,endDate,con);
+//                    if(totalSales == -1){
+//                        JOptionPane.showMessageDialog(null, "Cannot get sales!");
+//
+//                    }else{
+//                        priceTextArea.setText(Integer.toString(totalSales));
+//                    }
+//
+//                }
+//            });
 
-                    int totalSales = ope.salesByProduct(productID,startDate,endDate,con);
-                    if(totalSales == -1){
-                        JOptionPane.showMessageDialog(null, "Cannot get sales!");
-
-                    }else{
-                        priceTextArea.setText(Integer.toString(totalSales));
-                    }
-
-                }
-            });
-
-            showProductsButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ArrayList<ArrayList<String>> products = new ArrayList<ArrayList<String>>();
-                    products = ope.viewProduct(getSellerID(),con);
-                    int numOfObjects = products.size();
-                    int numOfColumns = products.get(0).size();
-                    ArrayList<JTextArea> columns = new ArrayList<>();
-                    columns.add(productIDTextArea);
-                    columns.add(categoryTextArea);
-                    columns.add(manufacturerTextArea);
-                    columns.add(quantityTextArea);
-                    columns.add(nameTextArea);
-                    columns.add(priceTextArea);
-
-
-                    // fill in productID
-                    for (int i = 0; i < numOfObjects; i++) {
-                        for (int j = 0; j < numOfColumns;j++) {
-                            JTextArea toBeFilled = columns.get(i);
-                            toBeFilled.append((products.get(i)).get(j) + "\n");
-                        }
-                    }
-                }
-            });
+//            showProductsButton.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    ArrayList<ArrayList<String>> products = new ArrayList<ArrayList<String>>();
+//                    products = ope.viewProduct(getSellerID(),con);
+//                    int numOfObjects = products.size();
+//                    int numOfColumns = products.get(0).size();
+//                    ArrayList<JTextArea> columns = new ArrayList<>();
+//                    columns.add(productIDTextArea);
+//                    columns.add(categoryTextArea);
+//                    columns.add(manufacturerTextArea);
+//                    columns.add(quantityTextArea);
+//                    columns.add(nameTextArea);
+//                    columns.add(priceTextArea);
+//
+//
+//                    // fill in productID
+//                    for (int i = 0; i < numOfObjects; i++) {
+//                        for (int j = 0; j < numOfColumns;j++) {
+//                            JTextArea toBeFilled = columns.get(i);
+//                            toBeFilled.append((products.get(i)).get(j) + "\n");
+//                        }
+//                    }
+//                }
+//            });
 
 
         } catch (SQLException e) {
