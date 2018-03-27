@@ -30,7 +30,7 @@ public class Operation {
 
     /**************** Queries for Customer *****************************/
 
-    public ArrayList<Fields> searchProducts(String ProductName, String Category, String price_range_1, String price_range_2,
+    public ArrayList<Fields> searchProducts(String ProductName, String price_range_1, String price_range_2,
                                             Connection con) throws SQLException {
         ArrayList<Fields> target_product = new ArrayList<>();
         int priceRange1 = Integer.parseInt(price_range_1);
@@ -126,7 +126,7 @@ public class Operation {
         try (PreparedStatement ps = con.prepareStatement
                 ("INSERT INTO PutOrder" +
                         "(Status, Payment_method, Date_placed, Shipping_date, Arrival_date, " +
-                        "VIP_points_used, Order_number , Product_ID, Customer_id, Seller_ID, Quantity) " +
+                        "VIP_points_used, Order_number, Product_ID, Customer_id, Seller_ID, Quantity) " +
                         "VALUES ('In Progress', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?")) {
             ps.setString(1, Payment_method);
             ps.setString(2, today);
@@ -144,7 +144,7 @@ public class Operation {
         // Update VIP points by deducting vip points used
         try (PreparedStatement ps = con.prepareStatement
                 ("UPDATE VIP_1 SET VIP_Points = VIP_Points - ?" +
-                        "WHERE VIP_ID = (SELECT VIP_ID FROM VIP_2 WHRER Customer_id = ?)")) {
+                        "WHERE VIP_ID = (SELECT VIP_ID FROM VIP_2 WHERE Customer_id = ?)")) {
             ps.setInt(1, vip_points_used);
             ps.setInt(2, customer_id);
             ps.executeQuery();
@@ -318,7 +318,7 @@ public class Operation {
         String CheapestProduct = "";
         int avgPrice = 0;
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT p.Product_Name, AvgPrice FROM Products p, " +
+                ("SELECT Product_Name, AvgPrice FROM Products p, " +
                         "(SELECT Product_ID as PID, AvgPrice FROM " +
                             "(SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP by Product_ID)" +
                             "WHERE AvgPrice = (SELECT  MIN(AvgPrice) " +
@@ -344,7 +344,7 @@ public class Operation {
         String HighestProduct = "";
         int avgPrice = 0;
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT p.Product_Name, AvgPrice FROM Products p, " +
+                ("SELECT Product_Name, AvgPrice FROM Products p, " +
                         "(SELECT Product_ID as PID, AvgPrice FROM " +
                         "(SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP by Product_ID)" +
                         "WHERE AvgPrice = (SELECT  MAX(AvgPrice) " +

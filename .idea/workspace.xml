@@ -52,8 +52,8 @@
       <file leaf-file-name="Operation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="346" column="27" lean-forward="false" selection-start-line="346" selection-start-column="27" selection-end-line="346" selection-end-column="27" />
+            <state relative-caret-position="1959">
+              <caret line="149" column="30" lean-forward="true" selection-start-line="149" selection-start-column="30" selection-end-line="149" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -749,8 +749,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="346" column="27" lean-forward="false" selection-start-line="346" selection-start-column="27" selection-end-line="346" selection-end-column="27" />
+        <state relative-caret-position="1959">
+          <caret line="149" column="30" lean-forward="true" selection-start-line="149" selection-start-column="30" selection-end-line="149" selection-end-column="30" />
           <folding />
         </state>
       </provider>
