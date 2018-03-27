@@ -33,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/summershopping.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="157" column="116" lean-forward="true" selection-start-line="157" selection-start-column="116" selection-end-line="157" selection-end-column="116" />
+              <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,8 +72,8 @@
       <file leaf-file-name="customer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="123" column="12" lean-forward="false" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="12" />
+            <state relative-caret-position="1704">
+              <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -741,7 +741,7 @@
     <entry file="file://$PROJECT_DIR$/summershopping.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="157" column="116" lean-forward="true" selection-start-line="157" selection-start-column="116" selection-end-line="157" selection-end-column="116" />
+          <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -756,8 +756,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="123" column="12" lean-forward="false" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="12" />
+        <state relative-caret-position="1704">
+          <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
           <folding />
         </state>
       </provider>
