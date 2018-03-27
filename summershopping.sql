@@ -124,20 +124,14 @@ INSERT INTO PutOrder (Status, Payment_method, Date_placed, Shipping_date, Arriva
 
 CREATE TABLE Rate (
 	Rating INT,
-	Customer_ID INT,
-	Seller_ID INT,
-	Product_ID INT,
 	Order_number INT,
-            PRIMARY KEY(Customer_ID, Product_ID, Seller_ID),
-            FOREIGN KEY(Customer_ID) REFERENCES Customer(Customer_ID),
-            FOREIGN KEY(Product_ID) REFERENCES Products(Product_ID),
-            FOREIGN KEY(Seller_ID) REFERENCES Seller(Seller_ID),
+            PRIMARY KEY(Order_number),
 			FOREIGN KEY(Order_number) REFERENCES PutOrder(Order_number)
 );
-INSERT INTO Rate (Rating, Customer_ID, Seller_ID, Product_ID, Order_number) values (5, 234, 7530, 77682,84601784);
-INSERT INTO Rate (Rating, Customer_ID, Seller_ID, Product_ID, Order_number) values (4, 456, 8458, 95033,93777720);
-INSERT INTO Rate (Rating, Customer_ID, Seller_ID, Product_ID, Order_number) values (3, 896, 1111, 30874,62089060);
-INSERT INTO Rate (Rating, Customer_ID, Seller_ID, Product_ID, Order_number) values (5, 678, 2222, 13776,62088100);
+INSERT INTO Rate (Rating, Order_number) values (5, 84601784);
+INSERT INTO Rate (Rating, Order_number) values (4, 93777720);
+INSERT INTO Rate (Rating, Order_number) values (3, 62089060);
+INSERT INTO Rate (Rating, Order_number) values (5, 62088100);
 
 CREATE TABLE Has (
 	Product_ID INT,
