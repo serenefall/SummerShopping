@@ -1,14 +1,10 @@
 package model;
 
-import javax.swing.*;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.concurrent.TimeUnit;
-import oracle.jdbc.driver.*;
-import java.util.ArrayList;
 
 public class Operation {
 
@@ -305,70 +301,55 @@ public class Operation {
         return target_list;
     }
 
-    /*
-     * TODO: Suggest to delete due to heavy labour and redundancy towards the project demo
-     */
-//    // Input: Date Range
-//    // Output: sum of Order cost during the period of this customer
-//    public double getTotalPurchaseCost(String customer_ID, String startDate, String endDate, Connection con) throws SQLException {
-//
-//        int totolCost = -1;
-//        try (PreparedStatement ps = con.prepareStatement
-//                ("SELECT SUM")) {
-//
-//
-//            ps.close();
-//        }
-//        return totolCost;
-//    }
-//
-//    // Date Range not sure about show to translate data range
-//    // return: status means rating sucessfully; else fails to rate
-//    public ArrayList<Fields>  getTotalPurchaseList (String customer_ID, String date1, String date2, Connection con) throws SQLException {
-//
-//        boolean status = false;
-//        ArrayList<Fields> target_list = new ArrayList<>();
-//        // need to modify SQL statement here, get the total cost within data range date1 to date2
-//        PreparedStatement ps = con.prepareStatement
-//                ("UPDATE PutOrder" +
-//                        "WHERE 'Order number' = ?" );
-//
-//        //ps.setInt(1,order_id);
-//        ResultSet temp = ps.executeQuery();
-//        while (temp.next()) {
-//            Fields item = new Fields();
-//            item.setProduct_id(temp.getInt("Product_name"));
-//            item.setProduct_name(temp.getString("Brand"));
-//            item.setManufacturer(temp.getString("Price"));
-//            target_list.add(item);
-//        }
-//        ps.close();
-//        return target_list;
-//    }
+    // Product (list Product_Name) with the lowest average selling price
+    public String findCheapestProduct(Connection con) throws SQLException {
+        String CheapestProduct = "";
+        int avgPrice = 0;
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT Product_Name, AvgPrice FROM Product p, " +
+                        "(SELECT Product_ID as PID, AvgPrice FROM " +
+                            "(SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP by Product_ID)" +
+                            "WHERE AvgPrice = (SELECT  MIN(AvgPrice) " +
+                                                "FROM (SELECT Product_ID, AVG(Price) as AvgPrice" +
+                                                        "FROM Has GROUP BY Product_ID)" +
+                                                ")" +
+                        ") WHERE p.Product_ID = PID" )){
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                CheapestProduct = temp.getString("Product_Name");
+                avgPrice = temp.getInt("AvgPrice");
+            }
 
-    /*
-     * TODO: Suggest to delete due to actually not being Division
-     */
-//    // Input:
-//    // Output: List of Sellers (Seller ID and Name) whose all rated products having an average rating >= 4/5
-//    // Assume: all products
-//    public ArrayList<Fields>  getBestSeller (Connection con) throws SQLException {
-//
-//        ArrayList<Fields> target_list = new ArrayList<>();
-//        PreparedStatement ps = con.prepareStatement
-//                ("SELECT Seller_ID, Seller_Name FROM Rate, PutOrder, Seller WHERE " );
-//
-//        //ps.setInt(1,order_id);
-//        ResultSet temp = ps.executeQuery();
-//        while (temp.next()) {
-//            Fields item = new Fields();
-//            item.setProduct_id(temp.getInt("Seller ID"));
-//            item.setProduct_name(temp.getString("Name"));
-//            target_list.add(item);
-//        }
-//        ps.close();
-//        return target_list;
-//    }
+            ps.close();
+        }
+
+        return CheapestProduct + "has the lowest average selling price as $" + Integer.toString(avgPrice);
+    }
+
+
+    // Product (list Product_Name) with the highest average selling price
+    public String findHighestProduct(Connection con) throws SQLException {
+        String HighestProduct = "";
+        int avgPrice = 0;
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT Product_Name, AvgPrice FROM Product p, " +
+                        "(SELECT Product_ID as PID, AvgPrice FROM " +
+                        "(SELECT Product_ID, AVG(Price) as AvgPrice FROM Has GROUP by Product_ID)" +
+                        "WHERE AvgPrice = (SELECT  MAX(AvgPrice) " +
+                        "FROM (SELECT Product_ID, AVG(Price) as AvgPrice" +
+                        "FROM Has GROUP BY Product_ID))" +
+                        ") WHERE p.Product_ID = PID" )){
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                HighestProduct = temp.getString("Product_Name");
+                avgPrice = temp.getInt("AvgPrice");
+            }
+
+            ps.close();
+        }
+
+        return HighestProduct + "has the highest average selling price as $" + Integer.toString(avgPrice);
+    }
 
     /**************** Queries for Seller *****************************/
 
@@ -376,7 +357,6 @@ public class Operation {
         boolean status = false;
         int product_id = Integer.parseInt(productID);
         int seller_id = Integer.parseInt(seller_ID);
-        ArrayList<Fields> target_list = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement
                     ("UPDATE Has SET Price = ? where Product_ID = ? AND Seller_ID = ?" );
@@ -394,70 +374,10 @@ public class Operation {
         return status;
     }
 
-    // return -1 if there is any trouble
-    // Otherwise return the totals sales of a product within a given time
-    public int salesByProduct(String productID, String startDate, String endDate, Connection con) {
-        int totalSales = -1;
-        int product_id = Integer.parseInt(productID);
-        Date tempStartDate = new Date(Long.parseLong(startDate));
-        Date tempEndDate = new Date((Long.parseLong(endDate)));
-        try {
-            PreparedStatement ps = con.prepareStatement
-                    ("SELECT Quantity From PutOrder" +
-                            "WHERE Product_ID = ? and date_placed >= ? and date_placted <= endDate");
 
-            ps.setInt(1,product_id);
-            ps.setDate(2,tempStartDate);
-            ps.setDate(3,tempEndDate);
-            ResultSet temp = ps.executeQuery();
-            while (temp.next()) {
-                totalSales += temp.getInt("Quantity");
-            }
-            ps.close();
-
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return totalSales;
-    }
-
-    // return a 2D string arrayList for all the products information
-    // array[i][] represents the strings for one column, like productID,category
-    // array[][j] represents the strings for one row, like all the attributes for one product
-    public ArrayList<ArrayList<String>> viewProduct(String Seller_ID,Connection con) {
-        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
-        int seller_id = Integer.parseInt(Seller_ID);
-        try {
-            PreparedStatement ps = con.prepareStatement
-                    ("SELECT has.product_id, Category, Manufacturer, Product_Name, Quantity, Price, seller_ID " +
-                            "FROM Products, Has WHERE Seller_ID = ?" );
-            ps.setInt(1, seller_id);
-            ResultSet temp = ps.executeQuery();
-            while (temp.next()) {
-                ArrayList<String> tempResult = new ArrayList<String>();
-                tempResult.add(temp.getString("Product_ID"));
-                tempResult.add(temp.getString("Category"));
-                tempResult.add(temp.getString("Manufacturer"));
-                tempResult.add(temp.getString("Product_Name"));
-                tempResult.add(temp.getString("Quantity"));
-                tempResult.add(temp.getString("Price"));
-                tempResult.add(temp.getString("seller_ID"));
-                result.add(tempResult);
-            }
-            ps.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return result;
-    }
-
-    // TODO: check why status never changed
-    // the SQL statement in addProduct remained to be added.
     public boolean addProduct(String productID, String brand, String name, String category,Connection con){
         boolean status = false;
         int product_id = Integer.parseInt(productID);
-        ArrayList<Fields> target_list = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement
                     ("INSERT INTO Products" +
