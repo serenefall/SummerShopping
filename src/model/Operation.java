@@ -246,41 +246,64 @@ public class Operation {
 
     // Input: Order ID, Rating(1/2/3/4/5)
     // Output: Insert a tuple in the table Rate if the Order ID is “completed” and return true. Otherwise return false.
-    public boolean rateProduct(String order_ID, String Rating, Connection con) throws SQLException {
+    public boolean rateProduct(String order_ID, String Rating, Connection con) {
         int order_id = Integer.parseInt(order_ID);
         int rating = Integer.parseInt(Rating);
 
         // check whether the order is Completed. Only completed order can be rated
         String status = "";
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT Status FROM PutOrder WHERE Order_number = ?")) {
+                ("SELECT Status FROM PutOrder WHERE Order_number = ? ")) {
             ps.setInt(1, order_id);
             ResultSet temp = ps.executeQuery();
             while (temp.next()) {
                 status = temp.getString("Status");
             }
             ps.close();
+        } catch (java.sql.SQLException e2) {
+            System.out.println(e2.getMessage());
         }
 
+
         // if the Order is completed, rate the order. If the order was rated before, update the rating.
+        int order_n = 0;
         if (status.equals("Completed")){
             try (PreparedStatement ps = con.prepareStatement
-                    ("insert into rate (rating, order_number)" +
-                            "select ?, ? from dual" +
-                            "where not exists (select order_number from rate where order_number = ?)")) {
-                ps.setInt(1, rating);
-                ps.setInt(2, order_id);
-                ps.setInt(3, order_id);
-                ps.executeQuery();
-                ps.close();
-            }
+                    ("SELECT order_number FROM Rate WHERE order_number = ?")) {
+                ps.setInt(1, order_id);
+                ResultSet temp = ps.executeQuery();
+                while (temp.next()) {
+                    order_n = temp.getInt("order_number");
+                }
 
-            try (PreparedStatement ps = con.prepareStatement
-                    ("update rate set rating = ? where order_number = ?")) {
-                ps.setInt(1, rating);
-                ps.setInt(2, order_id);
-                ps.executeQuery();
+                // if order number is already in rate table
+                if (order_n == order_id) {
+                    try (PreparedStatement ps1 = con.prepareStatement
+                            ("update rate set rating = ? where order_number = ?")) {
+                        ps1.setInt(1, rating);
+                        ps1.setInt(2, order_id);
+                        ps1.executeQuery();
+                        ps1.close();
+                    } catch (java.sql.SQLException e2) {
+                        System.out.println(e2.getMessage());
+                    }
+
+                    // if order number is not in rate table
+                } else {
+                    try (PreparedStatement ps1 = con.prepareStatement
+                            ("insert into rate (rating, order_number) values (?, ?)")) {
+                        ps1.setInt(1, rating);
+                        ps1.setInt(2, order_id);
+                        ps1.executeQuery();
+                        ps1.close();
+                    } catch (java.sql.SQLException e2) {
+                        System.out.println(e2.getMessage());
+                    }
+                }
+
                 ps.close();
+            } catch (java.sql.SQLException e2){
+                System.out.println(e2.getMessage());
             }
             return true;
         } else {

@@ -112,26 +112,16 @@ public class customer {
                 public void actionPerformed(ActionEvent e) {
                     //Product ID, Order ID, Seller ID, Rating(1/2/3/4/5)
                     // corresponding to text field 7 9 10 8
-                    String productName = sellerIDTextField.getText();
                     String order_id = orderIDTextField.getText();
-                    String seller_id  = productIDTextField.getText();
                     String rating = ratingTextField.getText();
-                    boolean status = false;
-                    try {
-                        status = ope.rateProduct(customerID,rating,con);
-                        if(status){
+                    if(ope.rateProduct(order_id,rating,con)){
                             JOptionPane.showMessageDialog(null,"Rating complete!");
-                        }
-                    } catch (java.sql.SQLException e2) {
+                    } else {
                         JOptionPane.showMessageDialog(null, "Fail to rate! Please try again!");
                     }
                 }
             });
-
-
-
-
-
+            
 
 
             buyButton.addActionListener(new ActionListener() {
