@@ -256,7 +256,7 @@ public class Operation {
         // check whether the order is Completed. Only completed order can be rated
         String status = "";
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT Status FROM PurOrder WHERE Order_number = ?")) {
+                ("SELECT Status FROM PutOrder WHERE Order_number = ?")) {
             ps.setInt(1, order_id);
             ResultSet temp = ps.executeQuery();
             while (temp.next()) {
@@ -268,11 +268,20 @@ public class Operation {
         // if the Order is completed, rate the order. If the order was rated before, update the rating.
         if (status.equals("Completed")){
             try (PreparedStatement ps = con.prepareStatement
-                    ("INSERT INTO Rate (Rating, Order_number) VALUES (?, ?) " +
-                            "ON DUPLICATE KEY UPDATE Rating = ?")) {
+                    ("insert into rate (rating, order_number)" +
+                            "select ?, ? from dual" +
+                            "where not exists (select order_number from rate where order_number = ?)")) {
                 ps.setInt(1, rating);
                 ps.setInt(2, order_id);
-                ps.setInt(3, rating);
+                ps.setInt(3, order_id);
+                ps.executeQuery();
+                ps.close();
+            }
+
+            try (PreparedStatement ps = con.prepareStatement
+                    ("update rate set rating = ? where order_number = ?")) {
+                ps.setInt(1, rating);
+                ps.setInt(2, order_id);
                 ps.executeQuery();
                 ps.close();
             }
