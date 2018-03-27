@@ -21,8 +21,6 @@ public class customer {
     private JTextField vipTextField;
     private JButton completeOrderButton;
     private JTextField textField3;
-    private JButton totalPurchasedCostButton;
-    private JButton totalPurchasedListButton;
     private JButton bestSellerButton;
     private JButton searchProductsButton;
     private JTextField textField4;
@@ -31,9 +29,7 @@ public class customer {
     private JTextField categoryTextField;
     private JTextField brandTextField;
     private JTextField ratingTextField;
-    private JTextField sellerIDTextField;
     private JTextField orderIDTextField;
-    private JTextField productIDTextField;
     private JButton rateProductButton;
     public JPanel CustomerUI;
     private JTextArea productNameTextArea;
@@ -47,6 +43,7 @@ public class customer {
     private JTextField startDateTextField;
     private JTextField endDateTextField;
     private JTextField productNameText;
+    private JButton wholeSellerButton;
     private String customerID;
 
     public void setCustomerID(String customerID) {
@@ -62,7 +59,7 @@ public class customer {
             searchProductsButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String productName = textField4.getText();
+                    String productName = productNameText.getText();
                     // Changed from original code, may have problem (Tao)
                     String Category = categoryTextField.getText();
                     String price_range_1 = priceRangetextFieldLow.getText();
@@ -73,6 +70,7 @@ public class customer {
                     ArrayList<Fields> returnedArray = new ArrayList<>();
                     try {
                         returnedArray = ope.searchProducts(productName, Category, price_range_1, price_range_2, manufacturer, con);
+                        System.out.println(returnedArray.size());
                         for (int i = 0; i < returnedArray.size();i++) {
                             String productIdReturned = Integer.toString(returnedArray.get(i).getProduct_id());
                             String productNameReturned = returnedArray.get(i).getProduct_name();
@@ -81,6 +79,7 @@ public class customer {
                             String sellerNameReturned = returnedArray.get(i).getSeller_name();
                             String selleridReturned = Integer.toString(returnedArray.get(i).getSeller_id());
                             String ratingReturned = Integer.toString(returnedArray.get(i).getRating());
+                            System.out.println(productIdReturned);
                             productNameTextArea.append(productNameReturned+'\n');
                             productIDTextArea.append(productIdReturned+'\n');
                             productBrandTextArea.append(manufacturerReturned+'\n');
@@ -90,7 +89,7 @@ public class customer {
                             sellerRatingTextArea.append(ratingReturned+'\n');
                         }
                     } catch (java.sql.SQLException e2) {
-                        JOptionPane.showMessageDialog(null, "e2");
+                        JOptionPane.showMessageDialog(null, "Search not successful");
                     }
                 }
             });
@@ -126,60 +125,60 @@ public class customer {
                            JOptionPane.showMessageDialog(null,"Rating complete!");
                        }
                    } catch (java.sql.SQLException e2) {
-                       JOptionPane.showMessageDialog(null, "Error! Please make sure the order in completed!");
+                       JOptionPane.showMessageDialog(null, "Error! Please make sure the order is completed!");
                    }
                }
            });
 
-           totalPurchasedCostButton.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent e) {
-                   // TODO
-                   // cannot find related Date range in the customer.form, so temporarily set the date range to a specific one, need
-                  //Date date1 = new Date(2018,3,1);
-                   //Date date2 = new Date(2018,3,25);
-                  /***************to do, set the Date to input Dates, but currently no textField for Date input in customer.form*******************************************/
-                  // Date should be written in format like "2018-04-01"
-                   String startDate = startDateTextField.getText();
-                   String endDate = endDateTextField.getText();
-                   double totolCost = 0.0;
-                   try {
-                       totolCost = ope.getTotalPurchaseCost(customerID,startDate,endDate,con);
-                       JOptionPane.showMessageDialog(null,totolCost);
+//           totalPurchasedCostButton.addActionListener(new ActionListener() {
+//               @Override
+//               public void actionPerformed(ActionEvent e) {
+//                   // TODO
+//                   // cannot find related Date range in the customer.form, so temporarily set the date range to a specific one, need
+//                  //Date date1 = new Date(2018,3,1);
+//                   //Date date2 = new Date(2018,3,25);
+//                  /***************to do, set the Date to input Dates, but currently no textField for Date input in customer.form*******************************************/
+//                  // Date should be written in format like "2018-04-01"
+//                   String startDate = startDateTextField.getText();
+//                   String endDate = endDateTextField.getText();
+//                   double totolCost = 0.0;
+//                   try {
+//                       totolCost = ope.getTotalPurchaseCost(customerID,startDate,endDate,con);
+//                       JOptionPane.showMessageDialog(null,totolCost);
+//
+//                   } catch (java.sql.SQLException e2) {
+//                       JOptionPane.showMessageDialog(null,"fail to get the tocal cost!");
+//                   }
+//               }
+//           });
 
-                   } catch (java.sql.SQLException e2) {
-                       JOptionPane.showMessageDialog(null,"fail to get the tocal cost!");
-                   }
-               }
-           });
-
-           totalPurchasedListButton.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent e) {
-                   /*
-                   TODO
-                   cannot find related Date range in the customer.form, so temporarily set the date range to a specific one, need
-                   to change to the Date get from customer input later
-                   */
-                   String startDate = startDateTextField.getText();
-                   String endDate = endDateTextField.getText();
-                   ArrayList<Fields> returnedArray = new ArrayList<>();
-                   try {
-                       returnedArray = ope.getTotalPurchaseList(customerID,startDate,endDate,con);
-                       for (int i = 0; i < returnedArray.size();i++) {
-                           String tempName = returnedArray.get(i).getProduct_name();
-                           String tempBrand = returnedArray.get(i).getBrand();
-                           String tempPrice = Integer.toString(returnedArray.get(i).getPrice());
-                           productNameTextArea.append(tempName+'\n');
-                           productBrandTextArea.append(tempBrand+'\n');
-                           productPriceTextArea.append(tempPrice+'\n');
-                       }
-                       JOptionPane.showMessageDialog(null, "Successful");
-                   } catch (java.sql.SQLException e2) {
-                       JOptionPane.showMessageDialog(null, "Fail to get total purchase list! Please try again!");
-                   }
-               }
-           });
+//           totalPurchasedListButton.addActionListener(new ActionListener() {
+//               @Override
+//               public void actionPerformed(ActionEvent e) {
+//                   /*
+//                   TODO
+//                   cannot find related Date range in the customer.form, so temporarily set the date range to a specific one, need
+//                   to change to the Date get from customer input later
+//                   */
+//                   String startDate = startDateTextField.getText();
+//                   String endDate = endDateTextField.getText();
+//                   ArrayList<Fields> returnedArray = new ArrayList<>();
+//                   try {
+//                       returnedArray = ope.getTotalPurchaseList(customerID,startDate,endDate,con);
+//                       for (int i = 0; i < returnedArray.size();i++) {
+//                           String tempName = returnedArray.get(i).getProduct_name();
+//                           String tempBrand = returnedArray.get(i).getBrand();
+//                           String tempPrice = Integer.toString(returnedArray.get(i).getPrice());
+//                           productNameTextArea.append(tempName+'\n');
+//                           productBrandTextArea.append(tempBrand+'\n');
+//                           productPriceTextArea.append(tempPrice+'\n');
+//                       }
+//                       JOptionPane.showMessageDialog(null, "Successful");
+//                   } catch (java.sql.SQLException e2) {
+//                       JOptionPane.showMessageDialog(null, "Fail to get total purchase list! Please try again!");
+//                   }
+//               }
+//           });
 
            bestSellerButton.addActionListener(new ActionListener() {
                @Override
