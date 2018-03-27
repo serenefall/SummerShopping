@@ -77,7 +77,7 @@ public class customer {
                             String productIdReturned = Integer.toString(returnedArray.get(i).getProduct_id());
                             String productNameReturned = returnedArray.get(i).getProduct_name();
                             String manufacturerReturned = returnedArray.get(i).getManufacturer();
-                            String priceReturned = returnedArray.get(i).getPrice();
+                            String priceReturned = Integer.toString(returnedArray.get(i).getPrice());
                             String sellerNameReturned = returnedArray.get(i).getSeller_name();
                             String selleridReturned = Integer.toString(returnedArray.get(i).getSeller_id());
                             String ratingReturned = Integer.toString(returnedArray.get(i).getRating());
@@ -117,18 +117,16 @@ public class customer {
                public void actionPerformed(ActionEvent e) {
                    //Product ID, Order ID, Seller ID, Rating(1/2/3/4/5)
                    // corresponding to text field 7 9 10 8
-                   String productName = sellerIDTextField.getText();
                    String order_id = orderIDTextField.getText();
-                   String seller_id  = productIDTextField.getText();
                    String rating = ratingTextField.getText();
                    boolean status = false;
                    try {
-                       status = ope.rateProduct(customerID,productName,order_id,seller_id,rating,con);
+                       status = ope.rateProduct(order_id, rating,con);
                        if(status){
                            JOptionPane.showMessageDialog(null,"Rating complete!");
                        }
                    } catch (java.sql.SQLException e2) {
-                       JOptionPane.showMessageDialog(null, "Fail to rate! Please try again!");
+                       JOptionPane.showMessageDialog(null, "Error! Please make sure the order in completed!");
                    }
                }
            });
@@ -171,7 +169,7 @@ public class customer {
                        for (int i = 0; i < returnedArray.size();i++) {
                            String tempName = returnedArray.get(i).getProduct_name();
                            String tempBrand = returnedArray.get(i).getBrand();
-                           String tempPrice = returnedArray.get(i).getPrice();
+                           String tempPrice = Integer.toString(returnedArray.get(i).getPrice());
                            productNameTextArea.append(tempName+'\n');
                            productBrandTextArea.append(tempBrand+'\n');
                            productPriceTextArea.append(tempPrice+'\n');

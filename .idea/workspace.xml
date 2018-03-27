@@ -32,18 +32,18 @@
       <file leaf-file-name="summershopping.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/summershopping.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="104" column="103" lean-forward="false" selection-start-line="104" selection-start-column="88" selection-end-line="104" selection-end-column="103" />
+            <state relative-caret-position="429">
+              <caret line="133" column="74" lean-forward="false" selection-start-line="133" selection-start-column="62" selection-end-line="133" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Operation.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Operation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="179" column="28" lean-forward="false" selection-start-line="179" selection-start-column="15" selection-end-line="179" selection-end-column="28" />
+            <state relative-caret-position="357">
+              <caret line="271" column="60" lean-forward="true" selection-start-line="271" selection-start-column="60" selection-end-line="271" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -52,8 +52,18 @@
       <file leaf-file-name="Fields.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Fields.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3270">
-              <caret line="218" column="37" lean-forward="false" selection-start-line="218" selection-start-column="37" selection-end-line="218" selection-end-column="37" />
+            <state relative-caret-position="15">
+              <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="128" column="106" lean-forward="false" selection-start-line="128" selection-start-column="106" selection-end-line="128" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -85,6 +95,7 @@
       <find>productName</find>
       <find>updateP</find>
       <find>del</find>
+      <find>rate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,12 +117,12 @@
         <option value="$PROJECT_DIR$/src/ui/Operation.java" />
         <option value="$PROJECT_DIR$/src/ui/sys_admin.java" />
         <option value="$PROJECT_DIR$/src/ui/log_in.java" />
-        <option value="$PROJECT_DIR$/src/ui/customer.java" />
         <option value="$PROJECT_DIR$/src/ui/customer.form" />
         <option value="$PROJECT_DIR$/src/ui/seller.form" />
         <option value="$PROJECT_DIR$/src/ui/seller.java" />
         <option value="$PROJECT_DIR$/src/model/Fields.java" />
         <option value="$PROJECT_DIR$/src/model/Operation.java" />
+        <option value="$PROJECT_DIR$/src/ui/customer.java" />
       </list>
     </option>
   </component>
@@ -165,6 +176,13 @@
               <item name="SummerShopping" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SummerShopping" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummerShopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="e9f4de52:FormNode" />
             </path>
           </expand>
           <select />
@@ -615,14 +633,6 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/sql/PreparedStatement.java" />
-    <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3495">
-          <caret line="241" column="0" lean-forward="false" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/log_in.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -651,24 +661,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3270">
-          <caret line="218" column="37" lean-forward="false" selection-start-line="218" selection-start-column="37" selection-end-line="218" selection-end-column="37" />
+        <state relative-caret-position="15">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/summershopping.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="104" column="103" lean-forward="false" selection-start-line="104" selection-start-column="88" selection-end-line="104" selection-end-column="103" />
+        <state relative-caret-position="429">
+          <caret line="133" column="74" lean-forward="false" selection-start-line="133" selection-start-column="62" selection-end-line="133" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="179" column="28" lean-forward="false" selection-start-line="179" selection-start-column="15" selection-end-line="179" selection-end-column="28" />
+        <state relative-caret-position="357">
+          <caret line="271" column="60" lean-forward="true" selection-start-line="271" selection-start-column="60" selection-end-line="271" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="128" column="106" lean-forward="false" selection-start-line="128" selection-start-column="106" selection-end-line="128" selection-end-column="106" />
           <folding />
         </state>
       </provider>

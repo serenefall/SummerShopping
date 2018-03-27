@@ -73,7 +73,7 @@ public class Operation {
     Put order to make purchase
 
     Input: Product ID, Seller ID, Quantity, Payment Method(Visa or MasterCard), VIP points used
-    Output A: Insert 1 tuple for each Product ID into table PutOrder under the same Order ID:
+    Output: Insert 1 tuple for each Product ID into table PutOrder under the same Order ID:
             Order IDs set to the latest created Order ID + 1.
             Status set to “In Progress”.
             Quantity of Products in the table Has to be updated accordingly.
@@ -81,10 +81,10 @@ public class Operation {
             Shipping Date set to Tomorrow.
             Arrival Date set to 5 days from today.
             VIP points used deducted from the Customer’s VIP points
-    Output B: Display message “Order put! Total cost: $XXX.”, where Total cost = cost of all products in the order - VIP points/50
+    Return: Total cost = cost of all products in the order - VIP points/50
     */
-    public double putOrder(String customer_ID, String product_ID, String seller_ID, String Quantity, String Payment_method,
-                           String VipPoints_used, Connection con) throws SQLException {
+    public double putOrder(String customer_ID, String product_ID, String seller_ID, String Quantity,
+                           String Payment_method, String VipPoints_used, Connection con) throws SQLException {
         int product_id = Integer.parseInt(product_ID);
         int seller_id = Integer.parseInt(seller_ID);
         int customer_id = Integer.parseInt(customer_ID);
@@ -177,7 +177,7 @@ public class Operation {
     // Input: Order ID
     // Output: Change status of Order from “In Process” to “Completed”. Check whether the customer is VIP.
     //         If yes, increase the VIP points by the floor of the total cost of the Order.
-    public int completeOrder(String order_ID, Connection con) throws SQLException {
+    public boolean completeOrder(String order_ID, Connection con) throws SQLException {
         int order_id = Integer.parseInt(order_ID);
         try (PreparedStatement ps = con.prepareStatement
                 ("UPDATE PutOrder SET Status = 'Completed' WHERE Order_number = ?")) {
@@ -196,7 +196,8 @@ public class Operation {
         int vipID = -1;
 
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT Product_ID, Seller_ID, Customer_ID, Quantity, VIP_points_used FROM PutOrder WHERE Order_number = ?")) {
+                ("SELECT Product_ID, Seller_ID, Customer_ID, Quantity, VIP_points_used " +
+                        "FROM PutOrder WHERE Order_number = ?")) {
             ps.setInt(1, order_id);
             ResultSet temp = ps.executeQuery();
             while (temp.next()) {
@@ -209,6 +210,7 @@ public class Operation {
             ps.close();
         }
 
+        // get the VIP ID of a customer. If he/she is not a VIP, vipID remains -1
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT VIP_ID FROM VIP_2 WHERE CUSTOMER_ID = ?")) {
             ps.setInt(1, customerID);
@@ -219,6 +221,7 @@ public class Operation {
             ps.close();
         }
 
+        // If the customer is a VIP
         if (vipID > -1) {
             try (PreparedStatement ps = con.prepareStatement
                     ("SELECT Price FROM Has WHERE Product_ID = ? AND Seller_ID = ?")) {
@@ -234,6 +237,7 @@ public class Operation {
             // vipPoints_earned = total order cost
             vipPoints_earned = price * quantity - vipPoints_used/50;
 
+            // update the VIP points of the VIP customer
             try (PreparedStatement ps = con.prepareStatement
                     ("UPDATE VIP_1 SET VIP_Points = VIP_Points + ? WHERE VIP_ID = ?")) {
                 ps.setInt(1, vipPoints_earned);
@@ -243,28 +247,41 @@ public class Operation {
             }
         }
 
-        return 1;
+        return true;
     }
 
 
-    // TODO
-    // return: status means rating sucessfully; else fails to rate
-    public boolean rateProduct(String customer_ID, String ProductName, String order_ID, String seller_Id, String ratingOfSeller, Connection con) throws SQLException {
+    // Input: Product ID, Order ID, Seller ID, Rating(1/2/3/4/5)
+    // Output: Insert a tuple in the table Rate if the Order ID is “completed” and return true. Otherwise return false.
+    public boolean rateProduct(String order_ID, String Rating, Connection con) throws SQLException {
         int order_id = Integer.parseInt(order_ID);
-        int seller_id = Integer.parseInt(seller_Id);
-        boolean status = false;
-        // need to modify SQL statement here
-        PreparedStatement ps = con.prepareStatement
-                ("UPDATE PutOrder" +
-                        "WHERE 'Order number' = ?" );
+        int rating = Integer.parseInt(Rating);
 
-        //ps.setInt(1,order_id);
-        ResultSet temp = ps.executeQuery();
-        while (temp.next()) {
-            status = true;
+        String status = "";
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT Status FROM PurOrder WHERE Order_number = ?")) {
+            ps.setInt(1, order_id);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                status = temp.getString("Status");
+            }
+            ps.close();
         }
-        ps.close();
-        return status;
+
+        if (status.equals("Completed")){
+            try (PreparedStatement ps = con.prepareStatement
+                    ("INSERT INTO Rate (Rating, Order_number) VALUES (?, ?) " +
+                            "ON DUPLICATE KEY UPDATE Rating = ?")) {
+                ps.setInt(1, rating);
+                ps.setInt(2, order_id);
+                ps.setInt(3, rating);
+                ps.executeQuery();
+                ps.close();
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // TODO
