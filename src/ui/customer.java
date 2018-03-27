@@ -36,7 +36,6 @@ public class customer {
     private JTextArea productBrandTextArea;
     private JTextArea productPriceTextArea;
     private JTextArea productIDTextArea;
-    private JTextArea totalCostTextArea;
     private JTextArea sellerIDTextArea;
     private JTextArea sellerNameTextArea;
     private JTextArea sellerRatingTextArea;
@@ -44,6 +43,9 @@ public class customer {
     private JTextField endDateTextField;
     private JTextField productNameText;
     private JButton wholeSellerButton;
+    private JButton highestProductButton;
+    private JButton searchProductButton;
+    private JButton cheapestProductButton;
     private String customerID;
 
     public void setCustomerID(String customerID) {
@@ -61,15 +63,12 @@ public class customer {
                 public void actionPerformed(ActionEvent e) {
                     String productName = productNameText.getText();
                     // Changed from original code, may have problem (Tao)
-                    String Category = categoryTextField.getText();
                     String price_range_1 = priceRangetextFieldLow.getText();
                     String price_range_2 = priceRangetextFieldHigh.getText();
-                    String manufacturer = brandTextField.getText(); //Manufacturer isn't in customer's UI, how to get this information?
-                    String ratingOfSeller = ratingTextField.getText();
                     boolean logged = true;
                     ArrayList<Fields> returnedArray = new ArrayList<>();
                     try {
-                        returnedArray = ope.searchProducts(productName, Category, price_range_1, price_range_2, manufacturer, con);
+                        returnedArray = ope.searchProducts(productName, price_range_1, price_range_2, con);
                         System.out.println(returnedArray.size());
                         for (int i = 0; i < returnedArray.size();i++) {
                             String productIdReturned = Integer.toString(returnedArray.get(i).getProduct_id());
@@ -78,7 +77,6 @@ public class customer {
                             String priceReturned = Integer.toString(returnedArray.get(i).getPrice());
                             String sellerNameReturned = returnedArray.get(i).getSeller_name();
                             String selleridReturned = Integer.toString(returnedArray.get(i).getSeller_id());
-                            String ratingReturned = Integer.toString(returnedArray.get(i).getRating());
                             System.out.println(productIdReturned);
                             productNameTextArea.append(productNameReturned+'\n');
                             productIDTextArea.append(productIdReturned+'\n');
@@ -86,7 +84,6 @@ public class customer {
                             productPriceTextArea.append(priceReturned+'\n');
                             sellerNameTextArea.append(sellerNameReturned+'\n');
                             sellerIDTextArea.append(selleridReturned+'\n');
-                            sellerRatingTextArea.append(ratingReturned+'\n');
                         }
                     } catch (java.sql.SQLException e2) {
                         JOptionPane.showMessageDialog(null, "Search not successful");
@@ -179,29 +176,29 @@ public class customer {
 //                   }
 //               }
 //           });
-
-           bestSellerButton.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent e) {
-                   // TODO
-                    // needs to fulfill the logic
-                   ArrayList<Fields> returnedArray = new ArrayList<Fields>();
-
-                   try {
-                        //******************* to be done*************************//
-                       returnedArray = ope.getWholeSeller(con);
-                       for (int i = 0; i < returnedArray.size();i++) {
-                           String tempSellerID = Integer.toString(returnedArray.get(i).getSeller_id());
-                           String tempSellerName = returnedArray.get(i).getSeller_name();
-                           sellerIDTextArea.append(tempSellerID+'\n');
-                           sellerNameTextArea.append(tempSellerName + '\n');
-                       }
-                       JOptionPane.showMessageDialog(null,"Whole sellers are found !");
-                   } catch (java.sql.SQLException e2) {
-                       JOptionPane.showMessageDialog(null, "No whole seller found!");
-                   }
-               }
-           });
+//
+//           bestSellerButton.addActionListener(new ActionListener() {
+//               @Override
+//               public void actionPerformed(ActionEvent e) {
+//                   // TODO
+//                    // needs to fulfill the logic
+//                   ArrayList<Fields> returnedArray = new ArrayList<Fields>();
+//
+//                   try {
+//                        //******************* to be done*************************//
+//                       returnedArray = ope.getWholeSeller(con);
+//                       for (int i = 0; i < returnedArray.size();i++) {
+//                           String tempSellerID = Integer.toString(returnedArray.get(i).getSeller_id());
+//                           String tempSellerName = returnedArray.get(i).getSeller_name();
+//                           sellerIDTextArea.append(tempSellerID+'\n');
+//                           sellerNameTextArea.append(tempSellerName + '\n');
+//                       }
+//                       JOptionPane.showMessageDialog(null,"Whole sellers are found !");
+//                   } catch (java.sql.SQLException e2) {
+//                       JOptionPane.showMessageDialog(null, "No whole seller found!");
+//                   }
+//               }
+//           });
 
            buyButton.addActionListener(new ActionListener() {
                @Override
