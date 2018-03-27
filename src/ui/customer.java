@@ -46,6 +46,7 @@ public class customer {
     private JTextArea sellerRatingTextArea;
     private JTextField startDateTextField;
     private JTextField endDateTextField;
+    private JTextField productNameText;
     private String customerID;
 
     public void setCustomerID(String customerID) {
@@ -236,4 +237,5 @@ public class customer {
             JOptionPane.showMessageDialog(null,"e1");
         };
     }
-    }
+
+}
