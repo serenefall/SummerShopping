@@ -295,9 +295,12 @@ public class Operation {
     public ArrayList<Fields>  getWholeSeller (Connection con) throws SQLException {
         ArrayList<Fields> target_list = new ArrayList<>();
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT Seller_ID, Seller_Name FROM Has, Seller" +
-                        "WHERE Has.Seller_ID = Seller.Seller_ID AND Has.Product_ID IN (SELECT Product_ID FROM Product)" +
-                        "GROUP BY Seller_ID HAVING COUNT(*) = (SELECT COUNT(*) FROM Product);")) {
+                ("SELECT Seller_ID, Seller_Name FROM Seller WHERE Seller_ID = ANY" +
+                        "(" +
+                        "SELECT s.Seller_ID FROM Has h, Seller s" +
+                        "WHERE h.Seller_ID = s.Seller_ID AND h.Product_ID IN (SELECT Product_ID FROM Products)" +
+                        "GROUP BY s.Seller_ID HAVING COUNT(*) = (SELECT COUNT(*) FROM Products)" +
+                        ")")) {
             ResultSet temp = ps.executeQuery();
             while (temp.next()) {
                 Fields item = new Fields();
