@@ -33,6 +33,8 @@ public class seller {
     private JTextArea priceTextArea;
     private String sellerID;
 
+
+
     public seller(){
 
         try {
@@ -49,10 +51,14 @@ public class seller {
                     String name = nameTextField.getText();
                     String category = categoryTextField.getText();
 
-                    if(ope.addProduct(productID,quantity,brand,price,name,category,con)){
-                        JOptionPane.showMessageDialog(null, "Product Added!");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Failed to add Product!");
+                    try {
+                        if(ope.addProduct(sellerID,productID,brand,name,category,quantity,price,con)){
+                            JOptionPane.showMessageDialog(null, "Product Added!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Failed to add Product!");
+                        }
+                    } catch (SQLException e1) {
+                        e1.getMessage();
                     }
                 }
             });
@@ -64,11 +70,14 @@ public class seller {
                 public void actionPerformed(ActionEvent e) {
 
                     String productID = productIDTextField.getText();
-
-                    if(ope.deleteProduct(productID, getSellerID(),con)){
-                        JOptionPane.showMessageDialog(null, "Product Deleted!");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Failed to delete Product!");
+                    try {
+                        if(ope.deleteProduct(productID,sellerID,con)){
+                            JOptionPane.showMessageDialog(null, "Product Deleted!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Failed to delete Product!");
+                        }
+                    } catch (SQLException e1) {
+                        e1.getMessage();
                     }
                 }
             });
@@ -82,56 +91,63 @@ public class seller {
 
                     String productID = productIDTextField.getText();
                     String price = priceTextField.getText();
-                    if(ope.updatePrice(productID,price,con)){
-                        JOptionPane.showMessageDialog(null, "Price updated for " + productID + " !");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Failed to update price for "+ productID + " !");
-                    }
-                }
-            });
+                    String quantity = quantityTextField.getText();
 
-            salesByProductButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    String productID = productID2TextFieldF.getText();
-                    String startDate = startDateTextField.getText();
-                    String endDate = endDateTextField.getText();
-
-                    int totalSales = ope.salesByProduct(productID,startDate,endDate,con);
-                    if(totalSales == -1){
-                        JOptionPane.showMessageDialog(null, "Cannot get sales!");
-
-                    }else{
-                        priceTextArea.setText(Integer.toString(totalSales));
-                    }
-
-                }
-            });
-
-            showProductsButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ArrayList<ArrayList<String>> products = new ArrayList<ArrayList<String>>();
-                    products = ope.viewProduct(getSellerID(),con);
-                    int numOfObjects = (products.get(0)).size();
-                    ArrayList<JTextArea> columns = new ArrayList<>();
-                    columns.add(productIDTextArea);
-                    columns.add(categoryTextArea);
-                    columns.add(manufacturerTextArea);
-                    columns.add(quantityTextArea);
-                    columns.add(nameTextArea);
-                    columns.add(priceTextArea);
-
-
-                    // fill in productID
-                    for (int i = 0; i < products.size(); i++) {
-                        for (int j = 0; j < numOfObjects;j++) {
-                            JTextArea toBeFilled = columns.get(i);
-                            toBeFilled.append((products.get(i)).get(j) + "\n");
+                    try {
+                        if(ope.updatePrice(sellerID,productID,price,quantity,con)){
+                            JOptionPane.showMessageDialog(null, "Price updated for " + productID + " !");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Failed to update price for "+ productID + " !");
                         }
+                    } catch (SQLException e1) {
+                        e1.getMessage();
                     }
                 }
             });
+
+//            salesByProductButton.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    String productID = productID2TextFieldF.getText();
+//                    String startDate = startDateTextField.getText();
+//                    String endDate = endDateTextField.getText();
+//
+//                    int totalSales = ope.salesByProduct(productID,startDate,endDate,con);
+//                    if(totalSales == -1){
+//                        JOptionPane.showMessageDialog(null, "Cannot get sales!");
+//
+//                    }else{
+//                        priceTextArea.setText(Integer.toString(totalSales));
+//                    }
+//
+//                }
+//            });
+
+//            showProductsButton.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    ArrayList<ArrayList<String>> products = new ArrayList<ArrayList<String>>();
+//                    products = ope.viewProduct(getSellerID(),con);
+//                    int numOfObjects = products.size();
+//                    int numOfColumns = products.get(0).size();
+//                    ArrayList<JTextArea> columns = new ArrayList<>();
+//                    columns.add(productIDTextArea);
+//                    columns.add(categoryTextArea);
+//                    columns.add(manufacturerTextArea);
+//                    columns.add(quantityTextArea);
+//                    columns.add(nameTextArea);
+//                    columns.add(priceTextArea);
+//
+//
+//                    // fill in productID
+//                    for (int i = 0; i < numOfObjects; i++) {
+//                        for (int j = 0; j < numOfColumns;j++) {
+//                            JTextArea toBeFilled = columns.get(i);
+//                            toBeFilled.append((products.get(i)).get(j) + "\n");
+//                        }
+//                    }
+//                }
+//            });
 
 
         } catch (SQLException e) {

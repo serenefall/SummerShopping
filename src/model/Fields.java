@@ -4,22 +4,45 @@ import java.util.Date;
 
 public class Fields {
 
-    int password;
+    private int password;
 
-    String customer_name;
-    int customer_id;
-    String cust_phone_num;
-    String billing_address;
-    String shipping_address;
+    private String customer_name;
+    private int customer_id;
+    private String cust_phone_num;
+    private String billing_address;
+    private String shipping_address;
 
-    int vip_id;
-    int vip_points;
-    int annual_fee;
+    private int vip_id;
+    private int vip_points;
+    private int annual_fee;
 
-    int product_id;
-    String category;
-    String manufacturer;
-    String product_name;
+    private int product_id;
+    private String category;
+    private String manufacturer;
+    private String product_name;
+
+    private String brand;
+
+    private String seller_name;
+    private int sin;
+    private int seller_id;
+    private String address;
+    private String seller_phone_num;
+
+    private String status;
+    private String payment_method;
+    private String date_placed;
+    private String shipping_date;
+    private String arrival_date;
+    private int vip_points_used;
+    private int order_num;
+    private int seller_quantity;
+    private int cust_quantity;
+
+    private int rating;
+
+    private int price;
+
 
     public String getBrand() {
         return brand;
@@ -28,26 +51,6 @@ public class Fields {
     public void setBrand(String brand) {
         this.brand = brand;
     }
-
-    String brand;
-
-    String seller_name;
-    int sin;
-    int seller_id;
-    String address;
-    String seller_phone_num;
-
-    String status;
-    String payment_method;
-    Date date_placed;
-    Date shipping_date;
-    Date arrival_date;
-    int vip_points_used;
-    int order_num;
-    int seller_quantity;
-    int cust_quantity;
-
-    int rating;
 
     public int getPassword() {
         return password;
@@ -209,27 +212,27 @@ public class Fields {
         this.payment_method = payment_method;
     }
 
-    public Date getDate_placed() {
+    public String getDate_placed() {
         return date_placed;
     }
 
-    public void setDate_placed(Date date_placed) {
+    public void setDate_placed(String date_placed) {
         this.date_placed = date_placed;
     }
 
-    public Date getShipping_date() {
+    public String getShipping_date() {
         return shipping_date;
     }
 
-    public void setShipping_date(Date shipping_date) {
+    public void setShipping_date(String shipping_date) {
         this.shipping_date = shipping_date;
     }
 
-    public Date getArrival_date() {
+    public String getArrival_date() {
         return arrival_date;
     }
 
-    public void setArrival_date(Date arrival_date) {
+    public void setArrival_date(String arrival_date) {
         this.arrival_date = arrival_date;
     }
 
@@ -273,15 +276,15 @@ public class Fields {
         this.rating = rating;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    String price;
+
 
 
 
