@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e3f8089-31f6-424b-bdc8-8b9cc4f22693" name="Default" comment="" />
+    <list default="true" id="1e3f8089-31f6-424b-bdc8-8b9cc4f22693" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/SummerShopping.iml" afterPath="$PROJECT_DIR$/SummerShopping.iml" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/model/Operation.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/model/Operation.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$1.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$2.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$3.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$4.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$4.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$7.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer$7.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/customer.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/log_in$1.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/log_in$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$1.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$2.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$3.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/seller.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin$1.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin.class" afterPath="$PROJECT_DIR$/out/production/SummerShopping/ui/sys_admin.class" />
+      <change beforePath="$PROJECT_DIR$/src/model/Operation.java" afterPath="$PROJECT_DIR$/src/model/Operation.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +51,7 @@
       <file leaf-file-name="summershopping.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/summershopping.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
+            <state relative-caret-position="6192">
               <caret line="172" column="70" lean-forward="false" selection-start-line="172" selection-start-column="65" selection-end-line="172" selection-end-column="70" />
               <folding />
             </state>
@@ -42,9 +61,35 @@
       <file leaf-file-name="Operation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="577">
+              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding>
+                <marker date="1522198942417" expanded="true" signature="573:612" ph=" SELECT statement (USERS)" />
+                <marker date="1522198942417" expanded="true" signature="1359:1596" ph=" SELECT statement (PRODUCTS, HAS, SELLER)" />
+                <marker date="1522198942417" expanded="true" signature="4228:4320" ph=" SELECT statement (VIP_1, VIP_2)" />
+                <marker date="1522198942417" expanded="true" signature="4877:4915" ph=" SELECT statement (PUTORDER)" />
+                <marker date="1522198942417" expanded="true" signature="5291:5502" ph=" INSERT statement (PUTORDER)" />
+                <marker date="1522198942417" expanded="true" signature="6191:6327" ph=" UPDATE statement (VIP_1, VIP_2)" />
+                <marker date="1522198942417" expanded="true" signature="6602:6662" ph=" SELECT statement (HAS)" />
+                <marker date="1522198942417" expanded="true" signature="7426:7489" ph=" UPDATE statement (PUTORDER)" />
+                <marker date="1522198942417" expanded="true" signature="7889:8023" ph=" SELECT statement (PUTORDER)" />
+                <marker date="1522198942417" expanded="true" signature="8635:8681" ph=" SELECT statement (VIP_2)" />
+                <marker date="1522198942417" expanded="true" signature="9048:9108" ph=" SELECT statement (HAS)" />
+                <marker date="1522198942417" expanded="true" signature="9657:9718" ph=" UPDATE statement (VIP_1)" />
+                <marker date="1522198942417" expanded="true" signature="10454:10504" ph=" SELECT statement (PUTORDER)" />
+                <marker date="1522198942417" expanded="true" signature="11077:11129" ph=" SELECT statement (RATE)" />
+                <marker date="1522198942417" expanded="true" signature="11546:11595" ph=" UPDATE statement (RATE)" />
+                <marker date="1522198942417" expanded="true" signature="12104:12157" ph=" INSERT statement (RATE)" />
+                <marker date="1522198942417" expanded="true" signature="13017:13393" ph=" SELECT statement (PRODUCTS, HAS, SELLER...)" />
+                <marker date="1522198942417" expanded="true" signature="14097:14631" ph=" SELECT statement (PRODUCTS, HAS)" />
+                <marker date="1522198942417" expanded="true" signature="15268:15717" ph=" SELECT statement (PRODUCTS, HAS)" />
+                <marker date="1522198942417" expanded="true" signature="16557:16634" ph=" UPDATE statement (HAS)" />
+                <marker date="1522198942417" expanded="true" signature="17373:17491" ph=" INSERT statement (PRODUCTS)" />
+                <marker date="1522198942417" expanded="true" signature="17788:17860" ph=" INSERT statement (HAS)" />
+                <marker date="1522198942417" expanded="true" signature="18442:18529" ph=" DELETE statement (HAS)" />
+                <marker date="1522198942417" expanded="true" signature="19177:19252" ph=" DELETE statement (CUSTOMER)" />
+                <marker date="1522198942417" expanded="true" signature="19824:19895" ph=" DELETE statement (SELLER)" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,7 +97,7 @@
       <file leaf-file-name="sys_admin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
+            <state relative-caret-position="1584">
               <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
               <folding />
             </state>
@@ -62,7 +107,7 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="216">
               <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="58" />
               <folding />
             </state>
@@ -72,7 +117,7 @@
       <file leaf-file-name="customer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
+            <state relative-caret-position="6192">
               <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
               <folding />
             </state>
@@ -82,8 +127,8 @@
       <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+            <state relative-caret-position="2304">
+              <caret line="64" column="25" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -92,7 +137,7 @@
       <file leaf-file-name="seller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/seller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1545">
+            <state relative-caret-position="3456">
               <caret line="103" column="21" lean-forward="false" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
               <folding />
             </state>
@@ -102,7 +147,7 @@
       <file leaf-file-name="Connections.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Connections.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="324">
               <caret line="11" column="91" lean-forward="false" selection-start-line="11" selection-start-column="91" selection-end-line="11" selection-end-column="91" />
               <folding />
             </state>
@@ -187,7 +232,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="841" />
@@ -207,9 +252,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,7 +281,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -423,42 +468,42 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="841" extended-state="0" />
+    <frame x="-13" y="-13" width="2586" height="1386" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27882037" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22788204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22750424" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20028612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21770833" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -657,7 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -668,7 +712,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/sys_admin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
+        <state relative-caret-position="1584">
           <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
           <folding />
         </state>
@@ -676,7 +720,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/seller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
+        <state relative-caret-position="3456">
           <caret line="103" column="21" lean-forward="false" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
           <folding />
         </state>
@@ -689,7 +733,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="216">
           <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="58" />
           <folding />
         </state>
@@ -697,15 +741,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+        <state relative-caret-position="2304">
+          <caret line="64" column="25" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
+        <state relative-caret-position="6192">
           <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
           <folding />
         </state>
@@ -713,7 +757,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Connections.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="324">
           <caret line="11" column="91" lean-forward="false" selection-start-line="11" selection-start-column="91" selection-end-line="11" selection-end-column="91" />
           <folding />
         </state>
@@ -721,7 +765,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/summershopping.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state relative-caret-position="6192">
           <caret line="172" column="70" lean-forward="false" selection-start-line="172" selection-start-column="65" selection-end-line="172" selection-end-column="70" />
           <folding />
         </state>
@@ -729,9 +773,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="577">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <marker date="1522198942417" expanded="true" signature="573:612" ph=" SELECT statement (USERS)" />
+            <marker date="1522198942417" expanded="true" signature="1359:1596" ph=" SELECT statement (PRODUCTS, HAS, SELLER)" />
+            <marker date="1522198942417" expanded="true" signature="4228:4320" ph=" SELECT statement (VIP_1, VIP_2)" />
+            <marker date="1522198942417" expanded="true" signature="4877:4915" ph=" SELECT statement (PUTORDER)" />
+            <marker date="1522198942417" expanded="true" signature="5291:5502" ph=" INSERT statement (PUTORDER)" />
+            <marker date="1522198942417" expanded="true" signature="6191:6327" ph=" UPDATE statement (VIP_1, VIP_2)" />
+            <marker date="1522198942417" expanded="true" signature="6602:6662" ph=" SELECT statement (HAS)" />
+            <marker date="1522198942417" expanded="true" signature="7426:7489" ph=" UPDATE statement (PUTORDER)" />
+            <marker date="1522198942417" expanded="true" signature="7889:8023" ph=" SELECT statement (PUTORDER)" />
+            <marker date="1522198942417" expanded="true" signature="8635:8681" ph=" SELECT statement (VIP_2)" />
+            <marker date="1522198942417" expanded="true" signature="9048:9108" ph=" SELECT statement (HAS)" />
+            <marker date="1522198942417" expanded="true" signature="9657:9718" ph=" UPDATE statement (VIP_1)" />
+            <marker date="1522198942417" expanded="true" signature="10454:10504" ph=" SELECT statement (PUTORDER)" />
+            <marker date="1522198942417" expanded="true" signature="11077:11129" ph=" SELECT statement (RATE)" />
+            <marker date="1522198942417" expanded="true" signature="11546:11595" ph=" UPDATE statement (RATE)" />
+            <marker date="1522198942417" expanded="true" signature="12104:12157" ph=" INSERT statement (RATE)" />
+            <marker date="1522198942417" expanded="true" signature="13017:13393" ph=" SELECT statement (PRODUCTS, HAS, SELLER...)" />
+            <marker date="1522198942417" expanded="true" signature="14097:14631" ph=" SELECT statement (PRODUCTS, HAS)" />
+            <marker date="1522198942417" expanded="true" signature="15268:15717" ph=" SELECT statement (PRODUCTS, HAS)" />
+            <marker date="1522198942417" expanded="true" signature="16557:16634" ph=" UPDATE statement (HAS)" />
+            <marker date="1522198942417" expanded="true" signature="17373:17491" ph=" INSERT statement (PRODUCTS)" />
+            <marker date="1522198942417" expanded="true" signature="17788:17860" ph=" INSERT statement (HAS)" />
+            <marker date="1522198942417" expanded="true" signature="18442:18529" ph=" DELETE statement (HAS)" />
+            <marker date="1522198942417" expanded="true" signature="19177:19252" ph=" DELETE statement (CUSTOMER)" />
+            <marker date="1522198942417" expanded="true" signature="19824:19895" ph=" DELETE statement (SELLER)" />
+          </folding>
         </state>
       </provider>
     </entry>

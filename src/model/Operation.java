@@ -38,7 +38,7 @@ public class Operation {
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT p.Product_ID,p.PRODUCT_NAME, p.MANUFACTURER, Price, s.SELLER_NAME, s.Seller_ID FROM Products p , Seller s, Has h WHERE p.PRODUCT_NAME LIKE ? AND p.Product_ID = h.Product_ID AND s.Seller_ID = h.Seller_ID AND PRICE > ? AND PRICE < ?")) {
 
-            ps.setString(1, ProductName);
+            ps.setString(1, '%'+ProductName+'%');
             ps.setInt(2, priceRange1);
             ps.setInt(3, priceRange2);
 
