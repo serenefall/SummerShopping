@@ -57,25 +57,13 @@ INSERT INTO Customer (Customer_ID, Customer_Name, Phone#, Billing_address, Shipp
 INSERT INTO Customer (Customer_ID, Customer_Name, Phone#, Billing_address, Shipping_address) values (458, 'Tony Bradley', '(778) 8715416', '1874 No 4 Road', '1874 No 4 Road');
 INSERT INTO Customer (Customer_ID, Customer_Name, Phone#, Billing_address, Shipping_address) values (570, 'Bradley Bill', '(717) 9874416', '1695 No 4 Road', '1695 No 4 Road');
 
-CREATE TABLE VIP_1 (
-	VIP_ID INT,
-	VIP_Points INT,
-    	PRIMARY KEY (VIP_ID)
-);
-INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (73, 84);
-INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (46, 50);
-INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (21, 7);
-INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (43, 28);
-INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (37, 87);
-INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (88, 15);
-INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (10, 128);
-INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (91, 78);
 
 CREATE TABLE VIP_2 (
 	Customer_ID INT,
 	VIP_ID INT,
 	Annual_fee INT,
-        PRIMARY KEY (Customer_ID)
+        PRIMARY KEY (VIP_ID),
+				FOREIGN KEY (Customer_ID) REFERENCES CUSTOMER(Customer_ID) ON DELETE CASCADE
 );
 INSERT INTO VIP_2 (Customer_ID, VIP_ID, Annual_fee) values (234, 73, 20);
 INSERT INTO VIP_2 (Customer_ID, VIP_ID, Annual_fee) values (896, 46, 20);
@@ -85,6 +73,21 @@ INSERT INTO VIP_2 (Customer_ID, VIP_ID, Annual_fee) values (331, 37, 20);
 INSERT INTO VIP_2 (Customer_ID, VIP_ID, Annual_fee) values (108, 88, 20);
 INSERT INTO VIP_2 (Customer_ID, VIP_ID, Annual_fee) values (458, 91, 20);
 INSERT INTO VIP_2 (Customer_ID, VIP_ID, Annual_fee) values (570, 10, 20);
+
+CREATE TABLE VIP_1 (
+	VIP_ID INT,
+	VIP_Points INT,
+    	PRIMARY KEY (VIP_ID),
+			FOREIGN KEY (VIP_ID) REFERENCES VIP_2(VIP_ID) ON DELETE CASCADE
+);
+INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (73, 84);
+INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (46, 50);
+INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (21, 7);
+INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (43, 28);
+INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (37, 87);
+INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (88, 15);
+INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (10, 128);
+INSERT INTO VIP_1 (VIP_ID, VIP_Points) values (91, 78);
 
 
 
@@ -103,8 +106,8 @@ INSERT INTO Products (Product_ID, Category, Manufacturer, Product_Name) values (
 INSERT INTO Products (Product_ID, Category, Manufacturer, Product_Name) values (12459, 'Books', 'Lakin Inc', 'Paste');
 INSERT INTO Products (Product_ID, Category, Manufacturer, Product_Name) values (31259, 'Pens', 'Pilot Inc', 'Pilot Pen');
 insert into Products (Product_ID, Category, Manufacturer, Product_Name) values (47653, 'Clothing', 'Graham-Abernathy', 'Pie Shell - 5');
-insert into Products (Product_ID, Category, Manufacturer, Product_Name) values (41643, 'Sports', 'Monahan, Ullrich and Runte', 'Lobster - Tail 6 Oz');
-insert into Products (Product_ID, Category, Manufacturer, Product_Name) values (17742, 'Automotive', 'Bergstrom-Tromp', 'Alize Gold Passion');
+insert into Products (Product_ID, Category, Manufacturer, Product_Name) values (41643, 'Food', 'Monahan, Ullrich and Runte', 'Lobster - Tail 6 Oz');
+insert into Products (Product_ID, Category, Manufacturer, Product_Name) values (17742, 'Book', 'Bergstrom-Tromp', 'Alize Gold Passion');
 insert into Products (Product_ID, Category, Manufacturer, Product_Name) values (56096, 'Movies', 'Yundt, Hahn and Rowe', 'Soap - Pine Sol Floor Cleaner');
 
 
@@ -141,7 +144,7 @@ CREATE TABLE PutOrder (
 	Seller_ID INT,
 	Quantity INT,
             PRIMARY KEY(Order_number),
-            FOREIGN KEY(Product_ID) REFERENCES Products (Product_ID),
+            FOREIGN KEY(Product_ID) REFERENCES Products (Product_ID) ON DELETE SET NULL,
             FOREIGN KEY(Customer_ID) REFERENCES Customer (Customer_ID) ON DELETE SET NULL,
 			FOREIGN KEY(Seller_ID) REFERENCES Seller (Seller_ID) ON DELETE SET NULL
 );
@@ -183,7 +186,7 @@ CREATE TABLE Has (
 	Quantity INT,
 	Price INT,
         PRIMARY KEY(Product_ID, Seller_ID),
-        FOREIGN KEY(Product_ID) REFERENCES Products(Product_ID),
+        FOREIGN KEY(Product_ID) REFERENCES Products(Product_ID) ON DELETE CASCADE,
         FOREIGN KEY(Seller_ID) REFERENCES Seller(Seller_ID) ON DELETE CASCADE
 );
 
@@ -222,4 +225,3 @@ commit;
 
 
 commit;
-
