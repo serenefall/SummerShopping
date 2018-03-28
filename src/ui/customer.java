@@ -57,6 +57,7 @@ public class customer {
             searchProductsButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    clearWindows();
                     String productName = productNameTextField.getText();
                     // Changed from original code, may have problem (Tao)
                     String price_range_1 = priceRangetextFieldLow.getText();
@@ -123,6 +124,7 @@ public class customer {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
+                        clearWindows();
                         ArrayList<Fields> returned = new ArrayList<>();
                         returned = ope.getWholeSeller(con);
                         for (int i = 0; i < returned.size();i++){
@@ -144,6 +146,7 @@ public class customer {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try{
+                        clearWindows();
                         String returned = ope.findHighestProduct(con);
                         productNameTextArea.append(returned + '\n');
 
@@ -160,6 +163,7 @@ public class customer {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try{
+                        clearWindows();
                         String returned = ope.findCheapestProduct(con);
                         productNameTextArea.append(returned + '\n');
 
@@ -199,6 +203,15 @@ public class customer {
         }catch (Exception e1) {
             JOptionPane.showMessageDialog(null,"e1");
         }
+    }
+
+    public void clearWindows(){
+        this.productBrandTextArea.setText(null);
+        this.productNameTextArea.setText(null);
+        this.productIDTextArea.setText(null);
+        this.sellerIDTextArea.setText(null);
+        this.sellerNameTextArea.setText(null);
+        this.productPriceTextArea.setText(null);
     }
 
 }
