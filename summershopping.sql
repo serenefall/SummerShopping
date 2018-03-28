@@ -4,9 +4,10 @@ drop table PutOrder;
 drop table Products;
 drop table Seller;
 drop table Users;
-drop table Customer;
 drop table VIP_1;
 drop table VIP_2;
+drop table Customer;
+
 
 
 CREATE TABLE Users (
@@ -176,8 +177,6 @@ INSERT INTO Rate (Rating, Order_number) values (4, 58452100);
 INSERT INTO Rate (Rating, Order_number) values (5, 49813474);
 INSERT INTO Rate (Rating, Order_number) values (3, 25876574);
 INSERT INTO Rate (Rating, Order_number) values (5, 59972074);
-
-
 
 
 CREATE TABLE Has (
