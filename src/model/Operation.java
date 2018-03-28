@@ -124,7 +124,7 @@ public class Operation {
 
         // Insert new order into PutOrder
         try (PreparedStatement ps = con.prepareStatement
-                ("INSERT INTO PutOrder (Status, Payment_method, Date_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number, Product_ID, Customer_id, Seller_ID, Quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+                ("INSERT INTO PutOrder (Status, Payment_method, Date_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number, Product_ID, Customer_id, Seller_ID, Quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
             ps.setString(1, "In Progress");
             ps.setString(2, Payment_method);
             ps.setString(3, today);
@@ -139,10 +139,23 @@ public class Operation {
 
             ps.executeQuery();
 
-            System.out.println("test\n");
+            ps.close();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
 
+        // Update Seller Inventory by deducting quantity bought by customer
+        try (PreparedStatement ps = con.prepareStatement
+                ("UPDATE Has SET Quantity = Quantity - ?" +
+                        "WHERE Seller_ID = ? AND Product_ID = ?")) {
+            ps.setInt(1, quantity);
+            ps.setInt(2, seller_id);
+            ps.setInt(3, product_id);
+
+            ps.executeQuery();
             ps.close();
         }
+
 
         // Update VIP points by deducting vip points used
         try (PreparedStatement ps = con.prepareStatement
@@ -466,41 +479,31 @@ public class Operation {
     /****************for sys_admin*****************************/
     public boolean deleteCustomer(String customerID, Connection con)  {
         int customer_id = Integer.parseInt(customerID);
-        boolean status = false;
-        try {
-            PreparedStatement ps = con.prepareStatement
-                    ("DELETE FROM Customer " +
-                            "WHERE Customer_id = ? ");
-            ps.setInt(1, customer_id);
-//            ResultSet temp = null;
-            int temp = ps.executeUpdate();
-            if (temp!=0) {
-                status = true;
-            }
+
+        try (PreparedStatement ps = con.prepareStatement
+                ("DELETE FROM Customer WHERE Customer_id = ? " )) {
+            ps.setInt(1,customer_id);
+            ps.executeUpdate();
             ps.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (java.sql.SQLException e2) {
+            System.out.println(e2.getMessage());
         }
-        return status;
+
+        return true;
     }
 
     public boolean deleteSeller(String sellerID, Connection con)  {
         int seller_id = Integer.parseInt(sellerID);
-        boolean status = false;
 
-        try{
-            PreparedStatement ps = con.prepareStatement
-                    ("DELETE FROM Seller " +
-                            "WHERE Seller_id = ? " );
+        try (PreparedStatement ps = con.prepareStatement
+                ("DELETE FROM Seller WHERE Seller_id = ? " )) {
             ps.setInt(1,seller_id);
-            int temp = ps.executeUpdate();
-            if (temp!=0) {
-                status = true;
-            }
+            ps.executeUpdate();
             ps.close();
-        }catch (SQLException e) {
-            e.printStackTrace();
+        } catch (java.sql.SQLException e2) {
+            System.out.println(e2.getMessage());
         }
-        return status;
+
+        return true;
     }
 }
