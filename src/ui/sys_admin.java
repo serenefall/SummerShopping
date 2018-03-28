@@ -38,10 +38,6 @@ public class sys_admin {
                         JOptionPane.showMessageDialog(null,"failed"+e1);
                     }
                 }
-
-
-
-
             });
 
 
@@ -58,10 +54,6 @@ public class sys_admin {
                     }
                 }
             });
-
-
-
-
 
         }catch (Exception e) {
             e.printStackTrace();

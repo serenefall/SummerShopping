@@ -33,12 +33,15 @@ public class Operation {
     public ArrayList<Fields> searchProducts(String ProductName, String price_range_1, String price_range_2,
                                             Connection con) throws SQLException {
         ArrayList<Fields> target_product = new ArrayList<>();
-        int priceRange1 = Integer.parseInt(price_range_1);
-        int priceRange2 = Integer.parseInt(price_range_2);
-        try (PreparedStatement ps = con.prepareStatement
-                ("SELECT p.Product_ID,p.PRODUCT_NAME, p.MANUFACTURER, Price, s.SELLER_NAME, s.Seller_ID FROM Products p , Seller s, Has h WHERE p.PRODUCT_NAME LIKE ? AND p.Product_ID = h.Product_ID AND s.Seller_ID = h.Seller_ID AND PRICE > ? AND PRICE < ?")) {
 
-            ps.setString(1, ProductName);
+        int priceRange1, priceRange2;
+        priceRange1 = price_range_1.equals("") ? 0 : Integer.parseInt(price_range_1);
+        priceRange2 = price_range_2.equals("") ? 9999 : Integer.parseInt(price_range_2);
+
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT p.Product_ID,p.PRODUCT_NAME, p.MANUFACTURER, Price, s.SELLER_NAME, s.Seller_ID FROM Products p , Seller s, Has h WHERE UPPER(p.PRODUCT_NAME) LIKE ? AND p.Product_ID = h.Product_ID AND s.Seller_ID = h.Seller_ID AND PRICE > ? AND PRICE < ?")) {
+
+            ps.setString(1, ('%'+ProductName+'%').toUpperCase());
             ps.setInt(2, priceRange1);
             ps.setInt(3, priceRange2);
 
