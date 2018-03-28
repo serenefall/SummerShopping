@@ -58,6 +58,8 @@ public class customer {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     clearWindows();
+
+
                     String productName = productNameTextField.getText();
                     // Changed from original code, may have problem (Tao)
                     String price_range_1 = priceRangetextFieldLow.getText();
@@ -190,11 +192,11 @@ public class customer {
                     } catch (SQLException e1) {
                         e1.printStackTrace();
                     }
-                    if(total!=0){
-                        JOptionPane.showMessageDialog(null, "Put Order is done!");
+                    if(total!=-1){
+                        JOptionPane.showMessageDialog(null, "Put Order is done! You spent $" + total);
                     }
                     else{
-                        JOptionPane.showMessageDialog(null, "Put Order failed!");
+                        JOptionPane.showMessageDialog(null, "Put Order failed due to a lack of VIP points");
                     }
                 }
             });
