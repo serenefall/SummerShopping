@@ -321,7 +321,7 @@ public class Operation {
                 }
 
                 ps.close();
-            } catch (java.sql.SQLException e2){
+            } catch (SQLException e2){
                 System.out.println(e2.getMessage());
             }
             return true;
@@ -417,7 +417,7 @@ public class Operation {
             ps.setInt(2, quantity);
             ps.setInt(3, product_id);
             ps.setInt(4, seller_id);
-            ps.executeUpdate();
+            ps.executeQuery();
             ps.close();
         }
         return true;
@@ -440,6 +440,8 @@ public class Operation {
             ps.setString(4,name);
             ps.executeUpdate();
             ps.close();
+        } catch (SQLException e2){
+            System.out.println(e2.getMessage());
         }
 
         try (PreparedStatement ps = con.prepareStatement
@@ -450,6 +452,8 @@ public class Operation {
             ps.setInt(4, price);
             ps.executeUpdate();
             ps.close();
+        } catch (SQLException e2){
+            System.out.println(e2.getMessage());
         }
 
         return true;
