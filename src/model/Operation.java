@@ -36,8 +36,7 @@ public class Operation {
         int priceRange1 = Integer.parseInt(price_range_1);
         int priceRange2 = Integer.parseInt(price_range_2);
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT p.Product_ID,p.PRODUCT_NAME, p.MANUFACTURER, Price, s.SELLER_NAME, s.Seller_ID " +
-                        "FROM Products p , Seller s, Has h WHERE p.PRODUCT_NAME = ? AND p.Product_ID = h.Product_ID AND s.Seller_ID = h.Seller_ID AND PRICE > ? AND PRICE < ?")) {
+                ("SELECT p.Product_ID,p.PRODUCT_NAME, p.MANUFACTURER, Price, s.SELLER_NAME, s.Seller_ID FROM Products p , Seller s, Has h WHERE p.PRODUCT_NAME LIKE ? AND p.Product_ID = h.Product_ID AND s.Seller_ID = h.Seller_ID AND PRICE > ? AND PRICE < ?")) {
 
             ps.setString(1, ProductName);
             ps.setInt(2, priceRange1);
@@ -47,12 +46,12 @@ public class Operation {
 
             while (temp.next()) {
                 Fields item = new Fields();
-                item.setProduct_id(temp.getInt("p.Product_ID"));
+                item.setProduct_id(temp.getInt("Product_ID"));
                 item.setProduct_name(temp.getString("Product_name"));
                 item.setManufacturer(temp.getString("Manufacturer"));
                 item.setPrice(temp.getInt("Price"));
                 item.setSeller_name(temp.getString("Seller_name"));
-                item.setSeller_id(temp.getInt("s.Seller_ID"));
+                item.setSeller_id(temp.getInt("Seller_ID"));
                 target_product.add(item);
             }
             ps.close();
