@@ -47,12 +47,12 @@ public class Operation {
 
             while (temp.next()) {
                 Fields item = new Fields();
-                item.setProduct_id(temp.getInt("p.Product_ID"));
+                item.setProduct_id(temp.getInt("Product_ID"));
                 item.setProduct_name(temp.getString("Product_name"));
                 item.setManufacturer(temp.getString("Manufacturer"));
                 item.setPrice(temp.getInt("Price"));
                 item.setSeller_name(temp.getString("Seller_name"));
-                item.setSeller_id(temp.getInt("s.Seller_ID"));
+                item.setSeller_id(temp.getInt("Seller_ID"));
                 target_product.add(item);
             }
             ps.close();
@@ -99,8 +99,7 @@ public class Operation {
         // get the current vip points the customer has
         int current_vip_points = 0;
         try (PreparedStatement ps = con.prepareStatement
-                ("SELECT VIP_Points FROM VIP_1" +
-                        "WHERE VIP_ID = (SELECT VIP_ID FROM VIP_2 WHRER Customer_id = ?)")) {
+                ("SELECT VIP_Points FROM VIP_1 WHERE VIP_ID = (SELECT VIP_ID FROM VIP_2 WHERE Customer_id = ?)")) {
             ps.setInt(1, customer_id);
             ResultSet temp = ps.executeQuery();
             while (temp.next()) {
@@ -112,30 +111,37 @@ public class Operation {
 
         // Get the order number of the last order entered in the system
         int lastOrderID = 0;
+        int orderID;
+
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT MAX(Order_number) FROM PutOrder")) {
             ResultSet temp = ps.executeQuery();
             while (temp.next()) {
-                lastOrderID = temp.getInt("Order_number");
+                lastOrderID = temp.getInt("MAX(ORDER_NUMBER)");
+                System.out.println("test1\n");
             }
         }
+        orderID = lastOrderID + 1;
 
         // Insert new order into PutOrder
         try (PreparedStatement ps = con.prepareStatement
-                ("INSERT INTO PutOrder" +
-                        "(Status, Payment_method, Date_placed, Shipping_date, Arrival_date, " +
-                        "VIP_points_used, Order_number, Product_ID, Customer_id, Seller_ID, Quantity) " +
-                        "VALUES ('In Progress', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?")) {
-            ps.setString(1, Payment_method);
-            ps.setString(2, today);
-            ps.setString(3, today_plus1);
-            ps.setString(4, today_plus5);
-            ps.setInt(5, vip_points_used);
-            ps.setInt(6, lastOrderID+1);
-            ps.setInt(7, product_id);
-            ps.setInt(8, customer_id);
-            ps.setInt(9, seller_id);
-            ps.setInt(8, quantity);
+                ("INSERT INTO PutOrder (Status, Payment_method, Date_placed, Shipping_date, Arrival_date, VIP_points_used, Order_number, Product_ID, Customer_id, Seller_ID, Quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+            ps.setString(1, "In Progress");
+            ps.setString(2, Payment_method);
+            ps.setString(3, today);
+            ps.setString(4, today_plus1);
+            ps.setString(5, today_plus5);
+            ps.setInt(6, vip_points_used);
+            ps.setInt(7, orderID);
+            ps.setInt(8, product_id);
+            ps.setInt(9, customer_id);
+            ps.setInt(10, seller_id);
+            ps.setInt(11, quantity);
+
+            ps.executeQuery();
+
+            System.out.println("test\n");
+
             ps.close();
         }
 
