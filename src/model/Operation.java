@@ -265,9 +265,26 @@ public class Operation {
 
     // Input: Order ID, Rating(1/2/3/4/5)
     // Output: Insert a tuple in the table Rate if the Order ID is “completed” and return true. Otherwise return false.
-    public boolean rateProduct(String order_ID, String Rating, Connection con) {
+    public boolean rateProduct(String customer_ID, String order_ID, String Rating, Connection con) {
         int order_id = Integer.parseInt(order_ID);
         int rating = Integer.parseInt(Rating);
+        int customer_id = Integer.parseInt(customer_ID);
+
+        // check whether the order is from this customer. Customers can only rate their own orders.
+        int cidOfOrder = -1;
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT CUSTOMER_ID FROM PutOrder WHERE Order_number = ? ")) {
+            ps.setInt(1, order_id);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                cidOfOrder = temp.getInt("CUSTOMER_ID");
+            }
+            ps.close();
+        } catch (java.sql.SQLException e2) {
+            System.out.println(e2.getMessage());
+        }
+        
+        if (customer_id != cidOfOrder) return false;
 
         // check whether the order is Completed. Only completed order can be rated
         String status = "";
