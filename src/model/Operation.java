@@ -283,7 +283,6 @@ public class Operation {
         } catch (java.sql.SQLException e2) {
             System.out.println(e2.getMessage());
         }
-        
         if (customer_id != cidOfOrder) return false;
 
         // check whether the order is Completed. Only completed order can be rated
