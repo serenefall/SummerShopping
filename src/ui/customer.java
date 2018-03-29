@@ -95,7 +95,7 @@ public class customer {
                     String order_id = textField3.getText();
                     boolean status = false;
                     try {
-                        status = ope.completeOrder(order_id,con);
+                        status = ope.completeOrder(customerID,order_id,con);
                         if(status){
                             JOptionPane.showMessageDialog(null,"order completed");
                         }
@@ -112,7 +112,7 @@ public class customer {
                     // corresponding to text field 7 9 10 8
                     String order_id = orderIDTextField.getText();
                     String rating = ratingTextField.getText();
-                    if(ope.rateProduct(order_id,rating,con)){
+                    if(ope.rateProduct(customerID,order_id,rating,con)){
                         JOptionPane.showMessageDialog(null,"Rating complete!");
                     } else {
                         JOptionPane.showMessageDialog(null, "Fail to rate! Please try again!");

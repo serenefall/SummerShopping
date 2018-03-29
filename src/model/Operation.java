@@ -189,7 +189,7 @@ public class Operation {
     // Input: Order ID
     // Output: Change status of Order from “In Process” to “Completed”. Check whether the customer is VIP.
     //         If yes, increase the VIP points by the floor of the total cost of the Order.
-    public boolean completeOrder(String order_ID, Connection con) throws SQLException {
+    public boolean completeOrder(String customer_ID, String order_ID, Connection con) throws SQLException {
         int order_id = Integer.parseInt(order_ID);
         try (PreparedStatement ps = con.prepareStatement
                 ("UPDATE PutOrder SET Status = 'Completed' WHERE Order_number = ?")) {
@@ -206,6 +206,25 @@ public class Operation {
         int price = 0;
         int vipPoints_used = 0;
         int vipID = -1;
+
+
+        // check whether the order is from this customer. Customers can only rate their own orders.
+        int cidOfOrder = -1;
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT CUSTOMER_ID FROM PutOrder WHERE Order_number = ? ")) {
+            ps.setInt(1, order_id);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                cidOfOrder = temp.getInt("CUSTOMER_ID");
+            }
+            ps.close();
+        } catch (java.sql.SQLException e2) {
+            System.out.println(e2.getMessage());
+        }
+
+        if(cidOfOrder != Integer.parseInt(customer_ID)){
+            return false;
+        }
 
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT Product_ID, Seller_ID, Customer_ID, Quantity, VIP_points_used " +
