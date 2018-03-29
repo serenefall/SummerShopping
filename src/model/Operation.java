@@ -309,7 +309,6 @@ public class Operation {
             }
             ps.close();
         }
-        
         if (customer_id != cidOfOrder) return false;
 
         // check whether the order is Completed. Only completed order can be rated
