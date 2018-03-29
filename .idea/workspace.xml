@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3f8089-31f6-424b-bdc8-8b9cc4f22693" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/model/Operation.java" afterPath="$PROJECT_DIR$/src/model/Operation.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,8 +44,8 @@
       <file leaf-file-name="Operation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="284" column="9" lean-forward="false" selection-start-line="284" selection-start-column="9" selection-end-line="284" selection-end-column="9" />
+            <state relative-caret-position="-1297">
+              <caret line="199" column="85" lean-forward="false" selection-start-line="199" selection-start-column="85" selection-end-line="199" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -688,8 +687,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="284" column="9" lean-forward="false" selection-start-line="284" selection-start-column="9" selection-end-line="284" selection-end-column="9" />
+        <state relative-caret-position="-1297">
+          <caret line="199" column="85" lean-forward="false" selection-start-line="199" selection-start-column="85" selection-end-line="199" selection-end-column="85" />
           <folding />
         </state>
       </provider>

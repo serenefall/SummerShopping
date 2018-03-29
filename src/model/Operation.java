@@ -197,7 +197,7 @@ public class Operation {
     public boolean completeOrder(String customer_ID, String order_ID, Connection con) throws SQLException {
         int order_id = Integer.parseInt(order_ID);
 
-        // check whether the order is from this customer. Customers can only rate their own orders.
+        // check whether the order is from this customer. Customers can only complete their own orders.
         int cidOfOrder = -1;
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT CUSTOMER_ID FROM PutOrder WHERE Order_number = ? ")) {
