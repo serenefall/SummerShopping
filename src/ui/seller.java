@@ -57,8 +57,9 @@ public class seller {
                         }else{
                             JOptionPane.showMessageDialog(null, "Failed to add Product!");
                         }
-                    } catch (SQLException e1) {
-                        e1.getMessage();
+                    } catch (Exception e1) {
+                        JOptionPane.showMessageDialog(null, "Failed to add Product!");
+
                     }
                 }
             });
@@ -76,8 +77,9 @@ public class seller {
                         }else{
                             JOptionPane.showMessageDialog(null, "Failed to delete Product!");
                         }
-                    } catch (SQLException e1) {
-                        e1.getMessage();
+                    } catch (Exception e1) {
+                        JOptionPane.showMessageDialog(null, "Failed to delete Product!");
+
                     }
                 }
             });
@@ -97,10 +99,10 @@ public class seller {
                         if(ope.updatePrice(sellerID,productID,price,quantity,con)){
                             JOptionPane.showMessageDialog(null, "Price updated for " + productID + " !");
                         }else{
-                            JOptionPane.showMessageDialog(null, "Failed to update price for "+ productID + " !");
+                            JOptionPane.showMessageDialog(null, "Failed to update price for  "+ productID + " !");
                         }
-                    } catch (SQLException e1) {
-                        e1.getMessage();
+                    } catch (Exception e1) {
+                        JOptionPane.showMessageDialog(null, "Failed to update price for  "+ productID + " !");
                     }
                 }
             });

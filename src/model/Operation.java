@@ -1,5 +1,6 @@
 package model;
 
+import javax.swing.*;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -12,9 +13,12 @@ public class Operation {
 
     // revised by Ling
     public boolean userLogin(String username, String pwd, Connection con) throws SQLException {
-        int userid = Integer.parseInt(username);
-        int iPwd = Integer.parseInt(pwd);
+        int iPwd = -2;
         int rPwd = -1;
+        try{
+        int userid = Integer.parseInt(username);
+        iPwd = Integer.parseInt(pwd);
+        rPwd = -1;
 
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT PASSWORD FROM Users WHERE id = ? ")) {
@@ -23,6 +27,9 @@ public class Operation {
             while (temp.next()) rPwd = temp.getInt("PASSWORD");
 
             ps.close();
+        }
+        }catch (Exception e){
+            throw new SQLException();
         }
 
         return (iPwd == rPwd);
@@ -143,8 +150,6 @@ public class Operation {
             ps.executeQuery();
 
             ps.close();
-        } catch (SQLException e){
-            System.out.println(e.getMessage());
         }
 
         // Update Seller Inventory by deducting quantity bought by customer
@@ -191,10 +196,31 @@ public class Operation {
     //         If yes, increase the VIP points by the floor of the total cost of the Order.
     public boolean completeOrder(String customer_ID, String order_ID, Connection con) throws SQLException {
         int order_id = Integer.parseInt(order_ID);
+
+        // check whether the order is from this customer. Customers can only rate their own orders.
+        int cidOfOrder = -1;
+        try (PreparedStatement ps = con.prepareStatement
+                ("SELECT CUSTOMER_ID FROM PutOrder WHERE Order_number = ? ")) {
+            ps.setInt(1, order_id);
+            ResultSet temp = ps.executeQuery();
+            while (temp.next()) {
+                cidOfOrder = temp.getInt("CUSTOMER_ID");
+            }
+            ps.close();
+        }
+
+        if(cidOfOrder != Integer.parseInt(customer_ID)){
+            return false;
+        }
+
+
         try (PreparedStatement ps = con.prepareStatement
                 ("UPDATE PutOrder SET Status = 'Completed' WHERE Order_number = ?")) {
             ps.setInt(1, order_id);
-            ps.executeQuery();
+            int temp = ps.executeUpdate();
+            if(temp == 0){
+                return false;
+            }
             ps.close();
         }
 
@@ -208,23 +234,6 @@ public class Operation {
         int vipID = -1;
 
 
-        // check whether the order is from this customer. Customers can only rate their own orders.
-        int cidOfOrder = -1;
-        try (PreparedStatement ps = con.prepareStatement
-                ("SELECT CUSTOMER_ID FROM PutOrder WHERE Order_number = ? ")) {
-            ps.setInt(1, order_id);
-            ResultSet temp = ps.executeQuery();
-            while (temp.next()) {
-                cidOfOrder = temp.getInt("CUSTOMER_ID");
-            }
-            ps.close();
-        } catch (java.sql.SQLException e2) {
-            System.out.println(e2.getMessage());
-        }
-
-        if(cidOfOrder != Integer.parseInt(customer_ID)){
-            return false;
-        }
 
         try (PreparedStatement ps = con.prepareStatement
                 ("SELECT Product_ID, Seller_ID, Customer_ID, Quantity, VIP_points_used " +
@@ -284,7 +293,7 @@ public class Operation {
 
     // Input: Order ID, Rating(1/2/3/4/5)
     // Output: Insert a tuple in the table Rate if the Order ID is “completed” and return true. Otherwise return false.
-    public boolean rateProduct(String customer_ID, String order_ID, String Rating, Connection con) {
+    public boolean rateProduct(String customer_ID, String order_ID, String Rating, Connection con) throws SQLException{
         int order_id = Integer.parseInt(order_ID);
         int rating = Integer.parseInt(Rating);
         int customer_id = Integer.parseInt(customer_ID);
@@ -299,8 +308,6 @@ public class Operation {
                 cidOfOrder = temp.getInt("CUSTOMER_ID");
             }
             ps.close();
-        } catch (java.sql.SQLException e2) {
-            System.out.println(e2.getMessage());
         }
         
         if (customer_id != cidOfOrder) return false;
@@ -315,8 +322,6 @@ public class Operation {
                 status = temp.getString("Status");
             }
             ps.close();
-        } catch (java.sql.SQLException e2) {
-            System.out.println(e2.getMessage());
         }
 
 
@@ -357,8 +362,6 @@ public class Operation {
                 }
 
                 ps.close();
-            } catch (SQLException e2){
-                System.out.println(e2.getMessage());
             }
             return true;
         } else {
@@ -453,8 +456,11 @@ public class Operation {
             ps.setInt(2, quantity);
             ps.setInt(3, product_id);
             ps.setInt(4, seller_id);
-            ps.executeQuery();
+            int temp = ps.executeUpdate();
             ps.close();
+            if(temp == 0){
+                return false;
+            }
         }
         return true;
     }
@@ -476,8 +482,6 @@ public class Operation {
             ps.setString(4,name);
             ps.executeUpdate();
             ps.close();
-        } catch (SQLException e2){
-            System.out.println(e2.getMessage());
         }
 
         try (PreparedStatement ps = con.prepareStatement
@@ -488,8 +492,6 @@ public class Operation {
             ps.setInt(4, price);
             ps.executeUpdate();
             ps.close();
-        } catch (SQLException e2){
-            System.out.println(e2.getMessage());
         }
 
         return true;
@@ -520,33 +522,36 @@ public class Operation {
 
 
     /****************for sys_admin*****************************/
-    public boolean deleteCustomer(String customerID, Connection con)  {
+    public boolean deleteCustomer(String customerID, Connection con) throws SQLException {
         int customer_id = Integer.parseInt(customerID);
-
+        boolean status = false;
         try (PreparedStatement ps = con.prepareStatement
                 ("DELETE FROM Customer WHERE Customer_id = ? " )) {
             ps.setInt(1,customer_id);
-            ps.executeUpdate();
+            int ret = ps.executeUpdate();
             ps.close();
-        } catch (java.sql.SQLException e2) {
-            System.out.println(e2.getMessage());
+            if(ret != 0){
+                status = true;
+            }
         }
 
-        return true;
+        return status;
     }
 
-    public boolean deleteSeller(String sellerID, Connection con)  {
+    public boolean deleteSeller(String sellerID, Connection con) throws SQLException {
         int seller_id = Integer.parseInt(sellerID);
-
+        boolean status = false;
         try (PreparedStatement ps = con.prepareStatement
                 ("DELETE FROM Seller WHERE Seller_id = ? " )) {
             ps.setInt(1,seller_id);
-            ps.executeUpdate();
+            int ret = ps.executeUpdate();
             ps.close();
-        } catch (java.sql.SQLException e2) {
-            System.out.println(e2.getMessage());
+            if(ret != 0){
+                status =true;
+            }
         }
 
-        return true;
+
+        return status;
     }
 }

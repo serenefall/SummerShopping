@@ -99,7 +99,10 @@ public class customer {
                         if(status){
                             JOptionPane.showMessageDialog(null,"order completed");
                         }
-                    } catch (java.sql.SQLException e2) {
+                        else{
+                            JOptionPane.showMessageDialog(null, "cannot complete order");
+                        }
+                    } catch (Exception e2) {
                         JOptionPane.showMessageDialog(null, "cannot complete order");
                     }
                 }
@@ -112,10 +115,15 @@ public class customer {
                     // corresponding to text field 7 9 10 8
                     String order_id = orderIDTextField.getText();
                     String rating = ratingTextField.getText();
-                    if(ope.rateProduct(customerID,order_id,rating,con)){
-                        JOptionPane.showMessageDialog(null,"Rating complete!");
-                    } else {
+                    try {
+                        if(ope.rateProduct(customerID,order_id,rating,con)){
+                            JOptionPane.showMessageDialog(null,"Rating complete!");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Fail to rate! Please try again!");
+                        }
+                    } catch (Exception e1) {
                         JOptionPane.showMessageDialog(null, "Fail to rate! Please try again!");
+
                     }
                 }
             });
@@ -189,14 +197,14 @@ public class customer {
                     double total = 0;
                     try {
                         total = ope.putOrder(customerID, productID,sellerID,quantity,payment,vipPoints,con);
-                    } catch (SQLException e1) {
-                        e1.printStackTrace();
-                    }
-                    if(total!=-1){
-                        JOptionPane.showMessageDialog(null, "Put Order is done! You spent $" + total);
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Put Order failed due to a lack of VIP points");
+                        if(total!=-1){
+                            JOptionPane.showMessageDialog(null, "Put Order is done! You spent $" + total);
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Put Order failed due to a lack of VIP points");
+                        }
+                    } catch (Exception e1) {
+                        JOptionPane.showMessageDialog(null,"Failed to put order");
                     }
                 }
             });

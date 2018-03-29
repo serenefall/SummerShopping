@@ -61,11 +61,11 @@ public class log_in {
 
                         }
                         else{
-                            JOptionPane.showMessageDialog(null,"Connection error");
+                            throw new SQLException();
                         }
                     }
                     catch (java.sql.SQLException e2){
-                        JOptionPane.showMessageDialog(null,"e2");
+                        JOptionPane.showMessageDialog(null,"Incorrect username or password");
                     }
                 } catch (java.sql.SQLException e1) {
                     JOptionPane.showMessageDialog(null,"e1");

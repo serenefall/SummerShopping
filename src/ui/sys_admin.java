@@ -35,7 +35,7 @@ public class sys_admin {
                         }
 
                     }catch (Exception e1){
-                        JOptionPane.showMessageDialog(null,"failed"+e1);
+                        JOptionPane.showMessageDialog(null,"Cannot delete customer");
                     }
                 }
             });
@@ -45,12 +45,16 @@ public class sys_admin {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String sellerID = sellerIDtextField.getText();
-                    if(ope.deleteSeller(sellerID,con)){
-                        JOptionPane.showMessageDialog(null, "Seller Deleted!");
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Failed to delete seller!");
+                    try {
+                        if(ope.deleteSeller(sellerID,con)){
+                            JOptionPane.showMessageDialog(null, "Seller Deleted!");
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Failed to delete seller!");
 
+                        }
+                    } catch (Exception e1) {
+                        JOptionPane.showMessageDialog(null, "Cannot delete seller!");
                     }
                 }
             });
